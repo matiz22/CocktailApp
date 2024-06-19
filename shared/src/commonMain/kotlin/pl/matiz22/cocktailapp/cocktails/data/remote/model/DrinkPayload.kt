@@ -1,6 +1,10 @@
 package pl.matiz22.cocktailapp.cocktails.data.remote.model
 
 import kotlinx.serialization.Serializable
+import pl.matiz22.cocktailapp.cocktails.domain.model.Drink
+import pl.matiz22.cocktailapp.cocktails.domain.model.Ingredient
+import pl.matiz22.cocktailapp.cocktails.domain.model.IngredientsAndMeasures
+import pl.matiz22.cocktailapp.cocktails.domain.model.Measure
 
 @Serializable
 data class DrinkPayload(
@@ -55,4 +59,53 @@ data class DrinkPayload(
     val strImageAttribution: String?,
     val strCreativeCommonsConfirmed: String,
     val dateModified: String?
-)
+) {
+    fun toDrink(): Drink {
+        val ingredients = listOfNotNull(
+            strIngredient1,
+            strIngredient2,
+            strIngredient3,
+            strIngredient4,
+            strIngredient5,
+            strIngredient6,
+            strIngredient7,
+            strIngredient8,
+            strIngredient9,
+            strIngredient10,
+            strIngredient11,
+            strIngredient12,
+            strIngredient13,
+            strIngredient14,
+            strIngredient15
+        ).map { Ingredient(it) }
+        val measures = listOfNotNull(
+            strMeasure1,
+            strMeasure2,
+            strMeasure3,
+            strMeasure4,
+            strMeasure5,
+            strMeasure6,
+            strMeasure7,
+            strMeasure8,
+            strMeasure9,
+            strMeasure10,
+            strMeasure11,
+            strMeasure12,
+            strMeasure13,
+            strMeasure14,
+            strMeasure15
+        ).map { Measure(it) }
+        return Drink(
+            id = idDrink,
+            name = strDrink,
+            category = strCategory,
+            alcoholic = strAlcoholic,
+            glass = strGlass,
+            instructions = strInstructions,
+            image = strDrinkThumb,
+            ingredientsAndMeasures = IngredientsAndMeasures(
+                values = ingredients.zip(measures).toMap()
+            )
+        )
+    }
+}
