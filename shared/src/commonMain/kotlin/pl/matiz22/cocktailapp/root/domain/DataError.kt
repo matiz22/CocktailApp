@@ -1,7 +1,8 @@
 package pl.matiz22.cocktailapp.root.domain
 
-sealed interface DataError: Error {
-    enum class Network: DataError {
+sealed interface DataError : Error {
+    enum class Network : DataError {
+        CLIENT_ERROR,
         REQUEST_TIMEOUT,
         TOO_MANY_REQUESTS,
         NO_INTERNET,
@@ -10,7 +11,8 @@ sealed interface DataError: Error {
         SERIALIZATION,
         UNKNOWN
     }
-    enum class Local: DataError {
+
+    enum class Local : DataError {
         DISK_FULL
     }
 }
