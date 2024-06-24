@@ -8,9 +8,9 @@ import pl.matiz22.cocktailapp.cocktails.domain.model.DrinksSummary
 @Serializable
 data class DrinksSummaryPayload(
     @SerialName("drinks")
-    val drinksSummary: List<DrinkSummaryPayload>
+    val drinksSummary: List<DrinkSummaryPayload>?
 ) {
     fun toDrinksSummary() = DrinksSummary(
-        drinksSummary = drinksSummary.map { it.toDrinkSummary() }
+        drinksSummary = drinksSummary?.map { it.toDrinkSummary() } ?: emptyList()
     )
 }

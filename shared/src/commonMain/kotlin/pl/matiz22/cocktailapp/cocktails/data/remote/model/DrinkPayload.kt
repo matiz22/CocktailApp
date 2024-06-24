@@ -1,5 +1,6 @@
 package pl.matiz22.cocktailapp.cocktails.data.remote.model
 
+import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 import pl.matiz22.cocktailapp.cocktails.domain.model.Drink
 import pl.matiz22.cocktailapp.cocktails.domain.model.Ingredient
@@ -21,8 +22,10 @@ data class DrinkPayload(
     val strInstructionsES: String?,
     val strInstructionsDE: String?,
     val strInstructionsFR: String?,
-    val strInstructionsIT: String,
+    val strInstructionsIT: String?,
+    @SerialName("strInstructionsZH-HANS")
     val strInstructionsZHHANS: String?,
+    @SerialName("strInstructionsZH-HANT")
     val strInstructionsZHHANT: String?,
     val strDrinkThumb: String,
     val strIngredient1: String?,
