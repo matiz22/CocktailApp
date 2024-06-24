@@ -66,7 +66,7 @@ class CocktailsDbApi(private val httpClient: HttpClient) {
 
     suspend fun getDrinkByIngredient(ingredient: String): Result<DrinksSummaryPayload, DataError.Network> {
         return try {
-            val response = httpClient.get("filter.php?i=$")
+            val response = httpClient.get("filter.php?i=${ingredient}")
             if (response.status.isSuccess()) {
                 Result.Success(response.body())
             } else {
