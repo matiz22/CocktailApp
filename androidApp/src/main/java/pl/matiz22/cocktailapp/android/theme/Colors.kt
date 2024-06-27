@@ -118,6 +118,10 @@ sealed class AppColors {
     data object FontWhite : AppColors() {
         override val color = Color.White
     }
+
+    data object brandAccent : AppColors() {
+        override val color: Color = Color(0xFFF344F7)
+    }
 }
 
 @Immutable
@@ -154,4 +158,5 @@ data class CocktailsColors(
     val container: Color,
     val onBackground: Color,
     val onContainer: Color,
+    val accentBrand: Color = AppColors.brandAccent.color
 )
