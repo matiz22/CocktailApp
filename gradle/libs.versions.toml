@@ -11,7 +11,7 @@ lifecycleViewModel = "2.8.2"
 koin = "3.5.6"
 navigationCompose = "2.8.0-beta03"
 uiTextGoogleFonts = "1.6.8"
-gradlePlugin = "1.2.2"
+libres = "1.2.2"
 
 [libraries]
 kotlin-test = { module = "org.jetbrains.kotlin:kotlin-test", version.ref = "kotlin" }
@@ -35,8 +35,8 @@ koin-androidx-compose = { module = "io.insert-koin:koin-androidx-compose", versi
 koin-core = { module = "io.insert-koin:koin-core", version.ref = "koin" }
 navigation-compose = { module = "org.jetbrains.androidx.navigation:navigation-compose", version.ref = "navigationCompose" }
 androidx-ui-text-google-fonts = { module = "androidx.compose.ui:ui-text-google-fonts", version.ref = "uiTextGoogleFonts" }
-libres-compose = { module = "io.github.skeptick.libres:libres-compose", version.ref = "gradlePlugin" }
-libres-gradle-plugin = { module = "io.github.skeptick.libres:gradle-plugin", version.ref = "gradlePlugin" }
+libres-compose = { module = "io.github.skeptick.libres:libres-compose", version.ref = "libres" }
+libres-gradle-plugin = { module = "io.github.skeptick.libres:gradle-plugin", version.ref = "libres" }
 
 [plugins]
 androidApplication = { id = "com.android.application", version.ref = "agp" }
