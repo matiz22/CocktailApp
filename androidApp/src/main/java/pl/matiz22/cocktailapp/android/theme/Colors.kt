@@ -119,7 +119,7 @@ sealed class AppColors {
         override val color = Color.White
     }
 
-    data object brandAccent : AppColors() {
+    data object BrandAccent : AppColors() {
         override val color: Color = Color(0xFFF344F7)
     }
 }
@@ -158,5 +158,5 @@ data class CocktailsColors(
     val container: Color,
     val onBackground: Color,
     val onContainer: Color,
-    val accentBrand: Color = AppColors.brandAccent.color
+    val accentBrand: Color = AppColors.BrandAccent.color
 )
