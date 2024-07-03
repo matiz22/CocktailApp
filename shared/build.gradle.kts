@@ -5,6 +5,7 @@ plugins {
     alias(libs.plugins.kotlinMultiplatform)
     alias(libs.plugins.androidLibrary)
     alias(libs.plugins.kotlinSerialization)
+    id("io.github.skeptick.libres")
 }
 
 kotlin {
@@ -57,4 +58,10 @@ android {
         sourceCompatibility = JavaVersion.VERSION_1_8
         targetCompatibility = JavaVersion.VERSION_1_8
     }
+}
+
+libres {
+    generatedClassName = "SharedRes"
+    camelCaseNamesForAppleFramework = true
+    baseLocaleLanguageCode = "en"
 }

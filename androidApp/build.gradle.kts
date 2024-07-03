@@ -43,5 +43,6 @@ dependencies {
     implementation(libs.compose.material3)
     implementation(libs.androidx.activity.compose)
     implementation(libs.androidx.ui.text.google.fonts)
+    implementation(libs.libres.compose)
     debugImplementation(libs.compose.ui.tooling)
 }
