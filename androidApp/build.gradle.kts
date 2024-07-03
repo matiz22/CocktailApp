@@ -44,5 +44,6 @@ dependencies {
     implementation(libs.androidx.activity.compose)
     implementation(libs.androidx.ui.text.google.fonts)
     implementation(libs.libres.compose)
+    implementation(libs.navigation.compose)
     debugImplementation(libs.compose.ui.tooling)
 }
