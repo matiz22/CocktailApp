@@ -1,0 +1,35 @@
+package pl.matiz22.cocktailapp.android.core.presentation.composables.appbar
+
+import androidx.compose.foundation.isSystemInDarkTheme
+import androidx.compose.foundation.layout.Box
+import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
+import androidx.compose.material3.IconButtonDefaults
+import androidx.compose.runtime.Composable
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.painter.Painter
+import pl.matiz22.cocktailapp.android.theme.CocktailsAppTheme
+
+
+@Composable
+fun AppBarIconButton(
+    modifier: Modifier = Modifier,
+    painter: Painter,
+    contentDescription: String? = null,
+    onClick: () -> Unit
+) {
+    Box(modifier = modifier) {
+        IconButton(
+            modifier = Modifier,
+            onClick = onClick,
+            colors = IconButtonDefaults.iconButtonColors(
+                contentColor = CocktailsAppTheme.colors.onBackground
+            )
+        ) {
+            Icon(
+                painter = painter,
+                contentDescription = contentDescription
+            )
+        }
+    }
+}
