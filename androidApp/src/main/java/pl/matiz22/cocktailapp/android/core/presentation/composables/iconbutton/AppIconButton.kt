@@ -1,6 +1,5 @@
-package pl.matiz22.cocktailapp.android.core.presentation.composables.appbar
+package pl.matiz22.cocktailapp.android.core.presentation.composables.iconbutton
 
-import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.Box
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
@@ -12,7 +11,7 @@ import pl.matiz22.cocktailapp.android.theme.CocktailsAppTheme
 
 
 @Composable
-fun AppBarIconButton(
+fun AppIconButton(
     modifier: Modifier = Modifier,
     painter: Painter,
     contentDescription: String? = null,

@@ -17,6 +17,7 @@ import androidx.compose.ui.tooling.preview.PreviewLightDark
 import androidx.compose.ui.unit.dp
 import io.github.skeptick.libres.compose.painterResource
 import pl.matiz22.cocktailapp.SharedRes
+import pl.matiz22.cocktailapp.android.core.presentation.composables.iconbutton.AppIconButton
 import pl.matiz22.cocktailapp.android.theme.CocktailsAppTheme
 
 
@@ -67,10 +68,10 @@ private fun AppBarPrev() {
                         TitleAndDescription(title = "Sample", description = "Sample")
                     },
                     rightSideContent = {
-                        AppBarIconButton(painter = SharedRes.image.arrow_left.painterResource()) {
+                        AppIconButton(painter = SharedRes.image.arrow_left.painterResource()) {
 
                         }
-                        AppBarIconButton(painter = SharedRes.image.arrow_left.painterResource()) {
+                        AppIconButton(painter = SharedRes.image.arrow_left.painterResource()) {
 
                         }
                     }
