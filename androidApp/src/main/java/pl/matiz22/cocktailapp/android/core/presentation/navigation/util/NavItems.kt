@@ -32,8 +32,8 @@ fun navItems(navController: NavHostController) = listOf(
         }
     ),
     NavItem(
-        icon = SharedRes.image.home.painterResource(),
-        title = SharedRes.string.nav_home,
+        icon = SharedRes.image.heart_outline.painterResource(),
+        title = SharedRes.string.nav_favourite,
         contentDescription = SharedRes.string.nav_home_description,
         navigate = {
             navController.navigate(
