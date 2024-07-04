@@ -4,7 +4,7 @@ import androidx.navigation.NavController
 import androidx.navigation.NavGraph.Companion.findStartDestination
 import androidx.navigation.NavOptionsBuilder
 
-fun bottomBarNavOption(navController: NavController): NavOptionsBuilder.() -> Unit = {
+internal fun bottomBarNavOption(navController: NavController): NavOptionsBuilder.() -> Unit = {
     popUpTo(navController.graph.findStartDestination().id) {
         saveState = true
     }
