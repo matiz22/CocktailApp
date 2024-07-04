@@ -2,6 +2,8 @@
 <resources>
     <string name="nav_home">Home</string>
     <string name="nav_home_description">home</string>
+    <string name="nav_search">Search</string>
+    <string name="nav_search_description">search</string>
     <string name="nav_favourite">Favourite</string>
     <string name="nav_favourite_description">favourite</string>
 </resources>
