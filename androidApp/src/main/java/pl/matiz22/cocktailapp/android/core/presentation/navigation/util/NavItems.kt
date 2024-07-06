@@ -26,7 +26,7 @@ fun navItems(navController: NavHostController) = listOf(
         contentDescription = SharedRes.string.nav_home_description,
         navigate = {
             navController.navigate(
-                route = AppRoutes.Home,
+                route = AppRoutes.Search,
                 builder = bottomBarNavOption(navController)
             )
         }
@@ -37,7 +37,7 @@ fun navItems(navController: NavHostController) = listOf(
         contentDescription = SharedRes.string.nav_home_description,
         navigate = {
             navController.navigate(
-                route = AppRoutes.Home,
+                route = AppRoutes.Favourites,
                 builder = bottomBarNavOption(navController)
             )
         }
