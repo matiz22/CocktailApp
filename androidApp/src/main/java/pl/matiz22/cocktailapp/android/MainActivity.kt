@@ -3,6 +3,7 @@ package pl.matiz22.cocktailapp.android
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.*
@@ -28,6 +29,9 @@ class MainActivity : ComponentActivity() {
                     color = CocktailsAppTheme.colors.background
                 ) {
                     Scaffold(
+                        modifier = Modifier
+                            .fillMaxSize()
+                            .background(CocktailsAppTheme.colors.background),
                         bottomBar = {
                             BottomBar(
                                 navItems = navItems(navController)
@@ -35,7 +39,10 @@ class MainActivity : ComponentActivity() {
                         }
                     ) { paddingValues ->
                         NavHost(
-                            modifier = Modifier.padding(paddingValues),
+                            modifier = Modifier
+                                .fillMaxSize()
+                                .background(CocktailsAppTheme.colors.background)
+                                .padding(paddingValues),
                             navController = navController,
                             startDestination = AppRoutes.Home
                         ) {
