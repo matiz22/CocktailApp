@@ -42,7 +42,9 @@ class MainActivity : ComponentActivity() {
                             modifier = Modifier
                                 .fillMaxSize()
                                 .background(CocktailsAppTheme.colors.background)
-                                .padding(paddingValues),
+                                .padding(
+                                    top = paddingValues.calculateTopPadding()
+                                ),
                             navController = navController,
                             startDestination = AppRoutes.Home
                         ) {
