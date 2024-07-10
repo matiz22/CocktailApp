@@ -108,11 +108,11 @@ sealed class AppColors {
     }
 
     data object FontMid : AppColors() {
-        override val color = Color(0x990F0F0F)
+        override val color = Color(0xFF878787)
     }
 
     data object FontLight : AppColors() {
-        override val color = Color(0x4D0F0F0F)
+        override val color = Color(0xFFBEBEBE)
     }
 
     data object FontWhite : AppColors() {
@@ -130,6 +130,7 @@ data class CocktailsColors(
     val monochromatic02: Color = AppColors.Monochromatic02.color,
     val monochromatic03: Color = AppColors.Monochromatic03.color,
     val monochromatic04: Color = AppColors.Monochromatic04.color,
+    val monochromatic05: Color = AppColors.Monochromatic05.color,
     val monochromatic06: Color = AppColors.Monochromatic06.color,
     val monochromatic07: Color = AppColors.Monochromatic07.color,
     val monochromatic08: Color = AppColors.Monochromatic08.color,
