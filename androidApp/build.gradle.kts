@@ -48,5 +48,6 @@ dependencies {
     implementation(libs.libres.compose)
     implementation(libs.navigation.compose)
     implementation(libs.kotlinx.serialization.json)
+    implementation(libs.coil.compose)
     debugImplementation(libs.compose.ui.tooling)
 }
