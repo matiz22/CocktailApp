@@ -33,7 +33,7 @@ import androidx.compose.ui.unit.dp
 import io.github.skeptick.libres.compose.painterResource
 import pl.matiz22.cocktailapp.SharedRes
 import pl.matiz22.cocktailapp.android.core.presentation.composables.appbar.AppBar
-import pl.matiz22.cocktailapp.android.core.presentation.composables.appbar.TitleAndDescription
+import pl.matiz22.cocktailapp.android.core.presentation.composables.texts.TitleAndDescription
 import pl.matiz22.cocktailapp.android.core.presentation.composables.mainbutton.util.provideSizeForContentBasedOnFont
 import pl.matiz22.cocktailapp.android.theme.CocktailsAppTheme
 

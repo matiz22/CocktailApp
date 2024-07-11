@@ -1,4 +1,4 @@
-package pl.matiz22.cocktailapp.android.core.presentation.composables.appbar
+package pl.matiz22.cocktailapp.android.core.presentation.composables.texts
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box

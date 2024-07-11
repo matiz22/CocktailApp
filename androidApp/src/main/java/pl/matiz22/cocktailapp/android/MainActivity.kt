@@ -16,7 +16,7 @@ import io.github.skeptick.libres.compose.painterResource
 import org.koin.androidx.viewmodel.ext.android.getViewModel
 import pl.matiz22.cocktailapp.SharedRes
 import pl.matiz22.cocktailapp.android.core.presentation.composables.appbar.AppBar
-import pl.matiz22.cocktailapp.android.core.presentation.composables.appbar.TitleAndDescription
+import pl.matiz22.cocktailapp.android.core.presentation.composables.texts.TitleAndDescription
 import pl.matiz22.cocktailapp.android.core.presentation.composables.bottombar.BottomBar
 import pl.matiz22.cocktailapp.android.core.presentation.composables.iconbutton.AppIconButton
 import pl.matiz22.cocktailapp.android.core.presentation.navigation.route.AppRoutes
