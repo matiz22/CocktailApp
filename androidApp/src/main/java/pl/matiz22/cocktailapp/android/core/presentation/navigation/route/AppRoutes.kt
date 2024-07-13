@@ -21,4 +21,13 @@ sealed class AppRoutes {
         @Serializable
         data object FavouritesScreen : AppRoutes()
     }
+
+    @Serializable
+    data object Drinks : AppRoutes() {
+        @Serializable
+        data object DrinkHome : AppRoutes()
+
+        @Serializable
+        data class DrinkDetails(val drinkId: String) : AppRoutes()
+    }
 }
