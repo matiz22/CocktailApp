@@ -1,0 +1,56 @@
+package pl.matiz22.cocktailapp.android.search.presentation.viewmodels
+
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
+import kotlinx.coroutines.FlowPreview
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.SharingStarted
+import kotlinx.coroutines.flow.asStateFlow
+import kotlinx.coroutines.flow.combine
+import kotlinx.coroutines.flow.debounce
+import kotlinx.coroutines.flow.stateIn
+import pl.matiz22.cocktailapp.android.search.presentation.events.SearchByNameEvents
+import pl.matiz22.cocktailapp.cocktails.domain.model.Drinks
+import pl.matiz22.cocktailapp.cocktails.domain.repository.DrinksRepository
+import pl.matiz22.cocktailapp.root.domain.DataError
+import pl.matiz22.cocktailapp.root.domain.Result
+
+class SearchByNameViewModel(
+    private val drinksRepository: DrinksRepository
+) : ViewModel() {
+
+    private var _query = MutableStateFlow("")
+    val query = _query.asStateFlow()
+
+    private val _drinksResult = MutableStateFlow<Result<Drinks, DataError.Network>>(
+        Result.Success(
+            Drinks(
+                emptyList()
+            )
+        )
+    )
+
+    @OptIn(FlowPreview::class)
+    val drinksResult = _query
+        .debounce(500L)
+        .combine(_drinksResult) { text, _ ->
+            return@combine drinksRepository.getDrinksByName(text)
+        }
+        .stateIn(
+            scope = viewModelScope,
+            started = SharingStarted.WhileSubscribed(500),
+            initialValue = _drinksResult.value
+        )
+
+    fun onEvent(event: SearchByNameEvents) {
+        when (event) {
+            SearchByNameEvents.ClearQuery -> {
+                _query.value = ""
+            }
+
+            is SearchByNameEvents.UpdateQuery -> {
+                _query.value = event.query
+            }
+        }
+    }
+}
