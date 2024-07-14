@@ -12,7 +12,6 @@ import kotlinx.coroutines.flow.stateIn
 import pl.matiz22.cocktailapp.android.search.presentation.events.SearchByNameEvents
 import pl.matiz22.cocktailapp.cocktails.domain.model.Drinks
 import pl.matiz22.cocktailapp.cocktails.domain.repository.DrinksRepository
-import pl.matiz22.cocktailapp.root.domain.DataError
 import pl.matiz22.cocktailapp.root.domain.Result
 
 class SearchByNameViewModel(
@@ -22,19 +21,25 @@ class SearchByNameViewModel(
     private var _query = MutableStateFlow("")
     val query = _query.asStateFlow()
 
-    private val _drinksResult = MutableStateFlow<Result<Drinks, DataError.Network>>(
-        Result.Success(
-            Drinks(
-                emptyList()
-            )
-        )
-    )
+    private val _drinksResult = MutableStateFlow(Drinks(emptyList()))
 
     @OptIn(FlowPreview::class)
     val drinksResult = _query
         .debounce(500L)
         .combine(_drinksResult) { text, _ ->
-            return@combine drinksRepository.getDrinksByName(text)
+            if (text.isEmpty() || text.isBlank()) {
+                return@combine _drinksResult.value
+            }
+            return@combine when (val result = drinksRepository.getDrinksByName(text)) {
+                is Result.Error -> {
+                    _drinksResult.value
+                }
+
+                is Result.Success -> {
+                    _drinksResult.emit(result.data)
+                    result.data
+                }
+            }
         }
         .stateIn(
             scope = viewModelScope,
