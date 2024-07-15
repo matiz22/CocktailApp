@@ -14,6 +14,7 @@ import androidx.compose.material3.Surface
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.tooling.preview.PreviewLightDark
 import androidx.compose.ui.unit.dp
@@ -31,21 +32,19 @@ fun AppBar(
     leftSideContent: @Composable() () -> Unit = {},
     rightSideContent: @Composable() () -> Unit = {}
 ) {
-    Box(
+    Surface(
         modifier = modifier,
+        color = if (transparentMode) {
+            Color.Transparent
+        } else if (isSystemInDarkTheme()) {
+            CocktailsAppTheme.colors.container
+        } else {
+            CocktailsAppTheme.colors.background
+        }
     ) {
         Row(
             modifier = Modifier
                 .fillMaxWidth()
-                .then(
-                    if (transparentMode) {
-                        Modifier
-                    } else if (isSystemInDarkTheme()) {
-                        Modifier.background(CocktailsAppTheme.colors.container)
-                    } else {
-                        Modifier.background(CocktailsAppTheme.colors.background)
-                    }
-                )
                 .padding(8.dp),
             verticalAlignment = Alignment.CenterVertically,
             horizontalArrangement = Arrangement.SpaceBetween
