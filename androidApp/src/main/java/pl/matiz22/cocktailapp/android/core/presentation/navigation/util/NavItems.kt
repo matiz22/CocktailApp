@@ -1,14 +1,14 @@
 package pl.matiz22.cocktailapp.android.core.presentation.navigation.util
 
 import androidx.compose.runtime.Composable
-import androidx.navigation.NavHostController
+import androidx.navigation.NavController
 import io.github.skeptick.libres.compose.painterResource
 import pl.matiz22.cocktailapp.SharedRes
 import pl.matiz22.cocktailapp.android.core.presentation.navigation.model.NavItem
 import pl.matiz22.cocktailapp.android.core.presentation.navigation.route.AppRoutes
 
 @Composable
-fun navItems(navController: NavHostController) = listOf(
+fun navItems(navController: NavController) = listOf(
     NavItem(
         icon = SharedRes.image.home.painterResource(),
         title = SharedRes.string.nav_home,
