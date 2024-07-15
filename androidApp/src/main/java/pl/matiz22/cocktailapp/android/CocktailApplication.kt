@@ -4,7 +4,6 @@ import android.app.Application
 import org.koin.android.ext.koin.androidContext
 import org.koin.android.ext.koin.androidLogger
 import org.koin.core.context.GlobalContext.startKoin
-import pl.matiz22.cocktailapp.android.core.di.scaffoldViewModelModule
 import pl.matiz22.cocktailapp.android.search.di.searchViewModelsModule
 import pl.matiz22.cocktailapp.cocktails.di.cocktailsViewModelsModule
 
@@ -17,7 +16,6 @@ class CocktailApplication : Application() {
             modules(
                 listOf(
                     cocktailsViewModelsModule(),
-                    scaffoldViewModelModule(),
                     searchViewModelsModule()
                 )
             )
