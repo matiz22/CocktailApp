@@ -25,7 +25,7 @@ fun TitleAndDescription(
             Text(
                 text = description,
                 style = CocktailsAppTheme.typography.paragraphLarge,
-                color = CocktailsAppTheme.colors.font
+                color = CocktailsAppTheme.colors.fontLight
             )
         }
     }
