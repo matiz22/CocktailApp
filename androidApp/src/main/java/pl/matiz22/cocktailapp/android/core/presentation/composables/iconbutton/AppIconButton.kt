@@ -6,6 +6,7 @@ import androidx.compose.material3.IconButton
 import androidx.compose.material3.IconButtonDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.painter.Painter
 import pl.matiz22.cocktailapp.android.theme.CocktailsAppTheme
 
@@ -14,6 +15,7 @@ import pl.matiz22.cocktailapp.android.theme.CocktailsAppTheme
 fun AppIconButton(
     modifier: Modifier = Modifier,
     painter: Painter,
+    tint: Color = CocktailsAppTheme.colors.onBackground,
     contentDescription: String? = null,
     onClick: () -> Unit
 ) {
@@ -27,6 +29,7 @@ fun AppIconButton(
         ) {
             Icon(
                 painter = painter,
+                tint = tint,
                 contentDescription = contentDescription
             )
         }
