@@ -21,7 +21,7 @@ import pl.matiz22.cocktailapp.android.core.presentation.composables.bottombar.Bo
 import pl.matiz22.cocktailapp.android.core.presentation.composables.iconbutton.AppIconButton
 import pl.matiz22.cocktailapp.android.core.presentation.navigation.route.AppRoutes
 import pl.matiz22.cocktailapp.android.core.presentation.navigation.util.navItems
-import pl.matiz22.cocktailapp.android.core.presentation.viewmodels.ScaffoldViewModel
+import pl.matiz22.cocktailapp.android.drinks.presentation.graph.drinksGraph
 import pl.matiz22.cocktailapp.android.favourites.presentation.graph.favouritesGraph
 import pl.matiz22.cocktailapp.android.home.presentation.graph.homeGraph
 import pl.matiz22.cocktailapp.android.search.presentation.graph.searchGraph
@@ -32,57 +32,22 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             val navController = rememberNavController()
-            val scaffoldViewModel = getViewModel<ScaffoldViewModel>()
-            navController.addOnDestinationChangedListener(listener = scaffoldViewModel::updateAppBar)
-            val appBarTextsState by scaffoldViewModel.appBarTextsState.collectAsState()
             CocktailsAppTheme {
                 Surface(
                     modifier = Modifier.fillMaxSize(),
                     color = CocktailsAppTheme.colors.background
                 ) {
-                    Scaffold(
+                    NavHost(
                         modifier = Modifier
                             .fillMaxSize()
                             .background(CocktailsAppTheme.colors.background),
-                        topBar = {
-                            AppBar(
-                                leftSideContent = {
-                                    if (appBarTextsState.navigateBack) {
-                                        AppIconButton(
-                                            painter = SharedRes.image.arrow_left.painterResource(),
-                                            contentDescription = SharedRes.string.nav_navigate_back_description,
-                                            onClick = {
-                                                navController.navigateUp()
-                                            }
-                                        )
-                                    }
-                                    TitleAndDescription(
-                                        title = appBarTextsState.name,
-                                        description = appBarTextsState.description
-                                    )
-                                }
-                            )
-                        },
-                        bottomBar = {
-                            BottomBar(
-                                navItems = navItems(navController)
-                            )
-                        }
-                    ) { paddingValues ->
-                        NavHost(
-                            modifier = Modifier
-                                .fillMaxSize()
-                                .background(CocktailsAppTheme.colors.background)
-                                .padding(
-                                    top = paddingValues.calculateTopPadding()
-                                ),
-                            navController = navController,
-                            startDestination = AppRoutes.Home
-                        ) {
-                            homeGraph(navController)
-                            searchGraph(navController)
-                            favouritesGraph(navController)
-                        }
+                        navController = navController,
+                        startDestination = AppRoutes.Home
+                    ) {
+                        homeGraph(navController)
+                        searchGraph(navController)
+                        favouritesGraph(navController)
+                        drinksGraph(navController)
                     }
                 }
             }
