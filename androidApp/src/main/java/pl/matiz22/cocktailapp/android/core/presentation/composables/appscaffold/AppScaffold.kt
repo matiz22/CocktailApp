@@ -15,8 +15,8 @@ import pl.matiz22.cocktailapp.android.theme.CocktailsAppTheme
 fun AppScaffold(
     modifier: Modifier = Modifier,
     snackbarHostState: SnackbarHostState? = null,
-    topAppbar: @Composable() (() -> Unit)?,
-    bottomAppbar: @Composable() (() -> Unit)?,
+    topAppbar: @Composable() (() -> Unit)? = null,
+    bottomAppbar: @Composable() (() -> Unit)? = null,
     content: @Composable () -> Unit
 ) {
     Scaffold(
