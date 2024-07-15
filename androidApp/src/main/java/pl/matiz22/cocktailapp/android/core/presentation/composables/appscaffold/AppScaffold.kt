@@ -9,11 +9,13 @@ import androidx.compose.material3.SnackbarHost
 import androidx.compose.material3.SnackbarHostState
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.unit.dp
 import pl.matiz22.cocktailapp.android.theme.CocktailsAppTheme
 
 @Composable
 fun AppScaffold(
     modifier: Modifier = Modifier,
+    transparentMode: Boolean = false,
     snackbarHostState: SnackbarHostState? = null,
     topAppbar: @Composable() (() -> Unit)? = null,
     bottomAppbar: @Composable() (() -> Unit)? = null,
@@ -40,7 +42,7 @@ fun AppScaffold(
                 .fillMaxSize()
                 .background(CocktailsAppTheme.colors.background)
                 .padding(
-                    top = paddingValues.calculateTopPadding()
+                    top = if(!transparentMode) paddingValues.calculateTopPadding() else 0.dp
                 )
         ) {
             content()
