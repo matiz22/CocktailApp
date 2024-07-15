@@ -1,9 +1,7 @@
 package pl.matiz22.cocktailapp.android.core.presentation.composables.appbar
 
-import androidx.compose.foundation.background
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
@@ -28,19 +26,18 @@ import pl.matiz22.cocktailapp.android.theme.CocktailsAppTheme
 @Composable
 fun AppBar(
     modifier: Modifier = Modifier,
-    transparentMode: Boolean = false,
+    color: Color? = null,
     leftSideContent: @Composable() () -> Unit = {},
     rightSideContent: @Composable() () -> Unit = {}
 ) {
     Surface(
         modifier = modifier,
-        color = if (transparentMode) {
-            Color.Transparent
-        } else if (isSystemInDarkTheme()) {
-            CocktailsAppTheme.colors.container
-        } else {
-            CocktailsAppTheme.colors.background
-        }
+        color = color
+            ?: if (isSystemInDarkTheme()) {
+                CocktailsAppTheme.colors.container
+            } else {
+                CocktailsAppTheme.colors.background
+            }
     ) {
         Row(
             modifier = Modifier
