@@ -27,6 +27,7 @@ import pl.matiz22.cocktailapp.android.theme.CocktailsAppTheme
 @Composable
 fun AppBar(
     modifier: Modifier = Modifier,
+    transparentMode: Boolean = false,
     leftSideContent: @Composable() () -> Unit = {},
     rightSideContent: @Composable() () -> Unit = {}
 ) {
@@ -37,10 +38,12 @@ fun AppBar(
             modifier = Modifier
                 .fillMaxWidth()
                 .then(
-                    if (isSystemInDarkTheme()) {
+                    if (transparentMode) {
+                        Modifier
+                    } else if (isSystemInDarkTheme()) {
                         Modifier.background(CocktailsAppTheme.colors.container)
                     } else {
-                        Modifier
+                        Modifier.background(CocktailsAppTheme.colors.background)
                     }
                 )
                 .padding(8.dp),
