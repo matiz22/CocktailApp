@@ -23,7 +23,7 @@ fun BottomBarBackground(
             Box(
                 modifier = Modifier
                     .alpha(0.8f)
-                    .background(CocktailsAppTheme.colors.background)
+                    .background(CocktailsAppTheme.colors.container)
             ) {
                 content()
             }

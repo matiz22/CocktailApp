@@ -1,6 +1,7 @@
 package pl.matiz22.cocktailapp.android.search.presentation.screens
 
 import androidx.compose.foundation.background
+import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -37,7 +38,13 @@ fun SearchByNameScreen(
         Column(
             modifier = Modifier
                 .fillMaxSize()
-                .background(color = CocktailsAppTheme.colors.container)
+                .then(
+                    if (isSystemInDarkTheme()) {
+                        Modifier.background(CocktailsAppTheme.colors.background)
+                    } else {
+                        Modifier.background(CocktailsAppTheme.colors.container)
+                    }
+                )
         ) {
             InputTextField(
                 modifier = Modifier.padding(10.dp),

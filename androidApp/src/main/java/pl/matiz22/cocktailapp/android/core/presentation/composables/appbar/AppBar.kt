@@ -1,5 +1,7 @@
 package pl.matiz22.cocktailapp.android.core.presentation.composables.appbar
 
+import androidx.compose.foundation.background
+import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -34,6 +36,13 @@ fun AppBar(
         Row(
             modifier = Modifier
                 .fillMaxWidth()
+                .then(
+                    if (isSystemInDarkTheme()) {
+                        Modifier.background(CocktailsAppTheme.colors.container)
+                    } else {
+                        Modifier
+                    }
+                )
                 .padding(8.dp),
             verticalAlignment = Alignment.CenterVertically,
             horizontalArrangement = Arrangement.SpaceBetween
