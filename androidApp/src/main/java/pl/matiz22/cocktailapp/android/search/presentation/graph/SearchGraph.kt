@@ -22,8 +22,9 @@ fun NavGraphBuilder.searchGraph(
     navController: NavController
 ) {
     navigation<AppRoutes.Search>(startDestination = AppRoutes.Search.SearchByNameScreen) {
-        composable<AppRoutes.Search.SearchByNameScreen> {
-            val searchByNameViewModel = koinViewModel<SearchByNameViewModel>()
+        composable<AppRoutes.Search.SearchByNameScreen> { navBackstackEntry ->
+            val searchByNameViewModel =
+                koinViewModel<SearchByNameViewModel>(viewModelStoreOwner = navBackstackEntry)
             val query by searchByNameViewModel.query.collectAsStateWithLifecycle()
             val drinks by searchByNameViewModel.drinksResult.collectAsStateWithLifecycle()
             AppScaffold(
