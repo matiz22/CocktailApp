@@ -2,6 +2,7 @@ package pl.matiz22.cocktailapp.android.core.presentation.composables.appscaffold
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
@@ -15,11 +16,11 @@ import pl.matiz22.cocktailapp.android.theme.CocktailsAppTheme
 @Composable
 fun AppScaffold(
     modifier: Modifier = Modifier,
-    transparentMode: Boolean = false,
+    disableTopPadding: Boolean = false,
     snackbarHostState: SnackbarHostState? = null,
     topAppbar: @Composable() (() -> Unit)? = null,
     bottomAppbar: @Composable() (() -> Unit)? = null,
-    content: @Composable () -> Unit
+    content: @Composable (PaddingValues) -> Unit
 ) {
     Scaffold(
         modifier = modifier
@@ -42,10 +43,10 @@ fun AppScaffold(
                 .fillMaxSize()
                 .background(CocktailsAppTheme.colors.background)
                 .padding(
-                    top = if(!transparentMode) paddingValues.calculateTopPadding() else 0.dp
+                    top = if(!disableTopPadding) paddingValues.calculateTopPadding() else 0.dp
                 )
         ) {
-            content()
+            content(paddingValues)
         }
     }
 }
