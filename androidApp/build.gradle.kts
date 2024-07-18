@@ -2,6 +2,8 @@ plugins {
     alias(libs.plugins.androidApplication)
     alias(libs.plugins.kotlinAndroid)
     alias(libs.plugins.composeCompiler)
+    alias(libs.plugins.kotlinSerialization)
+//    alias(libs.plugins.kotlinParcelize)
 }
 
 android {
@@ -42,5 +44,10 @@ dependencies {
     implementation(libs.compose.ui.tooling.preview)
     implementation(libs.compose.material3)
     implementation(libs.androidx.activity.compose)
+    implementation(libs.androidx.ui.text.google.fonts)
+    implementation(libs.libres.compose)
+    implementation(libs.navigation.compose)
+    implementation(libs.kotlinx.serialization.json)
+    implementation(libs.coil.compose)
     debugImplementation(libs.compose.ui.tooling)
 }

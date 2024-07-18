@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="nav_home">Home</string>
+    <string name="nav_home_description">home</string>
+    <string name="nav_home_home_screen_description">Main dashboard</string>
+    <string name="nav_search">Search</string>
+    <string name="nav_search_description">search</string>
+    <string name="nav_search_search_by_name_description">Search for drinks.</string>
+    <string name="nav_favourite">Favourite</string>
+    <string name="nav_favourite_description">favourite</string>
+    <string name="nav_favourite_favourite_screen_description">Access your favourite drinks.</string>
+    <string name="nav_navigate_back_description">navigate back</string>
+</resources>

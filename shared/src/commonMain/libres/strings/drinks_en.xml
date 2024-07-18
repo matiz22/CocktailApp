@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="drinks_ingredients_and_measure_header">Ingredients and measures</string>
+    <string name="drinks_instructions_header">Instructions</string>
+</resources>
