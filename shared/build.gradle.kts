@@ -6,6 +6,8 @@ plugins {
     alias(libs.plugins.androidLibrary)
     alias(libs.plugins.kotlinSerialization)
     id("io.github.skeptick.libres")
+    alias(libs.plugins.ksp)
+    alias(libs.plugins.room)
 }
 
 kotlin {
@@ -13,7 +15,7 @@ kotlin {
         @OptIn(ExperimentalKotlinGradlePluginApi::class)
         compilerOptions.jvmTarget.set(JvmTarget.JVM_1_8)
     }
-    
+
     listOf(
         iosX64(),
         iosArm64(),
@@ -33,6 +35,7 @@ kotlin {
             api(libs.koin.core)
             implementation(libs.ktor.client.content.negotiation)
             implementation(libs.ktor.serialization.kotlinx.json)
+            implementation(libs.room.runtime)
         }
         androidMain.dependencies {
             implementation(libs.ktor.client.okhttp)
@@ -64,4 +67,12 @@ libres {
     generatedClassName = "SharedRes"
     camelCaseNamesForAppleFramework = true
     baseLocaleLanguageCode = "en"
+}
+
+room {
+    schemaDirectory("$projectDir/schemas")
+}
+
+dependencies {
+    ksp(libs.room.compiler)
 }
