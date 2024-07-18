@@ -9,7 +9,7 @@ import pl.matiz22.cocktailapp.SharedRes
 import pl.matiz22.cocktailapp.android.core.presentation.states.DataState
 import pl.matiz22.cocktailapp.cocktails.domain.model.Drink
 import pl.matiz22.cocktailapp.cocktails.domain.repository.DrinksRepository
-import pl.matiz22.cocktailapp.root.domain.Result
+import pl.matiz22.cocktailapp.root.domain.model.Result
 
 class DrinkDetailsViewModel(
     private val drinkId: String,

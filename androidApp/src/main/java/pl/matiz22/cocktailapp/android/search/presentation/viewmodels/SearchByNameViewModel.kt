@@ -12,7 +12,7 @@ import kotlinx.coroutines.flow.stateIn
 import pl.matiz22.cocktailapp.android.search.presentation.events.SearchByNameEvents
 import pl.matiz22.cocktailapp.cocktails.domain.model.Drinks
 import pl.matiz22.cocktailapp.cocktails.domain.repository.DrinksRepository
-import pl.matiz22.cocktailapp.root.domain.Result
+import pl.matiz22.cocktailapp.root.domain.model.Result
 
 class SearchByNameViewModel(
     private val drinksRepository: DrinksRepository

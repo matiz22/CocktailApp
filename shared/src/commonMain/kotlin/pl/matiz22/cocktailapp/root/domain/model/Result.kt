@@ -1,4 +1,4 @@
-package pl.matiz22.cocktailapp.root.domain
+package pl.matiz22.cocktailapp.root.domain.model
 
 typealias RootError = Error
 

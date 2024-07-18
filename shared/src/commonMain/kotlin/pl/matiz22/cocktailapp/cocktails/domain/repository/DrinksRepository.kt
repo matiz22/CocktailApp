@@ -3,8 +3,8 @@ package pl.matiz22.cocktailapp.cocktails.domain.repository
 import pl.matiz22.cocktailapp.cocktails.domain.model.Drink
 import pl.matiz22.cocktailapp.cocktails.domain.model.Drinks
 import pl.matiz22.cocktailapp.cocktails.domain.model.DrinksSummary
-import pl.matiz22.cocktailapp.root.domain.DataError
-import pl.matiz22.cocktailapp.root.domain.Result
+import pl.matiz22.cocktailapp.root.domain.model.DataError
+import pl.matiz22.cocktailapp.root.domain.model.Result
 
 interface DrinksRepository {
     suspend fun getDrinksByName(query: String): Result<Drinks, DataError.Network>

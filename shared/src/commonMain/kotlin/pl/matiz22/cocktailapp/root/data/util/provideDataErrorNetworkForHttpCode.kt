@@ -1,7 +1,7 @@
 package pl.matiz22.cocktailapp.root.data.util
 
-import pl.matiz22.cocktailapp.root.domain.DataError
-import pl.matiz22.cocktailapp.root.domain.Result
+import pl.matiz22.cocktailapp.root.domain.model.DataError
+import pl.matiz22.cocktailapp.root.domain.model.Result
 
 fun provideDataErrorNetworkForHttpCode(httpCode: Int): DataError.Network {
     return when (httpCode) {

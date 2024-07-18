@@ -8,8 +8,8 @@ import pl.matiz22.cocktailapp.cocktails.data.remote.model.DrinksPayload
 import pl.matiz22.cocktailapp.cocktails.data.remote.model.DrinksSummaryPayload
 import pl.matiz22.cocktailapp.root.data.util.provideDataErrorNetworkForException
 import pl.matiz22.cocktailapp.root.data.util.provideDataErrorNetworkForHttpCode
-import pl.matiz22.cocktailapp.root.domain.DataError
-import pl.matiz22.cocktailapp.root.domain.Result
+import pl.matiz22.cocktailapp.root.domain.model.DataError
+import pl.matiz22.cocktailapp.root.domain.model.Result
 
 class CocktailsDbApi(private val httpClient: HttpClient) {
     suspend fun getDrinkByName(query: String): Result<DrinksPayload, DataError.Network> {
