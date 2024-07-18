@@ -9,6 +9,7 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.material3.SnackbarHost
 import androidx.compose.material3.SnackbarHostState
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import pl.matiz22.cocktailapp.android.theme.CocktailsAppTheme
@@ -44,7 +45,8 @@ fun AppScaffold(
                 .background(CocktailsAppTheme.colors.background)
                 .padding(
                     top = if(!disableTopPadding) paddingValues.calculateTopPadding() else 0.dp
-                )
+                ),
+            contentAlignment = Alignment.Center
         ) {
             content(paddingValues)
         }
