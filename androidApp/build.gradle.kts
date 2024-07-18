@@ -3,7 +3,7 @@ plugins {
     alias(libs.plugins.kotlinAndroid)
     alias(libs.plugins.composeCompiler)
     alias(libs.plugins.kotlinSerialization)
-    alias(libs.plugins.kotlinParcelize)
+//    alias(libs.plugins.kotlinParcelize)
 }
 
 android {
