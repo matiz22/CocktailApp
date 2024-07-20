@@ -8,5 +8,6 @@ data class Drink(
     val glass: String,
     val instructions: String,
     val image: String,
-    val ingredientsAndMeasures: IngredientsAndMeasures
+    val ingredientsAndMeasures: IngredientsAndMeasures,
+    val liked: Boolean = false
 )
