@@ -15,7 +15,7 @@ kotlin {
         @OptIn(ExperimentalKotlinGradlePluginApi::class)
         compilerOptions.jvmTarget.set(JvmTarget.JVM_1_8)
     }
-
+    
     listOf(
         iosX64(),
         iosArm64(),
