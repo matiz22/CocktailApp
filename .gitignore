@@ -9,3 +9,4 @@ captures
 local.properties
 xcuserdata
 /.kotlin/
+shared/schemas/pl.matiz22.cocktailapp.cocktails.data.local.source.CocktailsLocalDb/1.json
