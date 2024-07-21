@@ -1,4 +1,4 @@
-package pl.matiz22.cocktailapp.android.search.presentation.composables
+package pl.matiz22.cocktailapp.android.drinks.presentation.composables
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
@@ -32,7 +32,7 @@ import pl.matiz22.cocktailapp.cocktails.domain.model.IngredientsAndMeasures
 import pl.matiz22.cocktailapp.cocktails.domain.model.Measure
 
 @Composable
-fun SearchDrinkResult(
+fun DrinkPosition(
     modifier: Modifier = Modifier,
     drink: Drink,
     onClick: (() -> Unit)? = null
@@ -110,11 +110,11 @@ private fun PrevSearchDrinkResult() {
     )
     CocktailsAppTheme {
         Column {
-            SearchDrinkResult(
+            DrinkPosition(
                 drink = fakeDrink,
                 onClick = {}
             )
-            SearchDrinkResult(
+            DrinkPosition(
                 drink = fakeDrink.copy(image = ""),
                 onClick = {}
             )
