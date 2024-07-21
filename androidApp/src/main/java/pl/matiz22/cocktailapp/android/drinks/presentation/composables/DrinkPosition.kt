@@ -4,6 +4,7 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.isSystemInDarkTheme
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -12,6 +13,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.ripple.rememberRipple
+import androidx.compose.material3.Icon
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
@@ -24,6 +26,7 @@ import coil.compose.AsyncImage
 import coil.request.ImageRequest
 import io.github.skeptick.libres.compose.painterResource
 import pl.matiz22.cocktailapp.SharedRes
+import pl.matiz22.cocktailapp.android.core.presentation.composables.iconbutton.AppIconButton
 import pl.matiz22.cocktailapp.android.core.presentation.composables.texts.TitleAndDescription
 import pl.matiz22.cocktailapp.android.theme.CocktailsAppTheme
 import pl.matiz22.cocktailapp.cocktails.domain.model.Drink
@@ -35,6 +38,7 @@ import pl.matiz22.cocktailapp.cocktails.domain.model.Measure
 fun DrinkPosition(
     modifier: Modifier = Modifier,
     drink: Drink,
+    withLike: Boolean = false,
     onClick: (() -> Unit)? = null
 ) {
     Box(
@@ -63,26 +67,57 @@ fun DrinkPosition(
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(8.dp),
+            horizontalArrangement = Arrangement.SpaceBetween,
             verticalAlignment = Alignment.CenterVertically
         ) {
-            AsyncImage(
-                modifier = Modifier
-                    .padding(8.dp)
-                    .background(
-                        color = CocktailsAppTheme.colors.container,
-                        shape = RoundedCornerShape(8.dp)
+            Row(
+                verticalAlignment = Alignment.CenterVertically
+            ) {
+                AsyncImage(
+                    modifier = Modifier
+                        .padding(8.dp)
+                        .background(
+                            color = CocktailsAppTheme.colors.container,
+                            shape = RoundedCornerShape(8.dp)
+                        )
+                        .size(80.dp)
+                        .clip(RoundedCornerShape(8.dp)),
+                    model = ImageRequest.Builder(LocalContext.current)
+                        .data(drink.image)
+                        .crossfade(true)
+                        .build(),
+                    contentDescription = drink.image,
+                    placeholder = SharedRes.image.drink_icon.painterResource(),
+                    error = SharedRes.image.drink_icon.painterResource()
+                )
+                TitleAndDescription(title = drink.name, description = drink.category)
+            }
+            if (withLike) {
+                Box(
+                    modifier = Modifier
+                        .size(50.dp)
+                        .padding(8.dp),
+                    contentAlignment = Alignment.Center
+                ) {
+                    Icon(
+                        painter = if (drink.liked) {
+                            SharedRes.image.heart_fill.painterResource()
+                        } else {
+                            SharedRes.image.heart_outline.painterResource()
+                        },
+                        contentDescription = if (drink.liked) {
+                            SharedRes.string.drinks_liked
+                        } else {
+                            SharedRes.string.drinks_not_liked
+                        },
+                        tint = if (drink.liked) {
+                            CocktailsAppTheme.colors.accentBrand
+                        } else {
+                            CocktailsAppTheme.colors.onContainer
+                        }
                     )
-                    .size(80.dp)
-                    .clip(RoundedCornerShape(8.dp)),
-                model = ImageRequest.Builder(LocalContext.current)
-                    .data(drink.image)
-                    .crossfade(true)
-                    .build(),
-                contentDescription = drink.image,
-                placeholder = SharedRes.image.drink_icon.painterResource(),
-                error = SharedRes.image.drink_icon.painterResource()
-            )
-            TitleAndDescription(title = drink.name, description = drink.category)
+                }
+            }
         }
     }
 }
@@ -116,6 +151,12 @@ private fun PrevSearchDrinkResult() {
             )
             DrinkPosition(
                 drink = fakeDrink.copy(image = ""),
+                withLike = true,
+                onClick = {}
+            )
+            DrinkPosition(
+                drink = fakeDrink.copy(liked = true),
+                withLike = true,
                 onClick = {}
             )
         }
