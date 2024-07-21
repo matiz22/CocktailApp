@@ -2,4 +2,6 @@
 <resources>
     <string name="drinks_ingredients_and_measure_header">Ingredients and measures</string>
     <string name="drinks_instructions_header">Instructions</string>
+    <string name="drinks_liked">Liked</string>
+    <string name="drinks_not_liked">Not liked</string>
 </resources>
