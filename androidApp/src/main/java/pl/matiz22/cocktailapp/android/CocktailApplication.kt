@@ -5,6 +5,7 @@ import org.koin.android.ext.koin.androidContext
 import org.koin.android.ext.koin.androidLogger
 import org.koin.core.context.GlobalContext.startKoin
 import pl.matiz22.cocktailapp.android.drinks.di.drinksViewModelsModule
+import pl.matiz22.cocktailapp.android.favourites.di.favViewModelModule
 import pl.matiz22.cocktailapp.android.search.di.searchViewModelsModule
 import pl.matiz22.cocktailapp.cocktails.di.cocktailsViewModelsModule
 import pl.matiz22.cocktailapp.cocktails.di.databaseModule
@@ -20,7 +21,8 @@ class CocktailApplication : Application() {
                     cocktailsViewModelsModule(),
                     searchViewModelsModule(),
                     drinksViewModelsModule(),
-                    databaseModule(applicationContext)
+                    databaseModule(applicationContext),
+                    favViewModelModule()
                 )
             )
         }
