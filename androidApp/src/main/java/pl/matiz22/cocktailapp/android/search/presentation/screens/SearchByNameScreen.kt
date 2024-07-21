@@ -20,7 +20,7 @@ import pl.matiz22.cocktailapp.SharedRes
 import pl.matiz22.cocktailapp.android.core.presentation.composables.iconbutton.AppIconButton
 import pl.matiz22.cocktailapp.android.core.presentation.composables.inputfield.InputTextField
 import pl.matiz22.cocktailapp.android.core.presentation.composables.inputfield.LeftIconInputField
-import pl.matiz22.cocktailapp.android.search.presentation.composables.SearchDrinkResult
+import pl.matiz22.cocktailapp.android.drinks.presentation.composables.DrinkPosition
 import pl.matiz22.cocktailapp.android.search.presentation.events.SearchByNameEvents
 import pl.matiz22.cocktailapp.android.theme.CocktailsAppTheme
 import pl.matiz22.cocktailapp.cocktails.domain.model.Drink
@@ -68,7 +68,7 @@ fun SearchByNameScreen(
                 verticalArrangement = Arrangement.spacedBy(6.dp)
             ) {
                 items(drinks.drinks) { drink: Drink ->
-                    SearchDrinkResult(
+                    DrinkPosition(
                         drink = drink,
                         onClick = { pickResult(drink) }
                     )
