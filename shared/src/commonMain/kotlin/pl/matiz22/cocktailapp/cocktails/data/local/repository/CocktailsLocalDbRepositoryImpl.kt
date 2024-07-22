@@ -15,7 +15,7 @@ import pl.matiz22.cocktailapp.root.domain.model.Result
 class CocktailsLocalDbRepositoryImpl(
     private val cocktailDao: CocktailDao
 ) : CocktailsLocalDbRepository {
-    override suspend fun getDrinks(): Result<Drinks, DataError> {
+    override suspend fun getDrinks(): Result<Drinks, DataError.Local> {
         return try {
             val drinks = cocktailDao.getDrinks()
             Result.Success(drinks.toDomain())
@@ -24,7 +24,7 @@ class CocktailsLocalDbRepositoryImpl(
         }
     }
 
-    override suspend fun saveDrink(drink: Drink): Result<Boolean, DataError> {
+    override suspend fun saveDrink(drink: Drink): Result<Boolean, DataError.Local> {
         return try {
             cocktailDao.upsertDrinkWithIngredients(drink)
             Result.Success(true)
@@ -33,7 +33,7 @@ class CocktailsLocalDbRepositoryImpl(
         }
     }
 
-    override suspend fun getFavDrinks(): Result<Drinks, DataError> {
+    override suspend fun getFavDrinks(): Result<Drinks, DataError.Local> {
         return try {
             val favDrinks = cocktailDao.getFavDrinks()
             Result.Success(favDrinks.toDomain())

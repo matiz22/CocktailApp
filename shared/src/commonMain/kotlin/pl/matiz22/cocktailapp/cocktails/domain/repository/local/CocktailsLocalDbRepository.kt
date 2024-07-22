@@ -6,7 +6,7 @@ import pl.matiz22.cocktailapp.root.domain.model.DataError
 import pl.matiz22.cocktailapp.root.domain.model.Result
 
 interface CocktailsLocalDbRepository {
-    suspend fun getDrinks(): Result<Drinks, DataError>
-    suspend fun saveDrink(drink: Drink): Result<Boolean, DataError>
-    suspend fun getFavDrinks(): Result<Drinks, DataError>
+    suspend fun getDrinks(): Result<Drinks, DataError.Local>
+    suspend fun saveDrink(drink: Drink): Result<Boolean, DataError.Local>
+    suspend fun getFavDrinks(): Result<Drinks, DataError.Local>
 }
