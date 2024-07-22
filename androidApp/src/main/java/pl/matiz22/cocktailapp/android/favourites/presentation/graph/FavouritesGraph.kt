@@ -1,6 +1,9 @@
 package pl.matiz22.cocktailapp.android.favourites.presentation.graph
 
+import androidx.compose.foundation.layout.size
 import androidx.compose.runtime.getValue
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.navigation.NavController
 import androidx.navigation.NavGraphBuilder
@@ -15,6 +18,7 @@ import pl.matiz22.cocktailapp.android.core.presentation.composables.loading.Circ
 import pl.matiz22.cocktailapp.android.core.presentation.composables.texts.TitleAndDescription
 import pl.matiz22.cocktailapp.android.core.presentation.navigation.route.AppRoutes
 import pl.matiz22.cocktailapp.android.core.presentation.navigation.util.navItems
+import pl.matiz22.cocktailapp.android.core.presentation.screens.ErrorScreen
 import pl.matiz22.cocktailapp.android.core.presentation.states.DataState
 import pl.matiz22.cocktailapp.android.favourites.presentation.screens.FavouritesScreen
 import pl.matiz22.cocktailapp.android.favourites.presentation.viewmodels.FavouritesScreenViewModel
@@ -45,9 +49,12 @@ fun NavGraphBuilder.favouritesGraph(
                 }
             ) {
                 when (val result = favDrinks) {
-                    is DataState.Error -> TODO()
+                    is DataState.Error -> {
+                        ErrorScreen(errorMessage = result.message)
+                    }
+
                     DataState.Loading -> {
-                        CircularLoading()
+                        CircularLoading(modifier = Modifier.size(200.dp))
                     }
 
                     is DataState.Success -> {

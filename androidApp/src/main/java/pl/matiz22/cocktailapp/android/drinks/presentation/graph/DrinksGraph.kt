@@ -23,6 +23,7 @@ import pl.matiz22.cocktailapp.android.core.presentation.composables.appscaffold.
 import pl.matiz22.cocktailapp.android.core.presentation.composables.iconbutton.AppIconButton
 import pl.matiz22.cocktailapp.android.core.presentation.composables.loading.CircularLoading
 import pl.matiz22.cocktailapp.android.core.presentation.navigation.route.AppRoutes
+import pl.matiz22.cocktailapp.android.core.presentation.screens.ErrorScreen
 import pl.matiz22.cocktailapp.android.core.presentation.states.DataState
 import pl.matiz22.cocktailapp.android.drinks.presentation.screens.DrinkDetailsScreen
 import pl.matiz22.cocktailapp.android.drinks.presentation.viewmodels.DrinkDetailsViewModel
@@ -80,7 +81,7 @@ fun NavGraphBuilder.drinksGraph(navController: NavController) {
                     }
 
                     is DataState.Error -> {
-                        TODO()
+                        ErrorScreen(errorMessage = result.message)
                     }
                 }
             }
