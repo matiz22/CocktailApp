@@ -9,6 +9,7 @@ import pl.matiz22.cocktailapp.SharedRes
 import pl.matiz22.cocktailapp.android.core.presentation.states.DataState
 import pl.matiz22.cocktailapp.cocktails.domain.model.Drink
 import pl.matiz22.cocktailapp.cocktails.domain.repository.DrinksRepository
+import pl.matiz22.cocktailapp.root.data.repository.errorMessage
 import pl.matiz22.cocktailapp.root.domain.model.Result
 
 class DrinkDetailsViewModel(
@@ -26,7 +27,10 @@ class DrinkDetailsViewModel(
     private fun fetchDrink() {
         viewModelScope.launch {
             when (val detailsResult = drinksRepository.getDrinkById(drinkId)) {
-                is Result.Error -> TODO()
+                is Result.Error -> {
+                    _drink.emit(DataState.Error(detailsResult.error.errorMessage))
+                }
+
                 is Result.Success -> {
                     if (detailsResult.data != null) {
                         _drink.emit(DataState.Success(detailsResult.data!!))
