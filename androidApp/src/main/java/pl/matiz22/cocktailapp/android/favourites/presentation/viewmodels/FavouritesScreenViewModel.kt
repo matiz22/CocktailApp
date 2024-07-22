@@ -8,6 +8,7 @@ import kotlinx.coroutines.launch
 import pl.matiz22.cocktailapp.android.core.presentation.states.DataState
 import pl.matiz22.cocktailapp.cocktails.domain.model.Drinks
 import pl.matiz22.cocktailapp.cocktails.domain.repository.local.CocktailsLocalDbRepository
+import pl.matiz22.cocktailapp.root.data.repository.errorMessage
 import pl.matiz22.cocktailapp.root.domain.model.Result
 
 class FavouritesScreenViewModel(
@@ -23,7 +24,9 @@ class FavouritesScreenViewModel(
     private fun updateFavouritesDrinks() {
         viewModelScope.launch {
             when (val databaseResult = cocktailsLocalDbRepository.getDrinks()) {
-                is Result.Error -> TODO()
+                is Result.Error -> {
+                    _favDrinks.emit(DataState.Error(databaseResult.error.errorMessage))
+                }
                 is Result.Success -> {
                     _favDrinks.emit(DataState.Success(databaseResult.data))
                 }
