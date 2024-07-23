@@ -2,19 +2,18 @@ package pl.matiz22.cocktailapp.cocktails.data.local.repository
 
 import pl.matiz22.cocktailapp.cocktails.data.local.dao.CocktailDao
 import pl.matiz22.cocktailapp.cocktails.data.local.model.DrinkWithIngredients
-import pl.matiz22.cocktailapp.cocktails.data.local.source.CocktailsLocalDb
 import pl.matiz22.cocktailapp.cocktails.domain.model.Drink
 import pl.matiz22.cocktailapp.cocktails.domain.model.Drinks
 import pl.matiz22.cocktailapp.cocktails.domain.model.Ingredient
 import pl.matiz22.cocktailapp.cocktails.domain.model.IngredientsAndMeasures
 import pl.matiz22.cocktailapp.cocktails.domain.model.Measure
-import pl.matiz22.cocktailapp.cocktails.domain.repository.local.CocktailsLocalDbRepository
+import pl.matiz22.cocktailapp.cocktails.domain.repository.local.DrinksLocalRepository
 import pl.matiz22.cocktailapp.root.domain.model.DataError
 import pl.matiz22.cocktailapp.root.domain.model.Result
 
 class CocktailsLocalDbRepositoryImpl(
     private val cocktailDao: CocktailDao
-) : CocktailsLocalDbRepository {
+) : DrinksLocalRepository {
     override suspend fun getDrinks(): Result<Drinks, DataError.Local> {
         return try {
             val drinks = cocktailDao.getDrinks()
