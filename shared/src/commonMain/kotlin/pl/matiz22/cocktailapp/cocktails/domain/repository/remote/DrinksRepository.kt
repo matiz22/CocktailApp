@@ -1,4 +1,4 @@
-package pl.matiz22.cocktailapp.cocktails.domain.repository
+package pl.matiz22.cocktailapp.cocktails.domain.repository.remote
 
 import pl.matiz22.cocktailapp.cocktails.domain.model.Drink
 import pl.matiz22.cocktailapp.cocktails.domain.model.Drinks

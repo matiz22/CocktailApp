@@ -5,7 +5,7 @@ import pl.matiz22.cocktailapp.cocktails.data.remote.source.CocktailsDbApi
 import pl.matiz22.cocktailapp.cocktails.domain.model.Drink
 import pl.matiz22.cocktailapp.cocktails.domain.model.Drinks
 import pl.matiz22.cocktailapp.cocktails.domain.model.DrinksSummary
-import pl.matiz22.cocktailapp.cocktails.domain.repository.DrinksRepository
+import pl.matiz22.cocktailapp.cocktails.domain.repository.remote.DrinksRepository
 import pl.matiz22.cocktailapp.root.domain.model.DataError
 import pl.matiz22.cocktailapp.root.domain.model.Result
 
