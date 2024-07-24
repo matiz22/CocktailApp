@@ -20,12 +20,12 @@ class DrinksRepositoryImpl(private val cocktailsDbApi: CocktailsDbApi) : DrinksR
         return dataModelDrinksToDomain(networkResult)
     }
 
-    override suspend fun getDrinkById(id: String): Result<Drink?, DataError.Network> {
+    override suspend fun getDrinkById(id: String): Result<Drink, DataError.Network> {
         val networkResult = cocktailsDbApi.getDrinkById(id)
         return dataModelDrinkToDomain(networkResult)
     }
 
-    override suspend fun getRandomDrink(): Result<Drink?, DataError.Network> {
+    override suspend fun getRandomDrink(): Result<Drink, DataError.Network> {
         val networkResult = cocktailsDbApi.getRandomDrink()
         return dataModelDrinkToDomain(networkResult)
     }
@@ -44,9 +44,21 @@ class DrinksRepositoryImpl(private val cocktailsDbApi: CocktailsDbApi) : DrinksR
         }
     }
 
-    private fun dataModelDrinkToDomain(networkResult: Result<DrinksPayload, DataError.Network>): Result<Drink?, DataError.Network> {
+    private fun dataModelDrinkToDomain(networkResult: Result<DrinksPayload, DataError.Network>): Result<Drink, DataError.Network> {
         return when (networkResult) {
-            is Result.Success -> Result.Success(networkResult.data.toDrinks().drinks.firstOrNull())
+            is Result.Success -> {
+                when {
+                    networkResult.data.drinks.isNullOrEmpty() -> {
+                        Result.Error(DataError.Network.NOT_FOUND)
+                    }
+
+                    else -> {
+                        Result.Success(networkResult.data.toDrinks().drinks.first())
+                    }
+                }
+
+            }
+
             is Result.Error -> Result.Error(networkResult.error)
         }
     }
