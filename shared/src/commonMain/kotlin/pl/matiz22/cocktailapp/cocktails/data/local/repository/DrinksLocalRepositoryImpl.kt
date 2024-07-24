@@ -2,23 +2,38 @@ package pl.matiz22.cocktailapp.cocktails.data.local.repository
 
 import pl.matiz22.cocktailapp.cocktails.data.local.dao.CocktailDao
 import pl.matiz22.cocktailapp.cocktails.data.local.model.DrinkWithIngredients
-import pl.matiz22.cocktailapp.cocktails.data.local.source.CocktailsLocalDb
 import pl.matiz22.cocktailapp.cocktails.domain.model.Drink
 import pl.matiz22.cocktailapp.cocktails.domain.model.Drinks
 import pl.matiz22.cocktailapp.cocktails.domain.model.Ingredient
 import pl.matiz22.cocktailapp.cocktails.domain.model.IngredientsAndMeasures
 import pl.matiz22.cocktailapp.cocktails.domain.model.Measure
-import pl.matiz22.cocktailapp.cocktails.domain.repository.local.CocktailsLocalDbRepository
+import pl.matiz22.cocktailapp.cocktails.domain.repository.local.DrinksLocalRepository
 import pl.matiz22.cocktailapp.root.domain.model.DataError
 import pl.matiz22.cocktailapp.root.domain.model.Result
 
-class CocktailsLocalDbRepositoryImpl(
+class DrinksLocalRepositoryImpl(
     private val cocktailDao: CocktailDao
-) : CocktailsLocalDbRepository {
+) : DrinksLocalRepository {
     override suspend fun getDrinks(): Result<Drinks, DataError.Local> {
         return try {
             val drinks = cocktailDao.getDrinks()
             Result.Success(drinks.toDomain())
+        } catch (e: Exception) {
+            Result.Error(DataError.Local.DATABASE_ERROR)
+        }
+    }
+
+    override suspend fun getDrink(drinkId: String): Result<Drink, DataError.Local> {
+        return try {
+            when (val drink = cocktailDao.getDrink(drinkId)) {
+                null -> {
+                    Result.Error(DataError.Local.NOT_FOUND)
+                }
+
+                else -> {
+                    Result.Success(drink.toDomain())
+                }
+            }
         } catch (e: Exception) {
             Result.Error(DataError.Local.DATABASE_ERROR)
         }
@@ -45,27 +60,31 @@ class CocktailsLocalDbRepositoryImpl(
     private fun List<DrinkWithIngredients>.toDomain(): Drinks {
         return Drinks(
             drinks = this.map { drinkWithIngredients ->
-                Drink(
-                    id = drinkWithIngredients.drinkEntity.id,
-                    name = drinkWithIngredients.drinkEntity.name,
-                    category = drinkWithIngredients.drinkEntity.category,
-                    instructions = drinkWithIngredients.drinkEntity.instructions,
-                    alcoholic = drinkWithIngredients.drinkEntity.alcoholic,
-                    glass = drinkWithIngredients.drinkEntity.glass,
-                    image = drinkWithIngredients.drinkEntity.image,
-                    ingredientsAndMeasures = IngredientsAndMeasures(
-                        drinkWithIngredients.ingredientsEntity.associate { ingredientsEntity ->
-                            Ingredient(
-                                id = ingredientsEntity.id,
-                                name = ingredientsEntity.ingredientName
-                            ) to Measure(
-                                ingredientsEntity.ingredientName
-                            )
-                        }
-                    ),
-                    liked = drinkWithIngredients.drinkEntity.liked
-                )
+                drinkWithIngredients.toDomain()
             }
+        )
+    }
+
+    private fun DrinkWithIngredients.toDomain(): Drink {
+        return Drink(
+            id = this.drinkEntity.id,
+            name = this.drinkEntity.name,
+            category = this.drinkEntity.category,
+            instructions = this.drinkEntity.instructions,
+            alcoholic = this.drinkEntity.alcoholic,
+            glass = this.drinkEntity.glass,
+            image = this.drinkEntity.image,
+            ingredientsAndMeasures = IngredientsAndMeasures(
+                this.ingredientsEntity.associate { ingredientsEntity ->
+                    Ingredient(
+                        id = ingredientsEntity.id,
+                        name = ingredientsEntity.ingredientName
+                    ) to Measure(
+                        ingredientsEntity.ingredientName
+                    )
+                }
+            ),
+            liked = this.drinkEntity.liked
         )
     }
 }

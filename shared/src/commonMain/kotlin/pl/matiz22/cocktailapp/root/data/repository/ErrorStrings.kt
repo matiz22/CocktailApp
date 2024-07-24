@@ -14,10 +14,12 @@ val DataError.Network.errorMessage: String
         DataError.Network.SERVER_ERROR -> SharedRes.string.error_server_error
         DataError.Network.SERIALIZATION -> SharedRes.string.error_serialization
         DataError.Network.UNKNOWN -> SharedRes.string.error_network_unknown
+        DataError.Network.NOT_FOUND -> SharedRes.string.error_not_found
     }
 
 val DataError.Local.errorMessage: String
     get() = when (this) {
         DataError.Local.DISK_FULL -> SharedRes.string.error_disk_full
         DataError.Local.DATABASE_ERROR -> SharedRes.string.error_database
+        DataError.Local.NOT_FOUND -> SharedRes.string.error_not_found
     }

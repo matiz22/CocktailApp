@@ -13,4 +13,7 @@
     <!-- Local Errors -->
     <string name="error_disk_full">Disk is full</string>
     <string name="error_database">Database error occurred</string>
+
+    <!-- Network/Local Errors -->
+    <string name="error_not_found">Content not found</string>
 </resources>

@@ -46,4 +46,7 @@ interface CocktailDao {
 
     @Query("SELECT * FROM Drinks WHERE liked == TRUE")
     suspend fun getFavDrinks(): List<DrinkWithIngredients>
+
+    @Query("SELECT * FROM Drinks WHERE id == :drinkId LIMIT 1")
+    suspend fun getDrink(drinkId: String): DrinkWithIngredients?
 }
