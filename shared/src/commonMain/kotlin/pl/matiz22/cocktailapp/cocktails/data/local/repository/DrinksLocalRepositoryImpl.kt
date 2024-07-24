@@ -11,7 +11,7 @@ import pl.matiz22.cocktailapp.cocktails.domain.repository.local.DrinksLocalRepos
 import pl.matiz22.cocktailapp.root.domain.model.DataError
 import pl.matiz22.cocktailapp.root.domain.model.Result
 
-class CocktailsLocalDbRepositoryImpl(
+class DrinksLocalRepositoryImpl(
     private val cocktailDao: CocktailDao
 ) : DrinksLocalRepository {
     override suspend fun getDrinks(): Result<Drinks, DataError.Local> {
