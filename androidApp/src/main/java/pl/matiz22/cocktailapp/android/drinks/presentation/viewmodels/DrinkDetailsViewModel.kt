@@ -8,13 +8,16 @@ import kotlinx.coroutines.launch
 import pl.matiz22.cocktailapp.SharedRes
 import pl.matiz22.cocktailapp.android.core.presentation.states.DataState
 import pl.matiz22.cocktailapp.cocktails.domain.model.Drink
+import pl.matiz22.cocktailapp.cocktails.domain.repository.local.DrinksLocalRepository
 import pl.matiz22.cocktailapp.cocktails.domain.repository.remote.DrinksRepository
 import pl.matiz22.cocktailapp.root.data.repository.errorMessage
+import pl.matiz22.cocktailapp.root.domain.model.DataError
 import pl.matiz22.cocktailapp.root.domain.model.Result
 
 class DrinkDetailsViewModel(
     private val drinkId: String,
-    private val drinksRepository: DrinksRepository
+    private val drinksRepository: DrinksRepository,
+    private val drinksLocalRepository: DrinksLocalRepository
 ) : ViewModel() {
 
     private val _drink = MutableStateFlow<DataState<Drink>>(DataState.Loading)
@@ -26,17 +29,30 @@ class DrinkDetailsViewModel(
 
     private fun fetchDrink() {
         viewModelScope.launch {
-            when (val detailsResult = drinksRepository.getDrinkById(drinkId)) {
+            _drink.emit(DataState.Loading)
+            val localResult = drinksLocalRepository.getDrink(drinkId)
+            when (val networkResult = drinksRepository.getDrinkById(drinkId)) {
                 is Result.Error -> {
-                    _drink.emit(DataState.Error(detailsResult.error.errorMessage))
+                    when (localResult) {
+                        is Result.Error -> {
+                            _drink.emit(DataState.Error(networkResult.error.errorMessage))
+                        }
+
+                        is Result.Success -> {
+                            _drink.emit(DataState.Success(localResult.data))
+                        }
+                    }
                 }
 
                 is Result.Success -> {
-                    if (detailsResult.data != null) {
-                        _drink.emit(DataState.Success(detailsResult.data!!))
-                    } else {
-                        _drink.emit(DataState.Error(SharedRes.string.error_not_found))
-                    }
+                    _drink.emit(
+                        DataState.Success(
+                            networkResult.data.copy(
+                                liked = (localResult as? Result.Success<Drink, DataError.Local>)
+                                    ?.data?.liked ?: false
+                            )
+                        )
+                    )
                 }
             }
         }

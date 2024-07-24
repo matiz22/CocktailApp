@@ -8,7 +8,8 @@ fun drinksViewModelsModule() = module {
     viewModel { parameters ->
         DrinkDetailsViewModel(
             drinkId = parameters.get(),
-            drinksRepository = get()
+            drinksRepository = get(),
+            drinksLocalRepository = get()
         )
     }
 }
