@@ -21,7 +21,7 @@ class FavouritesScreenViewModel(
         updateFavouritesDrinks()
     }
 
-    private fun updateFavouritesDrinks() {
+    fun updateFavouritesDrinks() {
         viewModelScope.launch {
             when (val databaseResult = drinksLocalRepository.getDrinks()) {
                 is Result.Error -> {
