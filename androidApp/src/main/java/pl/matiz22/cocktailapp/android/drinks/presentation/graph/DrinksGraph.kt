@@ -3,6 +3,8 @@ package pl.matiz22.cocktailapp.android.drinks.presentation.graph
 import androidx.compose.animation.animateColorAsState
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.rememberLazyListState
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.ThumbUp
 import androidx.compose.runtime.derivedStateOf
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
@@ -77,7 +79,10 @@ fun NavGraphBuilder.drinksGraph(navController: NavController) {
                     }
 
                     is DataState.Success -> {
-                        DrinkDetailsScreen(drink = result.data)
+                        DrinkDetailsScreen(
+                            drink = result.data,
+                            onDrinkDetailsEvent = drinksDetailsViewModel::onEvent
+                        )
                     }
 
                     is DataState.Error -> {
