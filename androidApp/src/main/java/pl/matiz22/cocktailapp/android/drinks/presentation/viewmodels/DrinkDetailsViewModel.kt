@@ -45,14 +45,14 @@ class DrinkDetailsViewModel(
                 }
 
                 is Result.Success -> {
-                    _drink.emit(
-                        DataState.Success(
-                            networkResult.data.copy(
-                                liked = (localResult as? Result.Success<Drink, DataError.Local>)
-                                    ?.data?.liked ?: false
-                            )
-                        )
+                    val currentDrink = networkResult.data.copy(
+                        liked = (localResult as? Result.Success<Drink, DataError.Local>)
+                            ?.data?.liked ?: false
                     )
+                    _drink.emit(
+                        DataState.Success(currentDrink)
+                    )
+                    drinksLocalRepository.saveDrink(currentDrink)
                 }
             }
         }
