@@ -7,6 +7,7 @@ import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
 import pl.matiz22.cocktailapp.SharedRes
 import pl.matiz22.cocktailapp.android.core.presentation.states.DataState
+import pl.matiz22.cocktailapp.android.drinks.presentation.events.DrinkDetailsEvent
 import pl.matiz22.cocktailapp.cocktails.domain.model.Drink
 import pl.matiz22.cocktailapp.cocktails.domain.repository.local.DrinksLocalRepository
 import pl.matiz22.cocktailapp.cocktails.domain.repository.remote.DrinksRepository
@@ -25,6 +26,24 @@ class DrinkDetailsViewModel(
 
     init {
         fetchDrink()
+    }
+
+    fun onEvent(drinkDetailsEvent: DrinkDetailsEvent) {
+        when (drinkDetailsEvent) {
+            DrinkDetailsEvent.FavouriteClicked -> {
+                changeFavouriteField()
+            }
+        }
+    }
+
+    private fun changeFavouriteField() {
+        val currentDrink = (_drink.value as? DataState.Success<Drink>) ?: return
+        val newFavouriteField = !currentDrink.data.liked
+        val updatedDrink = currentDrink.data.copy(liked = newFavouriteField)
+        viewModelScope.launch {
+            drinksLocalRepository.saveDrink(updatedDrink)
+        }
+        _drink.value = DataState.Success(updatedDrink)
     }
 
     private fun fetchDrink() {

@@ -1,9 +1,13 @@
 package pl.matiz22.cocktailapp.android.favourites.presentation.graph
 
 import androidx.compose.foundation.layout.size
+import androidx.compose.runtime.DisposableEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.LifecycleEventObserver
+import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.navigation.NavController
 import androidx.navigation.NavGraphBuilder
@@ -28,9 +32,25 @@ fun NavGraphBuilder.favouritesGraph(
     navController: NavController
 ) {
     navigation<AppRoutes.Favourites>(startDestination = AppRoutes.Favourites.FavouritesScreen) {
-        composable<AppRoutes.Favourites.FavouritesScreen> {
-            val favouritesScreenViewModel = koinViewModel<FavouritesScreenViewModel>()
+        composable<AppRoutes.Favourites.FavouritesScreen> { navBackStackEntry ->
+            val favouritesScreenViewModel =
+                koinViewModel<FavouritesScreenViewModel>(viewModelStoreOwner = navBackStackEntry)
             val favDrinks by favouritesScreenViewModel.favDrinks.collectAsStateWithLifecycle()
+            val lifecycle = navBackStackEntry.lifecycle
+
+            DisposableEffect(key1 = lifecycle.currentState) {
+                val observer = LifecycleEventObserver { _: LifecycleOwner, event: Lifecycle.Event ->
+                    when (event) {
+                        Lifecycle.Event.ON_RESUME -> favouritesScreenViewModel.updateFavouritesDrinks()
+                        else -> {}
+                    }
+                }
+                lifecycle.addObserver(observer)
+                onDispose {
+                    lifecycle.removeObserver(observer)
+                }
+            }
+
             AppScaffold(
                 topAppbar = {
                     AppBar(

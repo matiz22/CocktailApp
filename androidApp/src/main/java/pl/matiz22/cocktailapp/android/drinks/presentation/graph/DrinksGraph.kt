@@ -77,7 +77,10 @@ fun NavGraphBuilder.drinksGraph(navController: NavController) {
                     }
 
                     is DataState.Success -> {
-                        DrinkDetailsScreen(drink = result.data)
+                        DrinkDetailsScreen(
+                            drink = result.data,
+                            onDrinkDetailsEvent = drinksDetailsViewModel::onEvent
+                        )
                     }
 
                     is DataState.Error -> {
