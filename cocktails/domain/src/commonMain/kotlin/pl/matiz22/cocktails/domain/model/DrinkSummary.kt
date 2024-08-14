@@ -1,4 +1,4 @@
-package pl.matiz22.cocktailapp.cocktails.domain.model
+package pl.matiz22.cocktails.domain.model
 
 data class DrinkSummary(
     val strDrink: String,
