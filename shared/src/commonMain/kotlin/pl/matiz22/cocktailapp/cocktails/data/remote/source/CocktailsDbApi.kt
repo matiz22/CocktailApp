@@ -6,10 +6,8 @@ import io.ktor.client.request.get
 import io.ktor.http.isSuccess
 import pl.matiz22.cocktailapp.cocktails.data.remote.model.DrinksPayload
 import pl.matiz22.cocktailapp.cocktails.data.remote.model.DrinksSummaryPayload
-import pl.matiz22.cocktailapp.root.data.util.provideDataErrorNetworkForException
-import pl.matiz22.cocktailapp.root.data.util.provideDataErrorNetworkForHttpCode
-import pl.matiz22.core.domain.model.Result
 import pl.matiz22.core.domain.model.DataError
+import pl.matiz22.core.domain.model.Result
 
 class CocktailsDbApi(private val httpClient: HttpClient) {
     suspend fun getDrinkByName(query: String): Result<DrinksPayload, DataError.Network> {

@@ -1,4 +1,4 @@
-package pl.matiz22.cocktailapp.root.data.util
+package pl.matiz22.core.data.util
 
 import io.ktor.client.call.NoTransformationFoundException
 import io.ktor.serialization.JsonConvertException

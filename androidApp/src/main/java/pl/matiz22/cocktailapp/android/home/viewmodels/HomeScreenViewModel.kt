@@ -8,7 +8,7 @@ import kotlinx.coroutines.launch
 import pl.matiz22.cocktailapp.android.core.presentation.states.DataState
 import pl.matiz22.cocktailapp.cocktails.domain.model.Drinks
 import pl.matiz22.cocktailapp.cocktails.domain.repository.local.DrinksLocalRepository
-import pl.matiz22.cocktailapp.root.data.repository.errorMessage
+import pl.matiz22.core.data.repository.errorMessage
 import pl.matiz22.cocktailapp.root.domain.model.Result
 
 class HomeScreenViewModel(

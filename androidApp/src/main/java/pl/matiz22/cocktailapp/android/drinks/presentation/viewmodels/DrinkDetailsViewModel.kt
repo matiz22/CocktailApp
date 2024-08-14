@@ -11,7 +11,7 @@ import pl.matiz22.cocktailapp.android.drinks.presentation.events.DrinkDetailsEve
 import pl.matiz22.cocktailapp.cocktails.domain.model.Drink
 import pl.matiz22.cocktailapp.cocktails.domain.repository.local.DrinksLocalRepository
 import pl.matiz22.cocktailapp.cocktails.domain.repository.remote.DrinksRepository
-import pl.matiz22.cocktailapp.root.data.repository.errorMessage
+import pl.matiz22.core.data.repository.errorMessage
 import pl.matiz22.cocktailapp.root.domain.model.DataError
 import pl.matiz22.cocktailapp.root.domain.model.Result
 

@@ -1,4 +1,4 @@
-package pl.matiz22.cocktailapp.root.data.util
+package pl.matiz22.core.data.util
 
 import pl.matiz22.core.domain.model.Result
 import pl.matiz22.core.domain.model.DataError

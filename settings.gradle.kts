@@ -18,3 +18,4 @@ rootProject.name = "Cocktail_App"
 include(":androidApp")
 include(":shared")
 include(":core:domain")
+include(":core:data")
