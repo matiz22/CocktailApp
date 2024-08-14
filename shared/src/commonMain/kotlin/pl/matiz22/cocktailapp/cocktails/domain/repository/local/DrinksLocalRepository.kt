@@ -10,4 +10,5 @@ interface DrinksLocalRepository {
     suspend fun getDrink(drinkId: String): Result<Drink, DataError.Local>
     suspend fun saveDrink(drink: Drink): Result<Boolean, DataError.Local>
     suspend fun getFavDrinks(): Result<Drinks, DataError.Local>
+    suspend fun getRecentDrinks(): Result<Drinks, DataError.Local>
 }

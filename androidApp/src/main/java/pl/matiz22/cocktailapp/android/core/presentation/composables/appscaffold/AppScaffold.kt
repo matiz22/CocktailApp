@@ -1,6 +1,7 @@
 package pl.matiz22.cocktailapp.android.core.presentation.composables.appscaffold
 
 import androidx.compose.foundation.background
+import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.fillMaxSize
@@ -42,9 +43,15 @@ fun AppScaffold(
         Box(
             modifier = Modifier
                 .fillMaxSize()
-                .background(CocktailsAppTheme.colors.background)
+                .then(
+                    if (isSystemInDarkTheme()) {
+                        Modifier.background(CocktailsAppTheme.colors.background)
+                    } else {
+                        Modifier.background(CocktailsAppTheme.colors.container)
+                    }
+                )
                 .padding(
-                    top = if(!disableTopPadding) paddingValues.calculateTopPadding() else 0.dp
+                    top = if (!disableTopPadding) paddingValues.calculateTopPadding() else 0.dp
                 ),
             contentAlignment = Alignment.Center
         ) {

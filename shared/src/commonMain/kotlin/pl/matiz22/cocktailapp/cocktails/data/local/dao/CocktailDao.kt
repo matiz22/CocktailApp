@@ -49,4 +49,7 @@ interface CocktailDao {
 
     @Query("SELECT * FROM Drinks WHERE id == :drinkId LIMIT 1")
     suspend fun getDrink(drinkId: String): DrinkWithIngredients?
+
+    @Query("SELECT * FROM Drinks ORDER BY id DESC LIMIT 5")
+    suspend fun getRecentDrinks(): List<DrinkWithIngredients>
 }

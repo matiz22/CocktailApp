@@ -57,6 +57,15 @@ class DrinksLocalRepositoryImpl(
         }
     }
 
+    override suspend fun getRecentDrinks(): Result<Drinks, DataError.Local> {
+        return try {
+            val recentDrinks = cocktailDao.getRecentDrinks()
+            Result.Success(recentDrinks.toDomain())
+        } catch (e: Exception) {
+            Result.Error(DataError.Local.DATABASE_ERROR)
+        }
+    }
+
     private fun List<DrinkWithIngredients>.toDomain(): Drinks {
         return Drinks(
             drinks = this.map { drinkWithIngredients ->
