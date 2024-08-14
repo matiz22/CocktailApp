@@ -32,12 +32,7 @@ fun AppBar(
 ) {
     Surface(
         modifier = modifier,
-        color = color
-            ?: if (isSystemInDarkTheme()) {
-                CocktailsAppTheme.colors.container
-            } else {
-                CocktailsAppTheme.colors.background
-            }
+        color = color ?: CocktailsAppTheme.colors.container,
     ) {
         Row(
             modifier = Modifier

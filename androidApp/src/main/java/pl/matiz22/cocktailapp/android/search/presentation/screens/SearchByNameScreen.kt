@@ -38,13 +38,7 @@ fun SearchByNameScreen(
         Column(
             modifier = Modifier
                 .fillMaxSize()
-                .then(
-                    if (isSystemInDarkTheme()) {
-                        Modifier.background(CocktailsAppTheme.colors.background)
-                    } else {
-                        Modifier.background(CocktailsAppTheme.colors.container)
-                    }
-                )
+                .background(CocktailsAppTheme.colors.background)
         ) {
             InputTextField(
                 modifier = Modifier.padding(10.dp),

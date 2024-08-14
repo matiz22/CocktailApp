@@ -43,13 +43,9 @@ fun AppScaffold(
         Box(
             modifier = Modifier
                 .fillMaxSize()
-                .then(
-                    if (isSystemInDarkTheme()) {
-                        Modifier.background(CocktailsAppTheme.colors.background)
-                    } else {
-                        Modifier.background(CocktailsAppTheme.colors.container)
-                    }
-                )
+                .background(CocktailsAppTheme.colors.background)
+
+
                 .padding(
                     top = if (!disableTopPadding) paddingValues.calculateTopPadding() else 0.dp
                 ),

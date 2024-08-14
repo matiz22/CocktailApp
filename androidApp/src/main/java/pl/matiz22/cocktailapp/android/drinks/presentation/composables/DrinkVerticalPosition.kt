@@ -39,13 +39,7 @@ fun DrinkVerticalPosition(
     Box(
         modifier = modifier
             .clip(RoundedCornerShape(8.dp))
-            .then(
-                if (isSystemInDarkTheme()) {
-                    Modifier.background(CocktailsAppTheme.colors.container)
-                } else {
-                    Modifier.background(CocktailsAppTheme.colors.background)
-                }
-            )
+            .background(CocktailsAppTheme.colors.container)
             .then(
                 if (onClick != null) {
                     Modifier.clickable(

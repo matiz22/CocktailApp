@@ -19,18 +19,14 @@ fun BottomBarBackground(
         modifier = modifier,
         color = Color.Transparent
     ) {
-        if (isSystemInDarkTheme()) {
-            Box(
-                modifier = Modifier
-                    .alpha(0.8f)
-                    .background(CocktailsAppTheme.colors.container)
-            ) {
-                content()
-            }
-        } else {
-            Box(modifier = Modifier.background(CocktailsAppTheme.colors.background)) {
-                content()
-            }
+        Box(
+            modifier = Modifier
+                .then(
+                    if (isSystemInDarkTheme()) Modifier.alpha(0.8f) else Modifier
+                )
+                .background(CocktailsAppTheme.colors.container)
+        ) {
+            content()
         }
     }
 }

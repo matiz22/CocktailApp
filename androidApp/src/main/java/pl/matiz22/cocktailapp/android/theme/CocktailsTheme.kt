@@ -35,8 +35,8 @@ fun CocktailsAppTheme(
     } else {
         CocktailsColors(
             font = AppColors.FontDark.color,
-            background = AppColors.Monochromatic10.color,
-            container = AppColors.Monochromatic09.color,
+            background = AppColors.Monochromatic09.color,
+            container = AppColors.Monochromatic10.color,
             onBackground = AppColors.Monochromatic01.color,
             onContainer = AppColors.Monochromatic01.color,
         )
