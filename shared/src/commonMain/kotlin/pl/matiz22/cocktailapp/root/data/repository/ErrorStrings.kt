@@ -1,7 +1,8 @@
 package pl.matiz22.cocktailapp.root.data.repository
 
 import pl.matiz22.cocktailapp.SharedRes
-import pl.matiz22.cocktailapp.root.domain.model.DataError
+import pl.matiz22.core.domain.model.DataError
+import pl.matiz22.core.domain.model.Result
 
 
 val DataError.Network.errorMessage: String

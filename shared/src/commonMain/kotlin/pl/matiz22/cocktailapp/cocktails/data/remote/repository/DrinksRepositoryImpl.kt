@@ -6,8 +6,9 @@ import pl.matiz22.cocktailapp.cocktails.domain.model.Drink
 import pl.matiz22.cocktailapp.cocktails.domain.model.Drinks
 import pl.matiz22.cocktailapp.cocktails.domain.model.DrinksSummary
 import pl.matiz22.cocktailapp.cocktails.domain.repository.remote.DrinksRepository
-import pl.matiz22.cocktailapp.root.domain.model.DataError
-import pl.matiz22.cocktailapp.root.domain.model.Result
+import pl.matiz22.core.domain.model.Result
+import pl.matiz22.core.domain.model.DataError
+
 
 class DrinksRepositoryImpl(private val cocktailsDbApi: CocktailsDbApi) : DrinksRepository {
     override suspend fun getDrinksByName(query: String): Result<Drinks, DataError.Network> {
@@ -56,9 +57,7 @@ class DrinksRepositoryImpl(private val cocktailsDbApi: CocktailsDbApi) : DrinksR
                         Result.Success(networkResult.data.toDrinks().drinks.first())
                     }
                 }
-
             }
-
             is Result.Error -> Result.Error(networkResult.error)
         }
     }

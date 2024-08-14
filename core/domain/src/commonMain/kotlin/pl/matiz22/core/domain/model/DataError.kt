@@ -1,4 +1,4 @@
-package pl.matiz22.cocktailapp.root.domain.model
+package pl.matiz22.core.domain.model
 
 sealed interface DataError : Error {
     enum class Network : DataError {

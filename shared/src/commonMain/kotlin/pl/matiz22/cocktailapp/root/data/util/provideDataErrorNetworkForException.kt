@@ -2,7 +2,7 @@ package pl.matiz22.cocktailapp.root.data.util
 
 import io.ktor.client.call.NoTransformationFoundException
 import io.ktor.serialization.JsonConvertException
-import pl.matiz22.cocktailapp.root.domain.model.DataError
+import pl.matiz22.core.domain.model.DataError
 
 fun provideDataErrorNetworkForException(exception: Exception): DataError.Network {
     return when (exception) {

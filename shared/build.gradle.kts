@@ -37,6 +37,7 @@ kotlin {
             implementation(libs.ktor.serialization.kotlinx.json)
             implementation(libs.room.runtime)
             implementation(libs.sqlite.bundled)
+            implementation(project(":core:domain"))
         }
         androidMain.dependencies {
             implementation(libs.ktor.client.okhttp)

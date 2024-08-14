@@ -8,8 +8,8 @@ import pl.matiz22.cocktailapp.cocktails.domain.model.Ingredient
 import pl.matiz22.cocktailapp.cocktails.domain.model.IngredientsAndMeasures
 import pl.matiz22.cocktailapp.cocktails.domain.model.Measure
 import pl.matiz22.cocktailapp.cocktails.domain.repository.local.DrinksLocalRepository
-import pl.matiz22.cocktailapp.root.domain.model.DataError
-import pl.matiz22.cocktailapp.root.domain.model.Result
+import pl.matiz22.core.domain.model.Result
+import pl.matiz22.core.domain.model.DataError
 
 class DrinksLocalRepositoryImpl(
     private val cocktailDao: CocktailDao
