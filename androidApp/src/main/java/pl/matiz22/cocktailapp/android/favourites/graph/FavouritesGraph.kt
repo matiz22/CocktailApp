@@ -1,4 +1,4 @@
-package pl.matiz22.cocktailapp.android.favourites.presentation.graph
+package pl.matiz22.cocktailapp.android.favourites.graph
 
 import androidx.compose.foundation.layout.size
 import androidx.compose.runtime.DisposableEffect
@@ -24,8 +24,8 @@ import pl.matiz22.cocktailapp.android.core.presentation.navigation.route.AppRout
 import pl.matiz22.cocktailapp.android.core.presentation.navigation.util.navItems
 import pl.matiz22.cocktailapp.android.core.presentation.screens.ErrorScreen
 import pl.matiz22.cocktailapp.android.core.presentation.states.DataState
-import pl.matiz22.cocktailapp.android.favourites.presentation.screens.FavouritesScreen
-import pl.matiz22.cocktailapp.android.favourites.presentation.viewmodels.FavouritesScreenViewModel
+import pl.matiz22.cocktailapp.android.favourites.screens.FavouritesScreen
+import pl.matiz22.cocktailapp.android.favourites.viewmodels.FavouritesScreenViewModel
 import pl.matiz22.cocktails.domain.model.Drink
 
 fun NavGraphBuilder.favouritesGraph(

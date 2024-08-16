@@ -1,4 +1,4 @@
-package pl.matiz22.cocktailapp.android.drinks.presentation.viewmodels
+package pl.matiz22.cocktailapp.android.drinks.viewmodels
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -6,7 +6,7 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
 import pl.matiz22.cocktailapp.android.core.presentation.states.DataState
-import pl.matiz22.cocktailapp.android.drinks.presentation.events.DrinkDetailsEvent
+import pl.matiz22.cocktailapp.android.drinks.events.DrinkDetailsEvent
 import pl.matiz22.cocktails.domain.model.Drink
 import pl.matiz22.cocktails.domain.repository.local.DrinksLocalRepository
 import pl.matiz22.cocktails.domain.repository.remote.DrinksRepository

@@ -1,4 +1,4 @@
-package pl.matiz22.cocktailapp.android.search.presentation.events
+package pl.matiz22.cocktailapp.android.search.events
 
 sealed class SearchByNameEvents {
     data class UpdateQuery(val query: String) : SearchByNameEvents()

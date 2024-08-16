@@ -1,4 +1,4 @@
-package pl.matiz22.cocktailapp.android.drinks.presentation.graph
+package pl.matiz22.cocktailapp.android.drinks.graph
 
 import androidx.compose.animation.animateColorAsState
 import androidx.compose.foundation.layout.size
@@ -25,8 +25,8 @@ import pl.matiz22.cocktailapp.android.core.presentation.composables.loading.Circ
 import pl.matiz22.cocktailapp.android.core.presentation.navigation.route.AppRoutes
 import pl.matiz22.cocktailapp.android.core.presentation.screens.ErrorScreen
 import pl.matiz22.cocktailapp.android.core.presentation.states.DataState
-import pl.matiz22.cocktailapp.android.drinks.presentation.screens.DrinkDetailsScreen
-import pl.matiz22.cocktailapp.android.drinks.presentation.viewmodels.DrinkDetailsViewModel
+import pl.matiz22.cocktailapp.android.drinks.screens.DrinkDetailsScreen
+import pl.matiz22.cocktailapp.android.drinks.viewmodels.DrinkDetailsViewModel
 import pl.matiz22.cocktailapp.android.theme.CocktailsAppTheme
 
 fun NavGraphBuilder.drinksGraph(navController: NavController) {

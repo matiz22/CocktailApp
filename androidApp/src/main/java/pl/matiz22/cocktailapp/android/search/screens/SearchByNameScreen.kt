@@ -1,4 +1,4 @@
-package pl.matiz22.cocktailapp.android.search.presentation.screens
+package pl.matiz22.cocktailapp.android.search.screens
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
@@ -19,8 +19,8 @@ import pl.matiz22.cocktailapp.SharedRes
 import pl.matiz22.cocktailapp.android.core.presentation.composables.iconbutton.AppIconButton
 import pl.matiz22.cocktailapp.android.core.presentation.composables.inputfield.InputTextField
 import pl.matiz22.cocktailapp.android.core.presentation.composables.inputfield.LeftIconInputField
-import pl.matiz22.cocktailapp.android.drinks.presentation.composables.DrinkPosition
-import pl.matiz22.cocktailapp.android.search.presentation.events.SearchByNameEvents
+import pl.matiz22.cocktailapp.android.drinks.composables.DrinkPosition
+import pl.matiz22.cocktailapp.android.search.events.SearchByNameEvents
 import pl.matiz22.cocktailapp.android.theme.CocktailsAppTheme
 import pl.matiz22.cocktails.domain.model.Drink
 import pl.matiz22.cocktails.domain.model.Drinks

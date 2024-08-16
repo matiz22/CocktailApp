@@ -1,4 +1,4 @@
-package pl.matiz22.cocktailapp.android.favourites.presentation.screens
+package pl.matiz22.cocktailapp.android.favourites.screens
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -9,7 +9,7 @@ import androidx.compose.foundation.lazy.items
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import pl.matiz22.cocktailapp.android.drinks.presentation.composables.DrinkPosition
+import pl.matiz22.cocktailapp.android.drinks.composables.DrinkPosition
 import pl.matiz22.cocktails.domain.model.Drink
 import pl.matiz22.cocktails.domain.model.Drinks
 

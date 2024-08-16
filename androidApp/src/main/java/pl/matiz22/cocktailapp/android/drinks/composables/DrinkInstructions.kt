@@ -1,4 +1,4 @@
-package pl.matiz22.cocktailapp.android.drinks.presentation.composables
+package pl.matiz22.cocktailapp.android.drinks.composables
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer

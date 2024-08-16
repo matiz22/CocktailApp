@@ -1,4 +1,4 @@
-package pl.matiz22.cocktailapp.android.search.presentation.graph
+package pl.matiz22.cocktailapp.android.search.graph
 
 import androidx.compose.runtime.getValue
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
@@ -14,8 +14,8 @@ import pl.matiz22.cocktailapp.android.core.presentation.composables.bottombar.Bo
 import pl.matiz22.cocktailapp.android.core.presentation.composables.texts.TitleAndDescription
 import pl.matiz22.cocktailapp.android.core.presentation.navigation.route.AppRoutes
 import pl.matiz22.cocktailapp.android.core.presentation.navigation.util.navItems
-import pl.matiz22.cocktailapp.android.search.presentation.screens.SearchByNameScreen
-import pl.matiz22.cocktailapp.android.search.presentation.viewmodels.SearchByNameViewModel
+import pl.matiz22.cocktailapp.android.search.screens.SearchByNameScreen
+import pl.matiz22.cocktailapp.android.search.viewmodels.SearchByNameViewModel
 import pl.matiz22.cocktails.domain.model.Drink
 
 fun NavGraphBuilder.searchGraph(

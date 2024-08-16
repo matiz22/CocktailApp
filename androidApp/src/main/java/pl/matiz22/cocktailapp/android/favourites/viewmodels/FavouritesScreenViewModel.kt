@@ -1,4 +1,4 @@
-package pl.matiz22.cocktailapp.android.favourites.presentation.viewmodels
+package pl.matiz22.cocktailapp.android.favourites.viewmodels
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope

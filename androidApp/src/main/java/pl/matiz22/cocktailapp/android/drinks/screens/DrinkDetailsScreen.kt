@@ -1,4 +1,4 @@
-package pl.matiz22.cocktailapp.android.drinks.presentation.screens
+package pl.matiz22.cocktailapp.android.drinks.screens
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -16,11 +16,11 @@ import androidx.compose.ui.unit.dp
 import io.github.skeptick.libres.compose.painterResource
 import pl.matiz22.cocktailapp.SharedRes
 import pl.matiz22.cocktailapp.android.core.presentation.composables.iconbutton.AppIconButton
-import pl.matiz22.cocktailapp.android.drinks.presentation.composables.DrinkInfo
-import pl.matiz22.cocktailapp.android.drinks.presentation.composables.DrinkInstructions
-import pl.matiz22.cocktailapp.android.drinks.presentation.composables.ImageCard
-import pl.matiz22.cocktailapp.android.drinks.presentation.composables.IngredientsAndMeasuresText
-import pl.matiz22.cocktailapp.android.drinks.presentation.events.DrinkDetailsEvent
+import pl.matiz22.cocktailapp.android.drinks.composables.DrinkInfo
+import pl.matiz22.cocktailapp.android.drinks.composables.DrinkInstructions
+import pl.matiz22.cocktailapp.android.drinks.composables.ImageCard
+import pl.matiz22.cocktailapp.android.drinks.composables.IngredientsAndMeasuresText
+import pl.matiz22.cocktailapp.android.drinks.events.DrinkDetailsEvent
 import pl.matiz22.cocktails.domain.model.Drink
 
 @Composable

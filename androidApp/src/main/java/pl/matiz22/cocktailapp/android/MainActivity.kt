@@ -10,10 +10,10 @@ import androidx.compose.ui.Modifier
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.rememberNavController
 import pl.matiz22.cocktailapp.android.core.presentation.navigation.route.AppRoutes
-import pl.matiz22.cocktailapp.android.drinks.presentation.graph.drinksGraph
-import pl.matiz22.cocktailapp.android.favourites.presentation.graph.favouritesGraph
+import pl.matiz22.cocktailapp.android.drinks.graph.drinksGraph
+import pl.matiz22.cocktailapp.android.favourites.graph.favouritesGraph
 import pl.matiz22.cocktailapp.android.home.presentation.graph.homeGraph
-import pl.matiz22.cocktailapp.android.search.presentation.graph.searchGraph
+import pl.matiz22.cocktailapp.android.search.graph.searchGraph
 import pl.matiz22.cocktailapp.android.theme.CocktailsAppTheme
 
 class MainActivity : ComponentActivity() {

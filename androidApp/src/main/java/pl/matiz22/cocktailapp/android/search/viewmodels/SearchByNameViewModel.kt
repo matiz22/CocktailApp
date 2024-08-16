@@ -1,4 +1,4 @@
-package pl.matiz22.cocktailapp.android.search.presentation.viewmodels
+package pl.matiz22.cocktailapp.android.search.viewmodels
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -9,7 +9,7 @@ import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.debounce
 import kotlinx.coroutines.flow.stateIn
-import pl.matiz22.cocktailapp.android.search.presentation.events.SearchByNameEvents
+import pl.matiz22.cocktailapp.android.search.events.SearchByNameEvents
 import pl.matiz22.cocktails.domain.model.Drinks
 import pl.matiz22.cocktails.domain.repository.remote.DrinksRepository
 import pl.matiz22.core.domain.model.Result
