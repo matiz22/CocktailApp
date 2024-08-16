@@ -19,10 +19,10 @@ import coil.request.ImageRequest
 import io.github.skeptick.libres.compose.painterResource
 import pl.matiz22.cocktailapp.SharedRes
 import pl.matiz22.cocktailapp.android.theme.CocktailsAppTheme
-import pl.matiz22.cocktailapp.cocktails.domain.model.Drink
-import pl.matiz22.cocktailapp.cocktails.domain.model.Ingredient
-import pl.matiz22.cocktailapp.cocktails.domain.model.IngredientsAndMeasures
-import pl.matiz22.cocktailapp.cocktails.domain.model.Measure
+import pl.matiz22.cocktails.domain.model.Drink
+import pl.matiz22.cocktails.domain.model.Ingredient
+import pl.matiz22.cocktails.domain.model.IngredientsAndMeasures
+import pl.matiz22.cocktails.domain.model.Measure
 
 @Composable
 fun ImageCard(

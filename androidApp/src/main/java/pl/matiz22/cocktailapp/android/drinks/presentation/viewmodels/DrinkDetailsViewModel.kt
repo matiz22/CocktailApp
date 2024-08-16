@@ -5,22 +5,20 @@ import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
-import pl.matiz22.cocktailapp.SharedRes
 import pl.matiz22.cocktailapp.android.core.presentation.states.DataState
 import pl.matiz22.cocktailapp.android.drinks.presentation.events.DrinkDetailsEvent
-import pl.matiz22.cocktailapp.cocktails.domain.model.Drink
-import pl.matiz22.cocktailapp.cocktails.domain.repository.local.DrinksLocalRepository
-import pl.matiz22.cocktailapp.cocktails.domain.repository.remote.DrinksRepository
+import pl.matiz22.cocktails.domain.model.Drink
+import pl.matiz22.cocktails.domain.repository.local.DrinksLocalRepository
+import pl.matiz22.cocktails.domain.repository.remote.DrinksRepository
 import pl.matiz22.core.data.repository.errorMessage
-import pl.matiz22.cocktailapp.root.domain.model.DataError
-import pl.matiz22.cocktailapp.root.domain.model.Result
+import pl.matiz22.core.domain.model.DataError
+import pl.matiz22.core.domain.model.Result
 
 class DrinkDetailsViewModel(
     private val drinkId: String,
     private val drinksRepository: DrinksRepository,
     private val drinksLocalRepository: DrinksLocalRepository
 ) : ViewModel() {
-
     private val _drink = MutableStateFlow<DataState<Drink>>(DataState.Loading)
     val drink = _drink.asStateFlow()
 

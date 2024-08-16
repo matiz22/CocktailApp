@@ -16,9 +16,9 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import pl.matiz22.cocktailapp.SharedRes
 import pl.matiz22.cocktailapp.android.theme.CocktailsAppTheme
-import pl.matiz22.cocktailapp.cocktails.domain.model.Ingredient
-import pl.matiz22.cocktailapp.cocktails.domain.model.IngredientsAndMeasures
-import pl.matiz22.cocktailapp.cocktails.domain.model.Measure
+import pl.matiz22.cocktails.domain.model.Ingredient
+import pl.matiz22.cocktails.domain.model.IngredientsAndMeasures
+import pl.matiz22.cocktails.domain.model.Measure
 
 @Composable
 fun IngredientsAndMeasuresText(

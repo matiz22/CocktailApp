@@ -27,7 +27,7 @@ import io.github.skeptick.libres.compose.painterResource
 import pl.matiz22.cocktailapp.SharedRes
 import pl.matiz22.cocktailapp.android.core.presentation.composables.texts.TitleAndDescription
 import pl.matiz22.cocktailapp.android.theme.CocktailsAppTheme
-import pl.matiz22.cocktailapp.cocktails.domain.model.Drink
+import pl.matiz22.cocktails.domain.model.Drink
 
 @Composable
 fun DrinkVerticalPosition(

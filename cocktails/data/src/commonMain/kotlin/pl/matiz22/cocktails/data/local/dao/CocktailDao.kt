@@ -7,7 +7,7 @@ import androidx.room.Upsert
 import pl.matiz22.cocktails.data.local.model.DrinkEntity
 import pl.matiz22.cocktails.data.local.model.DrinkWithIngredients
 import pl.matiz22.cocktails.data.local.model.IngredientsEntity
-import pl.matiz22.cocktailapp.cocktails.domain.model.Drink
+import pl.matiz22.cocktails.domain.model.Drink
 
 @Dao
 interface CocktailDao {

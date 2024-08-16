@@ -8,7 +8,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import pl.matiz22.cocktailapp.android.core.presentation.composables.texts.TitleAndDescription
 import pl.matiz22.cocktailapp.android.theme.CocktailsAppTheme
-import pl.matiz22.cocktailapp.cocktails.domain.model.Drink
+import pl.matiz22.cocktails.domain.model.Drink
 
 @Composable
 fun DrinkInfo(

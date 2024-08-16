@@ -1,7 +1,6 @@
 package pl.matiz22.cocktailapp.android.search.presentation.screens
 
 import androidx.compose.foundation.background
-import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -23,8 +22,8 @@ import pl.matiz22.cocktailapp.android.core.presentation.composables.inputfield.L
 import pl.matiz22.cocktailapp.android.drinks.presentation.composables.DrinkPosition
 import pl.matiz22.cocktailapp.android.search.presentation.events.SearchByNameEvents
 import pl.matiz22.cocktailapp.android.theme.CocktailsAppTheme
-import pl.matiz22.cocktailapp.cocktails.domain.model.Drink
-import pl.matiz22.cocktailapp.cocktails.domain.model.Drinks
+import pl.matiz22.cocktails.domain.model.Drink
+import pl.matiz22.cocktails.domain.model.Drinks
 
 @Composable
 fun SearchByNameScreen(

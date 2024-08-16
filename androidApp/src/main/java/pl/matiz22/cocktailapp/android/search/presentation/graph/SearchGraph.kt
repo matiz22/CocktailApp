@@ -16,7 +16,7 @@ import pl.matiz22.cocktailapp.android.core.presentation.navigation.route.AppRout
 import pl.matiz22.cocktailapp.android.core.presentation.navigation.util.navItems
 import pl.matiz22.cocktailapp.android.search.presentation.screens.SearchByNameScreen
 import pl.matiz22.cocktailapp.android.search.presentation.viewmodels.SearchByNameViewModel
-import pl.matiz22.cocktailapp.cocktails.domain.model.Drink
+import pl.matiz22.cocktails.domain.model.Drink
 
 fun NavGraphBuilder.searchGraph(
     navController: NavController

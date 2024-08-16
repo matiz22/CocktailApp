@@ -26,7 +26,7 @@ import pl.matiz22.cocktailapp.android.core.presentation.screens.ErrorScreen
 import pl.matiz22.cocktailapp.android.core.presentation.states.DataState
 import pl.matiz22.cocktailapp.android.favourites.presentation.screens.FavouritesScreen
 import pl.matiz22.cocktailapp.android.favourites.presentation.viewmodels.FavouritesScreenViewModel
-import pl.matiz22.cocktailapp.cocktails.domain.model.Drink
+import pl.matiz22.cocktails.domain.model.Drink
 
 fun NavGraphBuilder.favouritesGraph(
     navController: NavController

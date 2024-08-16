@@ -29,6 +29,10 @@ kotlin {
 
     sourceSets {
         commonMain.dependencies {
+            implementation(projects.cocktails.domain)
+            implementation(projects.cocktails.data)
+            implementation(projects.core.domain)
+            implementation(projects.core.data)
             implementation(libs.kotlinx.serialization.json)
             implementation(libs.ktor.client.core)
             implementation(libs.kotlinx.coroutines.core)

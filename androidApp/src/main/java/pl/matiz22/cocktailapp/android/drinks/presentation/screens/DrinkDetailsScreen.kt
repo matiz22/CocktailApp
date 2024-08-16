@@ -21,7 +21,7 @@ import pl.matiz22.cocktailapp.android.drinks.presentation.composables.DrinkInstr
 import pl.matiz22.cocktailapp.android.drinks.presentation.composables.ImageCard
 import pl.matiz22.cocktailapp.android.drinks.presentation.composables.IngredientsAndMeasuresText
 import pl.matiz22.cocktailapp.android.drinks.presentation.events.DrinkDetailsEvent
-import pl.matiz22.cocktailapp.cocktails.domain.model.Drink
+import pl.matiz22.cocktails.domain.model.Drink
 
 @Composable
 fun DrinkDetailsScreen(
