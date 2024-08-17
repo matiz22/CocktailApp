@@ -6,8 +6,6 @@ plugins {
     alias(libs.plugins.androidLibrary)
     alias(libs.plugins.kotlinSerialization)
     id("io.github.skeptick.libres")
-    alias(libs.plugins.ksp)
-    alias(libs.plugins.room)
 }
 
 kotlin {
@@ -33,20 +31,12 @@ kotlin {
             implementation(projects.cocktails.data)
             implementation(projects.core.domain)
             implementation(projects.core.data)
-            implementation(libs.kotlinx.serialization.json)
-            implementation(libs.ktor.client.core)
-            implementation(libs.kotlinx.coroutines.core)
             api(libs.koin.core)
-            implementation(libs.ktor.client.content.negotiation)
-            implementation(libs.ktor.serialization.kotlinx.json)
             implementation(libs.room.runtime)
-            implementation(libs.sqlite.bundled)
-            implementation(project(":core:domain"))
+            implementation(libs.ktor.client.core)
         }
         androidMain.dependencies {
-            implementation(libs.ktor.client.okhttp)
-            implementation(libs.koin.android)
-            api(libs.koin.androidx.compose)
+
         }
         iosMain.dependencies {
             implementation(libs.ktor.client.darwin)
@@ -73,12 +63,4 @@ libres {
     generatedClassName = "SharedRes"
     camelCaseNamesForAppleFramework = true
     baseLocaleLanguageCode = "en"
-}
-
-room {
-    schemaDirectory("$projectDir/schemas")
-}
-
-dependencies {
-    ksp(libs.room.compiler)
 }
