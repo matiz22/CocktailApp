@@ -35,9 +35,6 @@ kotlin {
             implementation(libs.room.runtime)
             implementation(libs.ktor.client.core)
         }
-        androidMain.dependencies {
-
-        }
         iosMain.dependencies {
             implementation(libs.ktor.client.darwin)
         }

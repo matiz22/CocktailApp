@@ -28,9 +28,9 @@ kotlin {
 
     sourceSets {
         commonMain.dependencies {
-            implementation(project(":core:domain"))
-            implementation(project(":core:data"))
-            implementation(project(":cocktails:domain"))
+            implementation(projects.core.domain)
+            implementation(projects.core.data)
+            implementation(projects.cocktails.domain)
             implementation(libs.room.runtime)
             implementation(libs.sqlite.bundled)
             implementation(libs.ktor.client.core)
