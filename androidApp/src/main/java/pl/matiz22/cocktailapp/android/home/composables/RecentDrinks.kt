@@ -11,10 +11,11 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import pl.matiz22.cocktailapp.SharedRes
-import pl.matiz22.cocktailapp.android.drinks.presentation.composables.DrinkVerticalPosition
+import pl.matiz22.cocktailapp.android.drinks.composables.DrinkVerticalPosition
 import pl.matiz22.cocktailapp.android.theme.CocktailsAppTheme
-import pl.matiz22.cocktailapp.cocktails.domain.model.Drink
-import pl.matiz22.cocktailapp.cocktails.domain.model.Drinks
+import pl.matiz22.cocktails.domain.model.Drink
+import pl.matiz22.cocktails.domain.model.Drinks
+
 
 @Composable
 fun RecentDrinks(

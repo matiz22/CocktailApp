@@ -1,11 +1,11 @@
 package pl.matiz22.cocktailapp.cocktails.di
 
 import org.koin.dsl.module
-import pl.matiz22.cocktailapp.cocktails.data.remote.repository.DrinksRepositoryImpl
-import pl.matiz22.cocktailapp.cocktails.data.remote.source.CocktailsDbApi
-import pl.matiz22.cocktailapp.cocktails.data.remote.source.httpClient
-import pl.matiz22.cocktailapp.cocktails.data.remote.util.defaultHttpClientConfig
-import pl.matiz22.cocktailapp.cocktails.domain.repository.remote.DrinksRepository
+import pl.matiz22.cocktails.data.remote.repository.DrinksRepositoryImpl
+import pl.matiz22.cocktails.data.remote.source.CocktailsDbApi
+import pl.matiz22.cocktails.data.remote.source.httpClient
+import pl.matiz22.cocktails.data.remote.util.defaultHttpClientConfig
+import pl.matiz22.cocktails.domain.repository.remote.DrinksRepository
 
 fun cocktailsDataModule() = module {
     single {

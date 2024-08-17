@@ -6,8 +6,8 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import pl.matiz22.cocktailapp.android.home.composables.RecentDrinks
-import pl.matiz22.cocktailapp.cocktails.domain.model.Drink
-import pl.matiz22.cocktailapp.cocktails.domain.model.Drinks
+import pl.matiz22.cocktails.domain.model.Drink
+import pl.matiz22.cocktails.domain.model.Drinks
 
 @Composable
 fun HomeScreen(
