@@ -6,7 +6,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import pl.matiz22.cocktailapp.android.core.presentation.composables.texts.TitleAndDescription
+import pl.matiz22.cocktailapp.android.core.composables.texts.TitleAndDescription
 import pl.matiz22.cocktailapp.android.theme.CocktailsAppTheme
 import pl.matiz22.cocktails.domain.model.Drink
 

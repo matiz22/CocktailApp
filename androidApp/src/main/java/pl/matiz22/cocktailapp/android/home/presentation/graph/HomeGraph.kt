@@ -8,14 +8,14 @@ import androidx.navigation.compose.composable
 import androidx.navigation.navigation
 import org.koin.androidx.compose.koinViewModel
 import pl.matiz22.cocktailapp.SharedRes
-import pl.matiz22.cocktailapp.android.core.presentation.composables.appbar.AppBar
-import pl.matiz22.cocktailapp.android.core.presentation.composables.appscaffold.AppScaffold
-import pl.matiz22.cocktailapp.android.core.presentation.composables.bottombar.BottomBar
-import pl.matiz22.cocktailapp.android.core.presentation.composables.loading.CircularLoading
-import pl.matiz22.cocktailapp.android.core.presentation.composables.texts.TitleAndDescription
-import pl.matiz22.cocktailapp.android.core.presentation.navigation.route.AppRoutes
-import pl.matiz22.cocktailapp.android.core.presentation.navigation.util.navItems
-import pl.matiz22.cocktailapp.android.core.presentation.states.DataState
+import pl.matiz22.cocktailapp.android.core.composables.appbar.AppBar
+import pl.matiz22.cocktailapp.android.core.composables.appscaffold.AppScaffold
+import pl.matiz22.cocktailapp.android.core.composables.bottombar.BottomBar
+import pl.matiz22.cocktailapp.android.core.composables.loading.CircularLoading
+import pl.matiz22.cocktailapp.android.core.composables.texts.TitleAndDescription
+import pl.matiz22.cocktailapp.android.core.navigation.route.AppRoutes
+import pl.matiz22.cocktailapp.android.core.navigation.util.navItems
+import pl.matiz22.cocktailapp.android.core.states.DataState
 import pl.matiz22.cocktailapp.android.home.presentation.screens.HomeScreen
 import pl.matiz22.cocktailapp.android.home.viewmodels.HomeScreenViewModel
 

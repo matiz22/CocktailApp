@@ -3,7 +3,6 @@ package pl.matiz22.cocktailapp.android.drinks.composables
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.interaction.MutableInteractionSource
-import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -26,7 +25,7 @@ import coil.compose.AsyncImage
 import coil.request.ImageRequest
 import io.github.skeptick.libres.compose.painterResource
 import pl.matiz22.cocktailapp.SharedRes
-import pl.matiz22.cocktailapp.android.core.presentation.composables.texts.TitleAndDescription
+import pl.matiz22.cocktailapp.android.core.composables.texts.TitleAndDescription
 import pl.matiz22.cocktailapp.android.theme.CocktailsAppTheme
 import pl.matiz22.cocktails.domain.model.Drink
 import pl.matiz22.cocktails.domain.model.Ingredient

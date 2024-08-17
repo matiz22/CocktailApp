@@ -16,9 +16,9 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import io.github.skeptick.libres.compose.painterResource
 import pl.matiz22.cocktailapp.SharedRes
+import pl.matiz22.cocktailapp.android.core.composables.inputfield.InputTextField
+import pl.matiz22.cocktailapp.android.core.composables.inputfield.LeftIconInputField
 import pl.matiz22.cocktailapp.android.core.presentation.composables.iconbutton.AppIconButton
-import pl.matiz22.cocktailapp.android.core.presentation.composables.inputfield.InputTextField
-import pl.matiz22.cocktailapp.android.core.presentation.composables.inputfield.LeftIconInputField
 import pl.matiz22.cocktailapp.android.drinks.composables.DrinkPosition
 import pl.matiz22.cocktailapp.android.search.events.SearchByNameEvents
 import pl.matiz22.cocktailapp.android.theme.CocktailsAppTheme
