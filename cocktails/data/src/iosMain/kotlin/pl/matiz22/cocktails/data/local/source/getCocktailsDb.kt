@@ -7,7 +7,6 @@ import platform.Foundation.NSHomeDirectory
 fun getCocktailsDb(): CocktailsLocalDb {
     val dbFile = NSHomeDirectory() + "/cocktails.db"
     return Room.databaseBuilder<CocktailsLocalDb>(
-        name = dbFile,
-        factory = { CocktailsLocalDb::class.instantiateImpl() }
+        name = dbFile
     ).setDriver(BundledSQLiteDriver()).build()
 }
