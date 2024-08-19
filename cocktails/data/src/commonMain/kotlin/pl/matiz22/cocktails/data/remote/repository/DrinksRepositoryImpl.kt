@@ -6,11 +6,12 @@ import pl.matiz22.cocktails.domain.model.Drink
 import pl.matiz22.cocktails.domain.model.Drinks
 import pl.matiz22.cocktails.domain.model.DrinksSummary
 import pl.matiz22.cocktails.domain.repository.remote.DrinksRepository
-import pl.matiz22.core.domain.model.Result
 import pl.matiz22.core.domain.model.DataError
+import pl.matiz22.core.domain.model.Result
 
-
-class DrinksRepositoryImpl(private val cocktailsDbApi: CocktailsDbApi) : DrinksRepository {
+class DrinksRepositoryImpl(
+    private val cocktailsDbApi: CocktailsDbApi,
+) : DrinksRepository {
     override suspend fun getDrinksByName(query: String): Result<Drinks, DataError.Network> {
         val networkResult = cocktailsDbApi.getDrinkByName(query)
         return dataModelDrinksToDomain(networkResult)
@@ -31,22 +32,20 @@ class DrinksRepositoryImpl(private val cocktailsDbApi: CocktailsDbApi) : DrinksR
         return dataModelDrinkToDomain(networkResult)
     }
 
-    override suspend fun getDrinksByIngredient(ingredient: String): Result<DrinksSummary, DataError.Network> {
-        return when (val networkResult = cocktailsDbApi.getDrinkByIngredient(ingredient)) {
+    override suspend fun getDrinksByIngredient(ingredient: String): Result<DrinksSummary, DataError.Network> =
+        when (val networkResult = cocktailsDbApi.getDrinkByIngredient(ingredient)) {
             is Result.Success -> Result.Success(networkResult.data.toDrinksSummary())
             is Result.Error -> Result.Error(networkResult.error)
         }
-    }
 
-    private fun dataModelDrinksToDomain(networkResult: Result<DrinksPayload, DataError.Network>): Result<Drinks, DataError.Network> {
-        return when (networkResult) {
+    private fun dataModelDrinksToDomain(networkResult: Result<DrinksPayload, DataError.Network>): Result<Drinks, DataError.Network> =
+        when (networkResult) {
             is Result.Success -> Result.Success(networkResult.data.toDrinks())
             is Result.Error -> Result.Error(networkResult.error)
         }
-    }
 
-    private fun dataModelDrinkToDomain(networkResult: Result<DrinksPayload, DataError.Network>): Result<Drink, DataError.Network> {
-        return when (networkResult) {
+    private fun dataModelDrinkToDomain(networkResult: Result<DrinksPayload, DataError.Network>): Result<Drink, DataError.Network> =
+        when (networkResult) {
             is Result.Success -> {
                 when {
                     networkResult.data.drinks.isNullOrEmpty() -> {
@@ -54,11 +53,15 @@ class DrinksRepositoryImpl(private val cocktailsDbApi: CocktailsDbApi) : DrinksR
                     }
 
                     else -> {
-                        Result.Success(networkResult.data.toDrinks().drinks.first())
+                        Result.Success(
+                            networkResult.data
+                                .toDrinks()
+                                .drinks
+                                .first(),
+                        )
                     }
                 }
             }
             is Result.Error -> Result.Error(networkResult.error)
         }
-    }
 }

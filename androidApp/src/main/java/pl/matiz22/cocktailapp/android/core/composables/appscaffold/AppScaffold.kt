@@ -1,7 +1,6 @@
 package pl.matiz22.cocktailapp.android.core.composables.appscaffold
 
 import androidx.compose.foundation.background
-import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.fillMaxSize
@@ -20,12 +19,17 @@ fun AppScaffold(
     modifier: Modifier = Modifier,
     disableTopPadding: Boolean = false,
     snackbarHostState: SnackbarHostState? = null,
-    topAppbar: @Composable() (() -> Unit)? = null,
-    bottomAppbar: @Composable() (() -> Unit)? = null,
-    content: @Composable (PaddingValues) -> Unit
+    topAppbar:
+    @Composable()
+    (() -> Unit)? = null,
+    bottomAppbar:
+    @Composable()
+    (() -> Unit)? = null,
+    content: @Composable (PaddingValues) -> Unit,
 ) {
     Scaffold(
-        modifier = modifier
+        modifier =
+        modifier
             .fillMaxSize()
             .background(CocktailsAppTheme.colors.background),
         snackbarHost = {
@@ -38,18 +42,17 @@ fun AppScaffold(
         },
         bottomBar = {
             bottomAppbar?.invoke()
-        }
+        },
     ) { paddingValues ->
         Box(
-            modifier = Modifier
+            modifier =
+            Modifier
                 .fillMaxSize()
                 .background(CocktailsAppTheme.colors.background)
-
-
                 .padding(
-                    top = if (!disableTopPadding) paddingValues.calculateTopPadding() else 0.dp
+                    top = if (!disableTopPadding) paddingValues.calculateTopPadding() else 0.dp,
                 ),
-            contentAlignment = Alignment.Center
+            contentAlignment = Alignment.Center,
         ) {
             content(paddingValues)
         }

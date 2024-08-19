@@ -3,11 +3,11 @@ package pl.matiz22.cocktails.data.local.model
 import androidx.room.Embedded
 import androidx.room.Relation
 
-data class DrinkWithIngredients (
+data class DrinkWithIngredients(
     @Embedded val drinkEntity: DrinkEntity,
     @Relation(
         parentColumn = "id",
-        entityColumn = "drinkId"
+        entityColumn = "drinkId",
     )
-    val ingredientsEntity: List<IngredientsEntity>
+    val ingredientsEntity: List<IngredientsEntity>,
 )

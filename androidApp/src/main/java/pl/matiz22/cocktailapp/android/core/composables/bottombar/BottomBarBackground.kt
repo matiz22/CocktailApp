@@ -13,18 +13,18 @@ import pl.matiz22.cocktailapp.android.theme.CocktailsAppTheme
 @Composable
 fun BottomBarBackground(
     modifier: Modifier = Modifier,
-    content: @Composable () -> Unit
+    content: @Composable () -> Unit,
 ) {
     Surface(
         modifier = modifier,
-        color = Color.Transparent
+        color = Color.Transparent,
     ) {
         Box(
-            modifier = Modifier
+            modifier =
+            Modifier
                 .then(
-                    if (isSystemInDarkTheme()) Modifier.alpha(0.8f) else Modifier
-                )
-                .background(CocktailsAppTheme.colors.container)
+                    if (isSystemInDarkTheme()) Modifier.alpha(0.8f) else Modifier,
+                ).background(CocktailsAppTheme.colors.container),
         ) {
             content()
         }

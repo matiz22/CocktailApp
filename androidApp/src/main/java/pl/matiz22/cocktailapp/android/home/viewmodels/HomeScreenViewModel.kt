@@ -12,9 +12,8 @@ import pl.matiz22.core.data.repository.errorMessage
 import pl.matiz22.core.domain.model.Result
 
 class HomeScreenViewModel(
-    private val drinksLocalRepository: DrinksLocalRepository
+    private val drinksLocalRepository: DrinksLocalRepository,
 ) : ViewModel() {
-
     private val _recentDrinks = MutableStateFlow<DataState<Drinks>>(DataState.Loading)
     val recentDrinks = _recentDrinks.asStateFlow()
 

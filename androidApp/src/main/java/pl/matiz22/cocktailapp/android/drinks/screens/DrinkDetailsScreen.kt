@@ -25,55 +25,63 @@ import pl.matiz22.cocktails.domain.model.Drink
 
 @Composable
 fun DrinkDetailsScreen(
-    modifier: Modifier = Modifier,
     drink: Drink,
-    onDrinkDetailsEvent: (DrinkDetailsEvent) -> Unit,
+    modifier: Modifier = Modifier,
     lazyListState: LazyListState = rememberLazyListState(),
+    onDrinkDetailsEvent: (DrinkDetailsEvent) -> Unit,
 ) {
     Box(
-        modifier = modifier
-            .fillMaxSize()
+        modifier =
+        modifier
+            .fillMaxSize(),
     ) {
         LazyColumn(
             modifier = Modifier.fillMaxSize(),
             state = lazyListState,
-            contentPadding = PaddingValues(
+            contentPadding =
+            PaddingValues(
                 start = 6.dp,
                 end = 6.dp,
-                bottom = 6.dp
+                bottom = 6.dp,
             ),
-            verticalArrangement = Arrangement.spacedBy(20.dp)
+            verticalArrangement = Arrangement.spacedBy(20.dp),
         ) {
             item {
                 ImageCard(
-                    modifier = Modifier
+                    modifier =
+                    Modifier
                         .layout { measurable, constraints ->
-                            val placeable = measurable.measure(
-                                constraints.copy(
-                                    maxWidth = constraints.maxWidth + 12.dp.roundToPx()
+                            val placeable =
+                                measurable.measure(
+                                    constraints.copy(
+                                        maxWidth = constraints.maxWidth + 12.dp.roundToPx(),
+                                    ),
                                 )
-                            )
                             layout(placeable.width, placeable.height) {
                                 placeable.place(0, 0)
                             }
                         },
-                    source = drink.image
+                    source = drink.image,
                 )
             }
             item {
                 Row(
                     modifier = Modifier.fillMaxWidth(),
-                    horizontalArrangement = Arrangement.SpaceBetween
+                    horizontalArrangement = Arrangement.SpaceBetween,
                 ) {
                     DrinkInfo(drink = drink)
                     when (drink.liked) {
-                        true -> AppIconButton(
-                            painter = SharedRes.image.heart_fill.painterResource(),
-                            onClick = { onDrinkDetailsEvent(DrinkDetailsEvent.FavouriteClicked) })
+                        true ->
+                            AppIconButton(
+                                painter = SharedRes.image.heart_fill.painterResource(),
+                                onClick = { onDrinkDetailsEvent(DrinkDetailsEvent.FavouriteClicked) },
+                            )
 
-                        false -> AppIconButton(
-                            painter = SharedRes.image.heart_outline.painterResource(),
-                            onClick = { onDrinkDetailsEvent(DrinkDetailsEvent.FavouriteClicked) })
+                        false ->
+                            AppIconButton(
+                                painter = SharedRes.image.heart_outline.painterResource(),
+                                onClick = { onDrinkDetailsEvent(DrinkDetailsEvent.FavouriteClicked) },
+                            )
                     }
                 }
             }

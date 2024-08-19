@@ -12,7 +12,7 @@ import pl.matiz22.core.data.repository.errorMessage
 import pl.matiz22.core.domain.model.Result
 
 class FavouritesScreenViewModel(
-    private val drinksLocalRepository: DrinksLocalRepository
+    private val drinksLocalRepository: DrinksLocalRepository,
 ) : ViewModel() {
     private val _favDrinks = MutableStateFlow<DataState<Drinks>>(DataState.Loading)
     val favDrinks = _favDrinks.asStateFlow()

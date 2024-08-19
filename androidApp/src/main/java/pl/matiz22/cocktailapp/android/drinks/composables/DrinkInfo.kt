@@ -12,26 +12,26 @@ import pl.matiz22.cocktails.domain.model.Drink
 
 @Composable
 fun DrinkInfo(
+    drink: Drink,
     modifier: Modifier = Modifier,
-    drink: Drink
 ) {
     Column(
         modifier = modifier,
-        verticalArrangement = Arrangement.spacedBy(6.dp)
+        verticalArrangement = Arrangement.spacedBy(6.dp),
     ) {
         TitleAndDescription(
             title = drink.name,
-            description = drink.category
+            description = drink.category,
         )
         Text(
             text = drink.alcoholic,
             style = CocktailsAppTheme.typography.paragraphLarge,
-            color = CocktailsAppTheme.colors.fontLight
+            color = CocktailsAppTheme.colors.fontLight,
         )
         Text(
             text = drink.glass,
             style = CocktailsAppTheme.typography.paragraphLarge,
-            color = CocktailsAppTheme.colors.fontLight
+            color = CocktailsAppTheme.colors.fontLight,
         )
     }
 }

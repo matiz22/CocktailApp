@@ -11,8 +11,8 @@ import pl.matiz22.cocktails.domain.model.Drinks
 
 @Composable
 fun HomeScreen(
-    modifier: Modifier = Modifier,
     recentDrinks: Drinks,
+    modifier: Modifier = Modifier,
     navigateToDetails: (Drink) -> Unit,
 ) {
     Box(modifier = modifier) {

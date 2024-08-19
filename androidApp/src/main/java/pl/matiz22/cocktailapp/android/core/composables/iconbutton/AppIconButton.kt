@@ -10,27 +10,27 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.painter.Painter
 import pl.matiz22.cocktailapp.android.theme.CocktailsAppTheme
 
-
 @Composable
 fun AppIconButton(
-    modifier: Modifier = Modifier,
     painter: Painter,
+    modifier: Modifier = Modifier,
     tint: Color = CocktailsAppTheme.colors.onBackground,
     contentDescription: String? = null,
-    onClick: () -> Unit
+    onClick: () -> Unit,
 ) {
     Box(modifier = modifier) {
         IconButton(
             modifier = Modifier,
             onClick = onClick,
-            colors = IconButtonDefaults.iconButtonColors(
-                contentColor = CocktailsAppTheme.colors.onBackground
-            )
+            colors =
+            IconButtonDefaults.iconButtonColors(
+                contentColor = CocktailsAppTheme.colors.onBackground,
+            ),
         ) {
             Icon(
                 painter = painter,
                 tint = tint,
-                contentDescription = contentDescription
+                contentDescription = contentDescription,
             )
         }
     }

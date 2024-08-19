@@ -1,6 +1,5 @@
 package pl.matiz22.cocktailapp.android.core.composables.appbar
 
-import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -22,35 +21,37 @@ import pl.matiz22.cocktailapp.android.core.composables.texts.TitleAndDescription
 import pl.matiz22.cocktailapp.android.core.presentation.composables.iconbutton.AppIconButton
 import pl.matiz22.cocktailapp.android.theme.CocktailsAppTheme
 
-
 @Composable
 fun AppBar(
     modifier: Modifier = Modifier,
     color: Color? = null,
-    leftSideContent: @Composable() () -> Unit = {},
-    rightSideContent: @Composable() () -> Unit = {}
+    leftSideContent:
+    @Composable () -> Unit = {},
+    rightSideContent:
+    @Composable () -> Unit = {},
 ) {
     Surface(
         modifier = modifier,
         color = color ?: CocktailsAppTheme.colors.container,
     ) {
         Row(
-            modifier = Modifier
+            modifier =
+            Modifier
                 .fillMaxWidth()
                 .padding(8.dp),
             verticalAlignment = Alignment.CenterVertically,
-            horizontalArrangement = Arrangement.SpaceBetween
+            horizontalArrangement = Arrangement.SpaceBetween,
         ) {
             Row(
                 verticalAlignment = Alignment.CenterVertically,
-                horizontalArrangement = Arrangement.spacedBy(4.dp)
+                horizontalArrangement = Arrangement.spacedBy(4.dp),
             ) {
                 leftSideContent()
             }
 
             Row(
                 verticalAlignment = Alignment.CenterVertically,
-                horizontalArrangement = Arrangement.spacedBy(2.dp)
+                horizontalArrangement = Arrangement.spacedBy(2.dp),
             ) {
                 rightSideContent()
             }
@@ -64,7 +65,8 @@ fun AppBar(
 private fun AppBarPrev() {
     CocktailsAppTheme {
         Surface(
-            modifier = Modifier.fillMaxSize(), color = CocktailsAppTheme.colors.background
+            modifier = Modifier.fillMaxSize(),
+            color = CocktailsAppTheme.colors.background,
         ) {
             Scaffold(topBar = {
                 AppBar(
@@ -73,20 +75,18 @@ private fun AppBarPrev() {
                     },
                     rightSideContent = {
                         AppIconButton(painter = SharedRes.image.arrow_left.painterResource()) {
-
                         }
                         AppIconButton(painter = SharedRes.image.arrow_left.painterResource()) {
-
                         }
-                    }
+                    },
                 )
             }) {
                 Column(
-                    modifier = Modifier
+                    modifier =
+                    Modifier
                         .fillMaxSize()
-                        .padding(it)
+                        .padding(it),
                 ) {
-
                 }
             }
         }

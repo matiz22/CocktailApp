@@ -3,7 +3,6 @@ package pl.matiz22.cocktailapp.android.theme
 import androidx.compose.runtime.Immutable
 import androidx.compose.ui.graphics.Color
 
-
 sealed class AppColors {
     abstract val color: Color
 
@@ -159,5 +158,5 @@ data class CocktailsColors(
     val container: Color,
     val onBackground: Color,
     val onContainer: Color,
-    val accentBrand: Color = AppColors.BrandAccent.color
+    val accentBrand: Color = AppColors.BrandAccent.color,
 )

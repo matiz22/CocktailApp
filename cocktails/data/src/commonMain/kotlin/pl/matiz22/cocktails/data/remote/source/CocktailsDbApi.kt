@@ -11,9 +11,11 @@ import pl.matiz22.core.data.util.provideDataErrorNetworkForHttpCode
 import pl.matiz22.core.domain.model.DataError
 import pl.matiz22.core.domain.model.Result
 
-class CocktailsDbApi(private val httpClient: HttpClient) {
-    suspend fun getDrinkByName(query: String): Result<DrinksPayload, DataError.Network> {
-        return try {
+class CocktailsDbApi(
+    private val httpClient: HttpClient,
+) {
+    suspend fun getDrinkByName(query: String): Result<DrinksPayload, DataError.Network> =
+        try {
             val response = httpClient.get("search.php?s=$query")
             if (response.status.isSuccess()) {
                 Result.Success(response.body())
@@ -23,10 +25,9 @@ class CocktailsDbApi(private val httpClient: HttpClient) {
         } catch (e: Exception) {
             Result.Error(provideDataErrorNetworkForException(e))
         }
-    }
 
-    suspend fun getDrinksByFirstLetter(letter: Char): Result<DrinksPayload, DataError.Network> {
-        return try {
+    suspend fun getDrinksByFirstLetter(letter: Char): Result<DrinksPayload, DataError.Network> =
+        try {
             val response = httpClient.get("search.php?f=$letter")
             if (response.status.isSuccess()) {
                 Result.Success(response.body())
@@ -36,10 +37,9 @@ class CocktailsDbApi(private val httpClient: HttpClient) {
         } catch (e: Exception) {
             Result.Error(provideDataErrorNetworkForException(e))
         }
-    }
 
-    suspend fun getDrinkById(id: String): Result<DrinksPayload, DataError.Network> {
-        return try {
+    suspend fun getDrinkById(id: String): Result<DrinksPayload, DataError.Network> =
+        try {
             val response = httpClient.get("lookup.php?i=$id")
             if (response.status.isSuccess()) {
                 Result.Success(response.body())
@@ -49,10 +49,9 @@ class CocktailsDbApi(private val httpClient: HttpClient) {
         } catch (e: Exception) {
             Result.Error(provideDataErrorNetworkForException(e))
         }
-    }
 
-    suspend fun getRandomDrink(): Result<DrinksPayload, DataError.Network> {
-        return try {
+    suspend fun getRandomDrink(): Result<DrinksPayload, DataError.Network> =
+        try {
             val response = httpClient.get("random.php")
             if (response.status.isSuccess()) {
                 Result.Success(response.body())
@@ -62,11 +61,10 @@ class CocktailsDbApi(private val httpClient: HttpClient) {
         } catch (e: Exception) {
             Result.Error(provideDataErrorNetworkForException(e))
         }
-    }
 
-    suspend fun getDrinkByIngredient(ingredient: String): Result<DrinksSummaryPayload, DataError.Network> {
-        return try {
-            val response = httpClient.get("filter.php?i=${ingredient}")
+    suspend fun getDrinkByIngredient(ingredient: String): Result<DrinksSummaryPayload, DataError.Network> =
+        try {
+            val response = httpClient.get("filter.php?i=$ingredient")
             if (response.status.isSuccess()) {
                 Result.Success(response.body())
             } else {
@@ -75,5 +73,4 @@ class CocktailsDbApi(private val httpClient: HttpClient) {
         } catch (e: Exception) {
             Result.Error(provideDataErrorNetworkForException(e))
         }
-    }
 }

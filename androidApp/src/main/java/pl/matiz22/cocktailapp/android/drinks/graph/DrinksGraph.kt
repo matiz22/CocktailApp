@@ -38,14 +38,15 @@ fun NavGraphBuilder.drinksGraph(navController: NavController) {
             val scrollOffset by remember { derivedStateOf { lazyListState.firstVisibleItemScrollOffset } }
             val visibleItem by remember { derivedStateOf { lazyListState.firstVisibleItemIndex == 0 } }
             val appBarColor by animateColorAsState(
-                targetValue = if (visibleItem) {
+                targetValue =
+                if (visibleItem) {
                     CocktailsAppTheme.colors.background.copy(
-                        alpha = (scrollOffset / 300f).coerceIn(0f, 1f)
+                        alpha = (scrollOffset / 300f).coerceIn(0f, 1f),
                     )
                 } else {
                     CocktailsAppTheme.colors.background
                 },
-                label = "imageAnimation"
+                label = "imageAnimation",
             )
             val drinksDetailsViewModel =
                 koinViewModel<DrinkDetailsViewModel> { parametersOf(args.drinkId) }
@@ -58,16 +59,17 @@ fun NavGraphBuilder.drinksGraph(navController: NavController) {
                         leftSideContent = {
                             AppIconButton(
                                 painter = SharedRes.image.arrow_left.painterResource(),
-                                tint = if (appBarColor.alpha > 0.8f) {
+                                tint =
+                                if (appBarColor.alpha > 0.8f) {
                                     CocktailsAppTheme.colors.onBackground
                                 } else {
                                     CocktailsAppTheme.colors.monochromatic10
                                 },
                                 onClick = {
                                     navController.navigateUp()
-                                }
+                                },
                             )
-                        }
+                        },
                     )
                 },
             ) {
@@ -79,7 +81,7 @@ fun NavGraphBuilder.drinksGraph(navController: NavController) {
                     is DataState.Success -> {
                         DrinkDetailsScreen(
                             drink = result.data,
-                            onDrinkDetailsEvent = drinksDetailsViewModel::onEvent
+                            onDrinkDetailsEvent = drinksDetailsViewModel::onEvent,
                         )
                     }
 

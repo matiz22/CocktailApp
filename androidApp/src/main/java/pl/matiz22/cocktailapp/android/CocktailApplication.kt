@@ -24,8 +24,8 @@ class CocktailApplication : Application() {
                     drinksViewModelsModule(),
                     databaseModule(applicationContext),
                     favViewModelModule(),
-                    homeViewModelModule()
-                )
+                    homeViewModelModule(),
+                ),
             )
         }
     }

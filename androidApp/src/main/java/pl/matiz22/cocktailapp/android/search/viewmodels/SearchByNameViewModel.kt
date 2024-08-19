@@ -15,37 +15,36 @@ import pl.matiz22.cocktails.domain.repository.remote.DrinksRepository
 import pl.matiz22.core.domain.model.Result
 
 class SearchByNameViewModel(
-    private val drinksRepository: DrinksRepository
+    private val drinksRepository: DrinksRepository,
 ) : ViewModel() {
-
     private var _query = MutableStateFlow("")
     val query = _query.asStateFlow()
 
     private val _drinksResult = MutableStateFlow(Drinks(emptyList()))
 
     @OptIn(FlowPreview::class)
-    val drinksResult = _query
-        .debounce(500L)
-        .combine(_drinksResult) { text, _ ->
-            if (text.isEmpty() || text.isBlank()) {
-                return@combine _drinksResult.value
-            }
-            return@combine when (val result = drinksRepository.getDrinksByName(text)) {
-                is Result.Error -> {
-                    _drinksResult.value
+    val drinksResult =
+        _query
+            .debounce(500L)
+            .combine(_drinksResult) { text, _ ->
+                if (text.isEmpty() || text.isBlank()) {
+                    return@combine _drinksResult.value
                 }
+                return@combine when (val result = drinksRepository.getDrinksByName(text)) {
+                    is Result.Error -> {
+                        _drinksResult.value
+                    }
 
-                is Result.Success -> {
-                    _drinksResult.emit(result.data)
-                    result.data
+                    is Result.Success -> {
+                        _drinksResult.emit(result.data)
+                        result.data
+                    }
                 }
-            }
-        }
-        .stateIn(
-            scope = viewModelScope,
-            started = SharingStarted.WhileSubscribed(500),
-            initialValue = _drinksResult.value
-        )
+            }.stateIn(
+                scope = viewModelScope,
+                started = SharingStarted.WhileSubscribed(500),
+                initialValue = _drinksResult.value,
+            )
 
     fun onEvent(event: SearchByNameEvents) {
         when (event) {

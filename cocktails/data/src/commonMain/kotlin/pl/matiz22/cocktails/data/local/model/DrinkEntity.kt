@@ -13,5 +13,5 @@ data class DrinkEntity(
     val glass: String,
     val instructions: String,
     val image: String,
-    val liked: Boolean
+    val liked: Boolean,
 )

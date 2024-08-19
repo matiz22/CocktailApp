@@ -24,18 +24,18 @@ import pl.matiz22.cocktailapp.android.theme.CocktailsAppTheme
 @Composable
 fun BottomBar(
     modifier: Modifier = Modifier,
-    navItems: List<NavItem> = emptyList()
+    navItems: List<NavItem> = emptyList(),
 ) {
     Box(modifier = modifier) {
         BottomBarBackground {
             Row(
                 modifier = Modifier.fillMaxWidth().padding(16.dp),
-                horizontalArrangement = Arrangement.SpaceAround
+                horizontalArrangement = Arrangement.SpaceAround,
             ) {
                 navItems.forEach { navItem: NavItem ->
                     AppIconButton(
                         painter = navItem.icon,
-                        onClick = navItem.navigate
+                        onClick = navItem.navigate,
                     )
                 }
             }
@@ -48,7 +48,8 @@ fun BottomBar(
 private fun BottomBarPrev() {
     CocktailsAppTheme {
         Surface(
-            modifier = Modifier.fillMaxSize(), color = CocktailsAppTheme.colors.background
+            modifier = Modifier.fillMaxSize(),
+            color = CocktailsAppTheme.colors.background,
         ) {
             Scaffold(
                 topBar = {
@@ -58,24 +59,22 @@ private fun BottomBarPrev() {
                         },
                         rightSideContent = {
                             AppIconButton(painter = SharedRes.image.arrow_left.painterResource()) {
-
                             }
                             AppIconButton(painter = SharedRes.image.arrow_left.painterResource()) {
-
                             }
-                        }
+                        },
                     )
                 },
                 bottomBar = {
                     BottomBar()
-                }
+                },
             ) {
                 Column(
-                    modifier = Modifier
+                    modifier =
+                    Modifier
                         .fillMaxSize()
-                        .padding(it)
+                        .padding(it),
                 ) {
-
                 }
             }
         }

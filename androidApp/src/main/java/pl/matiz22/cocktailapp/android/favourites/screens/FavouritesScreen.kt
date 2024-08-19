@@ -13,18 +13,17 @@ import pl.matiz22.cocktailapp.android.drinks.composables.DrinkPosition
 import pl.matiz22.cocktails.domain.model.Drink
 import pl.matiz22.cocktails.domain.model.Drinks
 
-
 @Composable
 fun FavouritesScreen(
-    modifier: Modifier = Modifier,
     favDrinks: Drinks,
-    navToDetails: (Drink) -> Unit
+    modifier: Modifier = Modifier,
+    navToDetails: (Drink) -> Unit,
 ) {
     Box(modifier = modifier) {
         LazyColumn(
-            modifier = modifier.fillMaxSize(),
+            modifier = Modifier.fillMaxSize(),
             contentPadding = PaddingValues(6.dp),
-            verticalArrangement = Arrangement.spacedBy(6.dp)
+            verticalArrangement = Arrangement.spacedBy(6.dp),
         ) {
             items(favDrinks.drinks) { item: Drink ->
                 DrinkPosition(
@@ -32,7 +31,7 @@ fun FavouritesScreen(
                     withLike = true,
                     onClick = {
                         navToDetails(item)
-                    }
+                    },
                 )
             }
         }

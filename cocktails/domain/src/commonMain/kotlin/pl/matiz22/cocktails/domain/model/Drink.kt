@@ -9,5 +9,5 @@ data class Drink(
     val instructions: String,
     val image: String,
     val ingredientsAndMeasures: IngredientsAndMeasures,
-    val liked: Boolean = false
+    val liked: Boolean = false,
 )
