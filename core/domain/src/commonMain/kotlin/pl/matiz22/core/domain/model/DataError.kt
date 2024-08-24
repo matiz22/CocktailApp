@@ -10,12 +10,12 @@ sealed interface DataError : Error {
         SERVER_ERROR,
         SERIALIZATION,
         UNKNOWN,
-        NOT_FOUND
+        NOT_FOUND,
     }
 
     enum class Local : DataError {
         DISK_FULL,
         DATABASE_ERROR,
-        NOT_FOUND
+        NOT_FOUND,
     }
 }

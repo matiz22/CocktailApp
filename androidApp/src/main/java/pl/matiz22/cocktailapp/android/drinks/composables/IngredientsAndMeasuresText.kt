@@ -22,57 +22,60 @@ import pl.matiz22.cocktails.domain.model.Measure
 
 @Composable
 fun IngredientsAndMeasuresText(
+    ingredientsAndMeasures: IngredientsAndMeasures,
     modifier: Modifier = Modifier,
-    ingredientsAndMeasures: IngredientsAndMeasures
 ) {
     Column(modifier = modifier) {
         Text(
             text = SharedRes.string.drinks_ingredients_and_measure_header,
             style = CocktailsAppTheme.typography.heading3,
-            color = CocktailsAppTheme.colors.font
+            color = CocktailsAppTheme.colors.font,
         )
         Spacer(modifier = Modifier.size(10.dp))
         Column(
-            modifier = Modifier.border(
+            modifier =
+            Modifier.border(
                 width = 2.dp,
-                color = CocktailsAppTheme.colors.onBackground
-            )
+                color = CocktailsAppTheme.colors.onBackground,
+            ),
         ) {
             ingredientsAndMeasures.values.forEach { entry: Map.Entry<Ingredient, Measure> ->
                 Row(
                     modifier = Modifier.fillMaxWidth(),
-                    horizontalArrangement = Arrangement.SpaceBetween
+                    horizontalArrangement = Arrangement.SpaceBetween,
                 ) {
                     Box(
-                        modifier = Modifier
+                        modifier =
+                        Modifier
                             .weight(1f)
                             .border(
                                 width = 1.dp,
-                                color = CocktailsAppTheme.colors.onBackground
-                            )
+                                color = CocktailsAppTheme.colors.onBackground,
+                            ),
                     ) {
                         Text(
                             modifier = Modifier.padding(4.dp),
                             text = entry.key.name,
                             style = CocktailsAppTheme.typography.paragraphSmall,
-                            color = CocktailsAppTheme.colors.font
+                            color = CocktailsAppTheme.colors.font,
                         )
                     }
 
                     Box(
-                        modifier = Modifier
+                        modifier =
+                        Modifier
                             .weight(1f)
                             .border(
                                 width = 1.dp,
-                                color = CocktailsAppTheme.colors.onBackground
-                            )
+                                color = CocktailsAppTheme.colors.onBackground,
+                            ),
                     ) {
                         Text(
                             modifier = Modifier.padding(4.dp),
                             text = entry.value.value,
                             style = CocktailsAppTheme.typography.paragraphSmall,
                             color = CocktailsAppTheme.colors.font,
-                            textAlign = TextAlign.Center
+                            textAlign = TextAlign.Center,
                         )
                     }
                 }

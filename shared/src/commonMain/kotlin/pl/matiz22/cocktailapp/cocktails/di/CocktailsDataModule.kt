@@ -7,11 +7,12 @@ import pl.matiz22.cocktails.data.remote.source.httpClient
 import pl.matiz22.cocktails.data.remote.util.defaultHttpClientConfig
 import pl.matiz22.cocktails.domain.repository.remote.DrinksRepository
 
-fun cocktailsDataModule() = module {
-    single {
-        CocktailsDbApi(httpClient = httpClient(config = defaultHttpClientConfig))
+fun cocktailsDataModule() =
+    module {
+        single {
+            CocktailsDbApi(httpClient = httpClient(config = defaultHttpClientConfig))
+        }
+        single<DrinksRepository> {
+            DrinksRepositoryImpl(get())
+        }
     }
-    single<DrinksRepository> {
-        DrinksRepositoryImpl(get())
-    }
-}

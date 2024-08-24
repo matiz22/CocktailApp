@@ -28,9 +28,7 @@ import pl.matiz22.cocktailapp.android.favourites.screens.FavouritesScreen
 import pl.matiz22.cocktailapp.android.favourites.viewmodels.FavouritesScreenViewModel
 import pl.matiz22.cocktails.domain.model.Drink
 
-fun NavGraphBuilder.favouritesGraph(
-    navController: NavController
-) {
+fun NavGraphBuilder.favouritesGraph(navController: NavController) {
     navigation<AppRoutes.Favourites>(startDestination = AppRoutes.Favourites.FavouritesScreen) {
         composable<AppRoutes.Favourites.FavouritesScreen> { navBackStackEntry ->
             val favouritesScreenViewModel =
@@ -39,12 +37,13 @@ fun NavGraphBuilder.favouritesGraph(
             val lifecycle = navBackStackEntry.lifecycle
 
             DisposableEffect(key1 = lifecycle.currentState) {
-                val observer = LifecycleEventObserver { _: LifecycleOwner, event: Lifecycle.Event ->
-                    when (event) {
-                        Lifecycle.Event.ON_RESUME -> favouritesScreenViewModel.updateFavouritesDrinks()
-                        else -> {}
+                val observer =
+                    LifecycleEventObserver { _: LifecycleOwner, event: Lifecycle.Event ->
+                        when (event) {
+                            Lifecycle.Event.ON_RESUME -> favouritesScreenViewModel.updateFavouritesDrinks()
+                            else -> {}
+                        }
                     }
-                }
                 lifecycle.addObserver(observer)
                 onDispose {
                     lifecycle.removeObserver(observer)
@@ -57,16 +56,16 @@ fun NavGraphBuilder.favouritesGraph(
                         leftSideContent = {
                             TitleAndDescription(
                                 title = SharedRes.string.nav_favourite,
-                                description = SharedRes.string.nav_favourite_favourite_screen_description
+                                description = SharedRes.string.nav_favourite_favourite_screen_description,
                             )
-                        }
+                        },
                     )
                 },
                 bottomAppbar = {
                     BottomBar(
-                        navItems = navItems(navController = navController)
+                        navItems = navItems(navController = navController),
                     )
-                }
+                },
             ) {
                 when (val result = favDrinks) {
                     is DataState.Error -> {
@@ -82,7 +81,7 @@ fun NavGraphBuilder.favouritesGraph(
                             favDrinks = result.data,
                             navToDetails = { drink: Drink ->
                                 navController.navigate(AppRoutes.Drinks.DrinkDetails(drink.id))
-                            }
+                            },
                         )
                     }
                 }

@@ -8,13 +8,11 @@ import androidx.compose.ui.unit.dp
 import pl.matiz22.cocktailapp.android.theme.CocktailsAppTheme
 
 @Composable
-fun CircularLoading(
-    modifier: Modifier = Modifier
-) {
+fun CircularLoading(modifier: Modifier = Modifier) {
     CircularProgressIndicator(
         modifier = modifier,
         color = CocktailsAppTheme.colors.onBackground,
         strokeCap = StrokeCap.Round,
-        strokeWidth = 2.dp
+        strokeWidth = 2.dp,
     )
 }

@@ -8,38 +8,39 @@ import pl.matiz22.cocktailapp.android.core.navigation.model.NavItem
 import pl.matiz22.cocktailapp.android.core.navigation.route.AppRoutes
 
 @Composable
-fun navItems(navController: NavController) = listOf(
-    NavItem(
-        icon = SharedRes.image.home.painterResource(),
-        title = SharedRes.string.nav_home,
-        contentDescription = SharedRes.string.nav_home_description,
-        navigate = {
-            navController.navigate(
-                route = AppRoutes.Home,
-                builder = bottomBarNavOption(navController)
-            )
-        }
-    ),
-    NavItem(
-        icon = SharedRes.image.search.painterResource(),
-        title = SharedRes.string.nav_home,
-        contentDescription = SharedRes.string.nav_home_description,
-        navigate = {
-            navController.navigate(
-                route = AppRoutes.Search,
-                builder = bottomBarNavOption(navController)
-            )
-        }
-    ),
-    NavItem(
-        icon = SharedRes.image.heart_outline.painterResource(),
-        title = SharedRes.string.nav_favourite,
-        contentDescription = SharedRes.string.nav_home_description,
-        navigate = {
-            navController.navigate(
-                route = AppRoutes.Favourites,
-                builder = bottomBarNavOption(navController)
-            )
-        }
+fun navItems(navController: NavController) =
+    listOf(
+        NavItem(
+            icon = SharedRes.image.home.painterResource(),
+            title = SharedRes.string.nav_home,
+            contentDescription = SharedRes.string.nav_home_description,
+            navigate = {
+                navController.navigate(
+                    route = AppRoutes.Home,
+                    builder = bottomBarNavOption(navController),
+                )
+            },
+        ),
+        NavItem(
+            icon = SharedRes.image.search.painterResource(),
+            title = SharedRes.string.nav_home,
+            contentDescription = SharedRes.string.nav_home_description,
+            navigate = {
+                navController.navigate(
+                    route = AppRoutes.Search,
+                    builder = bottomBarNavOption(navController),
+                )
+            },
+        ),
+        NavItem(
+            icon = SharedRes.image.heart_outline.painterResource(),
+            title = SharedRes.string.nav_favourite,
+            contentDescription = SharedRes.string.nav_home_description,
+            navigate = {
+                navController.navigate(
+                    route = AppRoutes.Favourites,
+                    builder = bottomBarNavOption(navController),
+                )
+            },
+        ),
     )
-)

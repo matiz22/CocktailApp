@@ -6,7 +6,9 @@ import platform.Foundation.NSHomeDirectory
 
 fun getCocktailsDb(): CocktailsLocalDb {
     val dbFile = NSHomeDirectory() + "/cocktails.db"
-    return Room.databaseBuilder<CocktailsLocalDb>(
-        name = dbFile
-    ).setDriver(BundledSQLiteDriver()).build()
+    return Room
+        .databaseBuilder<CocktailsLocalDb>(
+            name = dbFile,
+        ).setDriver(BundledSQLiteDriver())
+        .build()
 }

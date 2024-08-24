@@ -19,26 +19,29 @@ interface CocktailDao {
 
     @Transaction
     suspend fun upsertDrinkWithIngredients(drink: Drink) {
-        val parent = upsertDrinkEntity(
-            DrinkEntity(
-                id = drink.id,
-                name = drink.name,
-                category = drink.category,
-                alcoholic = drink.alcoholic,
-                glass = drink.glass,
-                instructions = drink.instructions,
-                image = drink.image,
-                liked = drink.liked
+        val parent =
+            upsertDrinkEntity(
+                DrinkEntity(
+                    id = drink.id,
+                    name = drink.name,
+                    category = drink.category,
+                    alcoholic = drink.alcoholic,
+                    glass = drink.glass,
+                    instructions = drink.instructions,
+                    image = drink.image,
+                    liked = drink.liked,
+                ),
             )
+        upsertIngredientsEntity(
+            drink.ingredientsAndMeasures.values.map { ingredient ->
+                IngredientsEntity(
+                    id = ingredient.key.id ?: 0,
+                    drinkId = drink.id,
+                    ingredientName = ingredient.key.name,
+                    measure = ingredient.value.value,
+                )
+            },
         )
-        upsertIngredientsEntity(drink.ingredientsAndMeasures.values.map { ingredient ->
-            IngredientsEntity(
-                id = ingredient.key.id ?: 0,
-                drinkId = drink.id,
-                ingredientName = ingredient.key.name,
-                measure = ingredient.value.value
-            )
-        })
     }
 
     @Query("SELECT * FROM Drinks")

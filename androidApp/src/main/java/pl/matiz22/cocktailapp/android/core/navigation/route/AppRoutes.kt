@@ -28,6 +28,8 @@ sealed class AppRoutes {
         data object DrinkHome : AppRoutes()
 
         @Serializable
-        data class DrinkDetails(val drinkId: String) : AppRoutes()
+        data class DrinkDetails(
+            val drinkId: String,
+        ) : AppRoutes()
     }
 }

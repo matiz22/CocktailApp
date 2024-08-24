@@ -1,6 +1,5 @@
 package pl.matiz22.cocktails.data.remote.model
 
-
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 import pl.matiz22.cocktails.domain.model.DrinkSummary
@@ -12,9 +11,12 @@ data class DrinkSummaryPayload(
     @SerialName("strDrinkThumb")
     val strDrinkThumb: String,
     @SerialName("idDrink")
-    val idDrink: String
+    val idDrink: String,
 ) {
-    fun toDrinkSummary() = DrinkSummary(
-        strDrink, strDrinkThumb, idDrink
-    )
+    fun toDrinkSummary() =
+        DrinkSummary(
+            strDrink,
+            strDrinkThumb,
+            idDrink,
+        )
 }

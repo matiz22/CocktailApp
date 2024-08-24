@@ -7,13 +7,13 @@ import pl.matiz22.cocktailapp.android.theme.CocktailsAppTheme
 
 @Composable
 fun MainButtonText(
+    text: String,
     modifier: Modifier = Modifier,
-    text: String
 ) {
     Text(
         modifier = modifier,
         text = text,
         style = CocktailsAppTheme.typography.paragraphLarge,
-        color = CocktailsAppTheme.colors.fontWhite
+        color = CocktailsAppTheme.colors.fontWhite,
     )
 }

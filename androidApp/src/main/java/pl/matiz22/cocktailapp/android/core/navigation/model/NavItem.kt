@@ -6,5 +6,5 @@ data class NavItem(
     val icon: Painter,
     val title: String,
     val contentDescription: String?,
-    val navigate: () -> Unit
+    val navigate: () -> Unit,
 )

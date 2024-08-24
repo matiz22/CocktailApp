@@ -17,7 +17,7 @@ import pl.matiz22.core.domain.model.Result
 class DrinkDetailsViewModel(
     private val drinkId: String,
     private val drinksRepository: DrinksRepository,
-    private val drinksLocalRepository: DrinksLocalRepository
+    private val drinksLocalRepository: DrinksLocalRepository,
 ) : ViewModel() {
     private val _drink = MutableStateFlow<DataState<Drink>>(DataState.Loading)
     val drink = _drink.asStateFlow()
@@ -62,12 +62,15 @@ class DrinkDetailsViewModel(
                 }
 
                 is Result.Success -> {
-                    val currentDrink = networkResult.data.copy(
-                        liked = (localResult as? Result.Success<Drink, DataError.Local>)
-                            ?.data?.liked ?: false
-                    )
+                    val currentDrink =
+                        networkResult.data.copy(
+                            liked =
+                            (localResult as? Result.Success<Drink, DataError.Local>)
+                                ?.data
+                                ?.liked ?: false,
+                        )
                     _drink.emit(
-                        DataState.Success(currentDrink)
+                        DataState.Success(currentDrink),
                     )
                     drinksLocalRepository.saveDrink(currentDrink)
                 }

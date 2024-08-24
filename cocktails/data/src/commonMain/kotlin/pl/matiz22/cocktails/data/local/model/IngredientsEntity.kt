@@ -9,5 +9,5 @@ data class IngredientsEntity(
     val id: Int = 0,
     val drinkId: String,
     val ingredientName: String,
-    val measure: String
+    val measure: String,
 )

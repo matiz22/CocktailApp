@@ -27,17 +27,18 @@ import pl.matiz22.cocktails.domain.model.Drinks
 
 @Composable
 fun SearchByNameScreen(
-    modifier: Modifier = Modifier,
     query: String,
     drinks: Drinks,
     onEvent: (SearchByNameEvents) -> Unit,
-    pickResult: (Drink) -> Unit
+    pickResult: (Drink) -> Unit,
+    modifier: Modifier = Modifier,
 ) {
     Box(modifier = modifier) {
         Column(
-            modifier = Modifier
+            modifier =
+            Modifier
                 .fillMaxSize()
-                .background(CocktailsAppTheme.colors.background)
+                .background(CocktailsAppTheme.colors.background),
         ) {
             InputTextField(
                 modifier = Modifier.padding(10.dp),
@@ -52,18 +53,18 @@ fun SearchByNameScreen(
                     AppIconButton(
                         painter = SharedRes.image.x.painterResource(),
                         contentDescription = SharedRes.string.action_clear_description,
-                        onClick = { onEvent(SearchByNameEvents.ClearQuery) }
+                        onClick = { onEvent(SearchByNameEvents.ClearQuery) },
                     )
-                }
+                },
             )
             LazyColumn(
                 contentPadding = PaddingValues(6.dp),
-                verticalArrangement = Arrangement.spacedBy(6.dp)
+                verticalArrangement = Arrangement.spacedBy(6.dp),
             ) {
                 items(drinks.drinks) { drink: Drink ->
                     DrinkPosition(
                         drink = drink,
-                        onClick = { pickResult(drink) }
+                        onClick = { pickResult(drink) },
                     )
                 }
 

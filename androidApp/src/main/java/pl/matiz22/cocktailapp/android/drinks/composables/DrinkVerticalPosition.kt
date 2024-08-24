@@ -3,11 +3,9 @@ package pl.matiz22.cocktailapp.android.drinks.composables
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.interaction.MutableInteractionSource
-import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
@@ -31,13 +29,14 @@ import pl.matiz22.cocktails.domain.model.Drink
 
 @Composable
 fun DrinkVerticalPosition(
-    modifier: Modifier = Modifier,
     drink: Drink,
+    modifier: Modifier = Modifier,
     withLike: Boolean = false,
-    onClick: (() -> Unit)? = null
+    onClick: (() -> Unit)? = null,
 ) {
     Box(
-        modifier = modifier
+        modifier =
+        modifier
             .clip(RoundedCornerShape(8.dp))
             .background(CocktailsAppTheme.colors.container)
             .then(
@@ -45,65 +44,70 @@ fun DrinkVerticalPosition(
                     Modifier.clickable(
                         onClick = onClick,
                         interactionSource = remember { MutableInteractionSource() },
-                        indication = rememberRipple()
+                        indication = rememberRipple(),
                     )
                 } else {
                     Modifier
-                }
-            )
+                },
+            ),
     ) {
         Column(
-            modifier = Modifier
+            modifier =
+            Modifier
                 .fillMaxWidth()
                 .padding(8.dp),
             verticalArrangement = Arrangement.spacedBy(12.dp),
-            horizontalAlignment = Alignment.CenterHorizontally
+            horizontalAlignment = Alignment.CenterHorizontally,
         ) {
-
             AsyncImage(
-                modifier = Modifier
+                modifier =
+                Modifier
                     .padding(8.dp)
                     .background(
                         color = CocktailsAppTheme.colors.container,
-                        shape = RoundedCornerShape(8.dp)
-                    )
-                    .size(90.dp)
+                        shape = RoundedCornerShape(8.dp),
+                    ).size(90.dp)
                     .clip(RoundedCornerShape(8.dp)),
-                model = ImageRequest.Builder(LocalContext.current)
+                model =
+                ImageRequest
+                    .Builder(LocalContext.current)
                     .data(drink.image)
                     .crossfade(true)
                     .build(),
                 contentDescription = drink.image,
                 placeholder = SharedRes.image.drink_icon.painterResource(),
-                error = SharedRes.image.drink_icon.painterResource()
+                error = SharedRes.image.drink_icon.painterResource(),
             )
             TitleAndDescription(title = drink.name, description = drink.category)
         }
         if (withLike) {
             Box(
-                modifier = Modifier
+                modifier =
+                Modifier
                     .size(50.dp)
                     .padding(8.dp),
-                contentAlignment = Alignment.Center
+                contentAlignment = Alignment.Center,
             ) {
                 Icon(
-                    painter = if (drink.liked) {
+                    painter =
+                    if (drink.liked) {
                         SharedRes.image.heart_fill.painterResource()
                     } else {
                         SharedRes.image.heart_outline.painterResource()
                     },
-                    contentDescription = if (drink.liked) {
+                    contentDescription =
+                    if (drink.liked) {
                         SharedRes.string.drinks_liked
                     } else {
                         SharedRes.string.drinks_not_liked
                     },
-                    tint = if (drink.liked) {
+                    tint =
+                    if (drink.liked) {
                         CocktailsAppTheme.colors.accentBrand
                     } else {
                         CocktailsAppTheme.colors.onContainer
-                    }
+                    },
                 )
-
             }
         }
     }

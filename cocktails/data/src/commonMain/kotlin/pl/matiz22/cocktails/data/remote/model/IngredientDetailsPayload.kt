@@ -1,6 +1,5 @@
 package pl.matiz22.cocktails.data.remote.model
 
-
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
@@ -17,5 +16,5 @@ data class IngredientDetailsPayload(
     @SerialName("strAlcohol")
     val strAlcohol: String,
     @SerialName("strABV")
-    val strABV: String?
+    val strABV: String?,
 )

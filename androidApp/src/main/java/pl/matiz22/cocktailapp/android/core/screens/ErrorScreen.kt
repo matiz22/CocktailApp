@@ -18,29 +18,29 @@ import pl.matiz22.cocktailapp.android.theme.CocktailsAppTheme
 
 @Composable
 fun ErrorScreen(
+    errorMessage: String,
     modifier: Modifier = Modifier,
-    errorMessage: String
 ) {
     Box(
         modifier = modifier,
-        contentAlignment = Alignment.Center
+        contentAlignment = Alignment.Center,
     ) {
         Column(
             modifier = Modifier.fillMaxSize(),
             horizontalAlignment = Alignment.CenterHorizontally,
-            verticalArrangement = Arrangement.Center
+            verticalArrangement = Arrangement.Center,
         ) {
             Icon(
                 modifier = Modifier.fillMaxSize(0.5f),
                 painter = SharedRes.image.alert_octagon.painterResource(),
                 contentDescription = errorMessage,
-                tint = CocktailsAppTheme.colors.error
+                tint = CocktailsAppTheme.colors.error,
             )
             Spacer(modifier = Modifier.size(20.dp))
             Text(
                 text = errorMessage,
                 style = CocktailsAppTheme.typography.heading1,
-                color = CocktailsAppTheme.colors.error
+                color = CocktailsAppTheme.colors.error,
             )
         }
     }

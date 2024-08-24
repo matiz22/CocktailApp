@@ -5,6 +5,8 @@ import androidx.compose.ui.platform.LocalDensity
 import pl.matiz22.cocktailapp.android.theme.CocktailsAppTheme
 
 @Composable
-fun provideSizeForContentBasedOnFont() = with(LocalDensity.current) {
-    CocktailsAppTheme.typography.paragraphLarge.fontSize.toDp()
-}
+fun provideSizeForContentBasedOnFont() =
+    with(LocalDensity.current) {
+        CocktailsAppTheme.typography.paragraphLarge.fontSize
+            .toDp()
+    }

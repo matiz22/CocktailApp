@@ -7,8 +7,10 @@ import androidx.sqlite.driver.bundled.BundledSQLiteDriver
 fun getCocktailsDb(context: Context): CocktailsLocalDb {
     val appContext = context.applicationContext
     val dbFile = appContext.getDatabasePath("cocktails.db")
-    return Room.databaseBuilder<CocktailsLocalDb>(
-        context = appContext,
-        name = dbFile.absolutePath
-    ).setDriver(BundledSQLiteDriver()).build()
+    return Room
+        .databaseBuilder<CocktailsLocalDb>(
+            context = appContext,
+            name = dbFile.absolutePath,
+        ).setDriver(BundledSQLiteDriver())
+        .build()
 }

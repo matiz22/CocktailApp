@@ -39,43 +39,45 @@ import pl.matiz22.cocktailapp.android.theme.CocktailsAppTheme
 
 @Composable
 fun MainButton(
-    modifier: Modifier = Modifier,
     onClick: () -> Unit,
+    modifier: Modifier = Modifier,
     enabled: Boolean = true,
     isLoading: Boolean = false,
     content: @Composable () -> Unit,
-
-    ) {
+) {
     val alphaButton = if (enabled) 1f else 0.7f
 
     Box(modifier = modifier) {
         Box(
-            modifier = Modifier
+            modifier =
+            Modifier
                 .clip(CircleShape)
                 .alpha(alphaButton)
-                .clickable(
+                .fillMaxWidth()
+                .background(
+                    brush =
+                    Brush.linearGradient(
+                        colors =
+                        listOf(
+                            CocktailsAppTheme.colors.brand05,
+                            CocktailsAppTheme.colors.accentBrand,
+                        ),
+                        start = Offset.Zero,
+                        end = Offset.Infinite,
+                    ),
+                    shape = CircleShape,
+                ).clickable(
                     enabled = enabled && !isLoading,
                     onClick = onClick,
                     interactionSource = remember { MutableInteractionSource() },
-                    indication = rememberRipple()
-                )
-                .fillMaxWidth()
-                .background(
-                    brush = Brush.linearGradient(
-                        colors = listOf(
-                            CocktailsAppTheme.colors.brand05,
-                            CocktailsAppTheme.colors.accentBrand
-                        ),
-                        start = Offset.Zero,
-                        end = Offset.Infinite
-                    ), shape = CircleShape
+                    indication = rememberRipple(),
                 ),
-            contentAlignment = Alignment.Center
+            contentAlignment = Alignment.Center,
         ) {
             Row(
                 modifier = Modifier.padding(16.dp),
                 verticalAlignment = Alignment.CenterVertically,
-                horizontalArrangement = Arrangement.spacedBy(16.dp)
+                horizontalArrangement = Arrangement.spacedBy(16.dp),
             ) {
                 if (!isLoading) {
                     content()
@@ -84,7 +86,7 @@ fun MainButton(
                         modifier = Modifier.size(provideSizeForContentBasedOnFont()),
                         color = CocktailsAppTheme.colors.fontWhite,
                         strokeCap = StrokeCap.Round,
-                        strokeWidth = 2.dp
+                        strokeWidth = 2.dp,
                     )
                 }
             }
@@ -97,30 +99,34 @@ fun MainButton(
 private fun MainButtonPrev() {
     CocktailsAppTheme {
         Surface(
-            modifier = Modifier.fillMaxSize(), color = CocktailsAppTheme.colors.background
+            modifier = Modifier.fillMaxSize(),
+            color = CocktailsAppTheme.colors.background,
         ) {
             var state by remember {
                 mutableStateOf(true)
             }
-            Scaffold(topBar = { AppBar(
-                leftSideContent = {
-                    TitleAndDescription(title = "Sample", description = "Sample")
-                },
-                rightSideContent = {
-
-                }
-            ) }) {
+            Scaffold(topBar = {
+                AppBar(
+                    leftSideContent = {
+                        TitleAndDescription(title = "Sample", description = "Sample")
+                    },
+                    rightSideContent = {
+                    },
+                )
+            }) {
                 Column(
-                    modifier = Modifier
+                    modifier =
+                    Modifier
                         .fillMaxSize()
-                        .padding(it)
+                        .padding(it),
                 ) {
                     MainButton(onClick = { /*TODO*/ }, enabled = false) {
                         MainButtonText(text = "Main button")
                     }
                     MainButton(
                         modifier = Modifier.fillMaxWidth(0.5f),
-                        onClick = { state = !state }) {
+                        onClick = { state = !state },
+                    ) {
                         MainButtonText(text = "Main button")
                     }
                     MainButton(onClick = { /*TODO*/ }, enabled = false, isLoading = true) {
@@ -129,21 +135,21 @@ private fun MainButtonPrev() {
                     MainButton(
                         modifier = Modifier.fillMaxWidth(0.5f),
                         onClick = { /*TODO*/ },
-                        isLoading = true
+                        isLoading = true,
                     ) {
                         MainButtonText(text = "Main button")
                     }
                     MainButton(
                         modifier = Modifier.fillMaxWidth(0.5f),
                         onClick = { /*TODO*/ },
-                        enabled = state
+                        enabled = state,
                     ) {
                         MainButtonText(text = "Main button")
                     }
                     MainButton(
                         modifier = Modifier.fillMaxWidth(0.5f),
                         onClick = { /*TODO*/ },
-                        enabled = state
+                        enabled = state,
                     ) {
                         MainButtonText(text = "Main button")
                         MainButtonIcon(painter = SharedRes.image.arrow_left.painterResource())

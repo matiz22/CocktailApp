@@ -18,9 +18,7 @@ import pl.matiz22.cocktailapp.android.search.screens.SearchByNameScreen
 import pl.matiz22.cocktailapp.android.search.viewmodels.SearchByNameViewModel
 import pl.matiz22.cocktails.domain.model.Drink
 
-fun NavGraphBuilder.searchGraph(
-    navController: NavController
-) {
+fun NavGraphBuilder.searchGraph(navController: NavController) {
     navigation<AppRoutes.Search>(startDestination = AppRoutes.Search.SearchByNameScreen) {
         composable<AppRoutes.Search.SearchByNameScreen> { navBackstackEntry ->
             val searchByNameViewModel =
@@ -33,16 +31,16 @@ fun NavGraphBuilder.searchGraph(
                         leftSideContent = {
                             TitleAndDescription(
                                 title = SharedRes.string.nav_search,
-                                description = SharedRes.string.nav_search_search_by_name_description
+                                description = SharedRes.string.nav_search_search_by_name_description,
                             )
-                        }
+                        },
                     )
                 },
                 bottomAppbar = {
                     BottomBar(
-                        navItems = navItems(navController = navController)
+                        navItems = navItems(navController = navController),
                     )
-                }
+                },
             ) {
                 SearchByNameScreen(
                     query = query,
@@ -50,7 +48,7 @@ fun NavGraphBuilder.searchGraph(
                     onEvent = searchByNameViewModel::onEvent,
                     pickResult = { drink: Drink ->
                         navController.navigate(AppRoutes.Drinks.DrinkDetails(drinkId = drink.id))
-                    }
+                    },
                 )
             }
         }

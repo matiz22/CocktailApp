@@ -5,7 +5,7 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.material3.*
+import androidx.compose.material3.Surface
 import androidx.compose.ui.Modifier
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.rememberNavController
@@ -24,14 +24,15 @@ class MainActivity : ComponentActivity() {
             CocktailsAppTheme {
                 Surface(
                     modifier = Modifier.fillMaxSize(),
-                    color = CocktailsAppTheme.colors.background
+                    color = CocktailsAppTheme.colors.background,
                 ) {
                     NavHost(
-                        modifier = Modifier
+                        modifier =
+                        Modifier
                             .fillMaxSize()
                             .background(CocktailsAppTheme.colors.background),
                         navController = navController,
-                        startDestination = AppRoutes.Home
+                        startDestination = AppRoutes.Home,
                     ) {
                         homeGraph(navController)
                         searchGraph(navController)

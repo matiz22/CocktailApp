@@ -16,26 +16,26 @@ import pl.matiz22.cocktailapp.android.theme.CocktailsAppTheme
 import pl.matiz22.cocktails.domain.model.Drink
 import pl.matiz22.cocktails.domain.model.Drinks
 
-
 @Composable
 fun RecentDrinks(
-    modifier: Modifier = Modifier,
     drinks: Drinks,
-    onDrinkClick: (Drink) -> Unit
+    modifier: Modifier = Modifier,
+    onDrinkClick: (Drink) -> Unit,
 ) {
     Surface(modifier = modifier, color = CocktailsAppTheme.colors.container) {
         Column(modifier = Modifier.padding(8.dp)) {
             Text(
                 text = SharedRes.string.home_recent_drinks,
                 style = CocktailsAppTheme.typography.heading3,
-                color = CocktailsAppTheme.colors.font
+                color = CocktailsAppTheme.colors.font,
             )
             LazyRow {
                 items(drinks.drinks) { drink ->
                     DrinkVerticalPosition(
                         modifier = Modifier.fillMaxSize(),
                         drink = drink,
-                        onClick = { onDrinkClick(drink) })
+                        onClick = { onDrinkClick(drink) },
+                    )
                 }
             }
         }

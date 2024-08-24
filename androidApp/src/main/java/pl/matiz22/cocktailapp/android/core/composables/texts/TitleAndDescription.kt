@@ -11,21 +11,21 @@ import pl.matiz22.cocktailapp.android.theme.CocktailsAppTheme
 
 @Composable
 fun TitleAndDescription(
-    modifier: Modifier = Modifier,
     title: String,
-    description: String
+    description: String,
+    modifier: Modifier = Modifier,
 ) {
     Box(modifier = modifier) {
         Column(verticalArrangement = Arrangement.spacedBy(8.dp)) {
             Text(
                 text = title,
                 style = CocktailsAppTheme.typography.heading1,
-                color = CocktailsAppTheme.colors.font
+                color = CocktailsAppTheme.colors.font,
             )
             Text(
                 text = description,
                 style = CocktailsAppTheme.typography.paragraphLarge,
-                color = CocktailsAppTheme.colors.fontLight
+                color = CocktailsAppTheme.colors.fontLight,
             )
         }
     }

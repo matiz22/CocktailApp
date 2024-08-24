@@ -38,9 +38,9 @@ import pl.matiz22.cocktailapp.android.theme.CocktailsAppTheme
 
 @Composable
 fun InputTextField(
-    modifier: Modifier = Modifier,
     value: String,
     onValueChange: (String) -> Unit,
+    modifier: Modifier = Modifier,
     label: String? = null,
     placeholder: String? = null,
     error: String? = null,
@@ -60,23 +60,25 @@ fun InputTextField(
         maxLines = maxLines,
         textStyle = CocktailsAppTheme.typography.paragraphLarge.copy(color = CocktailsAppTheme.colors.font),
         visualTransformation = visualTransformation,
-        cursorBrush = Brush.linearGradient(
+        cursorBrush =
+        Brush.linearGradient(
             listOf(
                 CocktailsAppTheme.colors.onBackground,
-                CocktailsAppTheme.colors.onBackground
-            )
+                CocktailsAppTheme.colors.onBackground,
+            ),
         ),
         decorationBox = { innerTextField ->
             Column(
-                verticalArrangement = Arrangement.spacedBy(2.dp)
+                verticalArrangement = Arrangement.spacedBy(2.dp),
             ) {
                 Text(
                     text = label ?: "",
                     style = CocktailsAppTheme.typography.paragraphLarge,
-                    color = CocktailsAppTheme.colors.font
+                    color = CocktailsAppTheme.colors.font,
                 )
                 Box(
-                    modifier = Modifier
+                    modifier =
+                    Modifier
                         .clip(CircleShape)
                         .fillMaxWidth()
                         .background(color = CocktailsAppTheme.colors.container)
@@ -87,35 +89,38 @@ fun InputTextField(
                                     .border(
                                         width = 2.dp,
                                         color = CocktailsAppTheme.colors.error,
-                                        shape = CircleShape
+                                        shape = CircleShape,
                                     )
                             } else {
                                 Modifier
                                     .background(color = CocktailsAppTheme.colors.error.copy(alpha = 0.05f))
                                     .border(
                                         width = 2.dp,
-                                        brush = Brush.linearGradient(
-                                            colors = listOf(
+                                        brush =
+                                        Brush.linearGradient(
+                                            colors =
+                                            listOf(
                                                 CocktailsAppTheme.colors.brand05,
-                                                CocktailsAppTheme.colors.accentBrand
+                                                CocktailsAppTheme.colors.accentBrand,
                                             ),
                                         ),
-                                        shape = CircleShape
+                                        shape = CircleShape,
                                     )
-                            }
-                        )
+                            },
+                        ),
                 ) {
                     Row(
-                        modifier = Modifier
+                        modifier =
+                        Modifier
                             .fillMaxWidth()
                             .padding(10.dp),
                         verticalAlignment = Alignment.CenterVertically,
-                        horizontalArrangement = Arrangement.SpaceBetween
+                        horizontalArrangement = Arrangement.SpaceBetween,
                     ) {
                         Row(
                             modifier = Modifier.weight(1f),
                             horizontalArrangement = Arrangement.spacedBy(4.dp),
-                            verticalAlignment = Alignment.CenterVertically
+                            verticalAlignment = Alignment.CenterVertically,
                         ) {
                             if (leftIcon != null) {
                                 leftIcon()
@@ -128,8 +133,12 @@ fun InputTextField(
                                 Text(
                                     text = placeholder ?: "",
                                     style = CocktailsAppTheme.typography.paragraphLarge,
-                                    color = if (isSystemInDarkTheme()) CocktailsAppTheme.colors.fontLight
-                                    else CocktailsAppTheme.colors.fontMid
+                                    color =
+                                    if (isSystemInDarkTheme()) {
+                                        CocktailsAppTheme.colors.fontLight
+                                    } else {
+                                        CocktailsAppTheme.colors.fontMid
+                                    },
                                 )
                             }
                         }
@@ -143,10 +152,10 @@ fun InputTextField(
                 Text(
                     text = error ?: "",
                     style = CocktailsAppTheme.typography.paragraphSmall,
-                    color = CocktailsAppTheme.colors.error
+                    color = CocktailsAppTheme.colors.error,
                 )
             }
-        }
+        },
     )
 }
 
@@ -155,30 +164,32 @@ fun InputTextField(
 private fun PrevInputTextField() {
     var text by remember {
         mutableStateOf(
-            "test"
+            "test",
         )
     }
     CocktailsAppTheme {
         Surface(
             modifier = Modifier.fillMaxSize(),
-            color = Color.Black
+            color = Color.Black,
         ) {
             Scaffold(
-                modifier = Modifier
+                modifier =
+                Modifier
                     .fillMaxSize()
-                    .background(CocktailsAppTheme.colors.background)
+                    .background(CocktailsAppTheme.colors.background),
             ) { paddingValues ->
                 Column(
-                    modifier = Modifier
+                    modifier =
+                    Modifier
                         .fillMaxSize()
-                        .padding(paddingValues)
+                        .padding(paddingValues),
                 ) {
                     InputTextField(
                         value = text,
                         onValueChange = { text = it },
                         label = "Test",
                         placeholder = "Test",
-                        error = "Test"
+                        error = "Test",
                     )
                     InputTextField(
                         value = text,
@@ -194,11 +205,10 @@ private fun PrevInputTextField() {
                         maxLines = 3,
                         leftIcon = {
                             AppIconButton(
-                                painter = SharedRes.image.search.painterResource()
+                                painter = SharedRes.image.search.painterResource(),
                             ) {
-
                             }
-                        }
+                        },
                     )
                     InputTextField(
                         value = text,
@@ -211,11 +221,10 @@ private fun PrevInputTextField() {
                         },
                         rightIcon = {
                             AppIconButton(
-                                painter = SharedRes.image.search.painterResource()
+                                painter = SharedRes.image.search.painterResource(),
                             ) {
-
                             }
-                        }
+                        },
                     )
                 }
             }

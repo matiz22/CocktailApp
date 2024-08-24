@@ -19,10 +19,7 @@ import pl.matiz22.cocktailapp.android.core.states.DataState
 import pl.matiz22.cocktailapp.android.home.presentation.screens.HomeScreen
 import pl.matiz22.cocktailapp.android.home.viewmodels.HomeScreenViewModel
 
-
-fun NavGraphBuilder.homeGraph(
-    navController: NavController
-) {
+fun NavGraphBuilder.homeGraph(navController: NavController) {
     navigation<AppRoutes.Home>(startDestination = AppRoutes.Home.HomeScreen) {
         composable<AppRoutes.Home.HomeScreen> {
             val homeViewModel = koinViewModel<HomeScreenViewModel>()
@@ -33,16 +30,16 @@ fun NavGraphBuilder.homeGraph(
                         leftSideContent = {
                             TitleAndDescription(
                                 title = SharedRes.string.nav_home,
-                                description = SharedRes.string.nav_home_home_screen_description
+                                description = SharedRes.string.nav_home_home_screen_description,
                             )
-                        }
+                        },
                     )
                 },
                 bottomAppbar = {
                     BottomBar(
-                        navItems = navItems(navController = navController)
+                        navItems = navItems(navController = navController),
                     )
-                }
+                },
             ) {
                 when (val drinks = recentDrinks) {
                     is DataState.Error -> TODO()
@@ -55,7 +52,7 @@ fun NavGraphBuilder.homeGraph(
                             recentDrinks = drinks.data,
                             navigateToDetails = { drink ->
                                 navController.navigate(AppRoutes.Drinks.DrinkDetails(drink.id))
-                            }
+                            },
                         )
                     }
                 }

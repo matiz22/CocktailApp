@@ -11,22 +11,23 @@ import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.unit.dp
 import pl.matiz22.cocktailapp.android.theme.CocktailsAppTheme
 
+@Suppress("ktlint:compose:modifier-missing-check")
 @Composable
 fun LeftIconInputField(
-    modifier: Modifier = Modifier,
     painter: Painter,
-    tint: Color = CocktailsAppTheme.colors.onBackground
+    tint: Color = CocktailsAppTheme.colors.onBackground,
 ) {
     Box(
         modifier = Modifier.size(48.dp),
-        contentAlignment = Alignment.Center
+        contentAlignment = Alignment.Center,
     ) {
         Icon(
-            modifier = modifier
+            modifier =
+            Modifier
                 .size(24.dp),
             painter = painter,
             contentDescription = null,
-            tint = tint
+            tint = tint,
         )
     }
 }
