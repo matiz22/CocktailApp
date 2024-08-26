@@ -13,7 +13,8 @@ let package = Package(
 	],
 	targets: [
 		.target(
-			name: "Core"
+			name: "Core",
+			resources: [.process("Resources/Fonts")]
 		),
 		.testTarget(
 			name: "CoreTests",
