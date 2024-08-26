@@ -13,7 +13,9 @@ let package = Package(
 	],
 	targets: [
 		.target(
-			name: "Core"),
+			name: "Core",
+			resources: [.process("Colors.xcassets")]
+		),
 		.testTarget(
 			name: "CoreTests",
 			dependencies: ["Core"]
