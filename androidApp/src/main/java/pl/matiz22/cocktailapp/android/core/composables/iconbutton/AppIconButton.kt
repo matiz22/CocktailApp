@@ -1,4 +1,4 @@
-package pl.matiz22.cocktailapp.android.core.presentation.composables.iconbutton
+package pl.matiz22.cocktailapp.android.core.composables.iconbutton
 
 import androidx.compose.foundation.layout.Box
 import androidx.compose.material3.Icon

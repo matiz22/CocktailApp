@@ -15,7 +15,7 @@ import androidx.compose.ui.layout.layout
 import androidx.compose.ui.unit.dp
 import io.github.skeptick.libres.compose.painterResource
 import pl.matiz22.cocktailapp.SharedRes
-import pl.matiz22.cocktailapp.android.core.presentation.composables.iconbutton.AppIconButton
+import pl.matiz22.cocktailapp.android.core.composables.iconbutton.AppIconButton
 import pl.matiz22.cocktailapp.android.drinks.composables.DrinkInfo
 import pl.matiz22.cocktailapp.android.drinks.composables.DrinkInstructions
 import pl.matiz22.cocktailapp.android.drinks.composables.ImageCard
