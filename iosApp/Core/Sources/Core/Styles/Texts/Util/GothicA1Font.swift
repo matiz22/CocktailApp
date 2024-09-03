@@ -4,7 +4,7 @@ import SwiftUI
 public enum GothicA1Font {
 	public static func registerFonts() {
 		GothicA1Cases.allCases.forEach {
-			registerFont(bundle: .module, fontName: $0.rawValue, fontExtension: "ttf")
+			registerFont(bundle: .CoreBundle, fontName: $0.rawValue, fontExtension: "ttf")
 		}
 	}
 
