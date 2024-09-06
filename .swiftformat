@@ -1,6 +1,6 @@
 --acronyms ID,URL,UUID
 --allman false
---anonymousforeach convert
+--anonymousforeach ignore
 --assetliterals visual-width
 --asynccapturing 
 --beforemarks 
