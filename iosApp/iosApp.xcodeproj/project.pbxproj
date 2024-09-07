@@ -12,6 +12,8 @@
 		2152FB042600AC8F00CF470E /* iOSApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2152FB032600AC8F00CF470E /* iOSApp.swift */; };
 		7555FF83242A565900829871 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7555FF82242A565900829871 /* ContentView.swift */; };
 		EA8FFEEF2C7A081F00414D63 /* Core in Frameworks */ = {isa = PBXBuildFile; productRef = EA8FFEEE2C7A081F00414D63 /* Core */; };
+		EA9113082C8C9EFA006BAC1D /* Drinks in Frameworks */ = {isa = PBXBuildFile; productRef = EA9113072C8C9EFA006BAC1D /* Drinks */; };
+		EA91130A2C8C9EFD006BAC1D /* Home in Frameworks */ = {isa = PBXBuildFile; productRef = EA9113092C8C9EFD006BAC1D /* Home */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -45,6 +47,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				EA8FFEEF2C7A081F00414D63 /* Core in Frameworks */,
+				EA9113082C8C9EFA006BAC1D /* Drinks in Frameworks */,
+				EA91130A2C8C9EFD006BAC1D /* Home in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -118,6 +122,8 @@
 			name = iosApp;
 			packageProductDependencies = (
 				EA8FFEEE2C7A081F00414D63 /* Core */,
+				EA9113072C8C9EFA006BAC1D /* Drinks */,
+				EA9113092C8C9EFD006BAC1D /* Home */,
 			);
 			productName = iosApp;
 			productReference = 7555FF7B242A565900829871 /* iosApp.app */;
@@ -402,6 +408,14 @@
 		EA8FFEEE2C7A081F00414D63 /* Core */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = Core;
+		};
+		EA9113072C8C9EFA006BAC1D /* Drinks */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Drinks;
+		};
+		EA9113092C8C9EFD006BAC1D /* Home */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Home;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
