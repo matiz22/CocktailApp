@@ -36,6 +36,7 @@
 		7555FF8C242A565B00829871 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EA8985A02C7A009700186374 /* Core */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Core; sourceTree = "<group>"; };
 		EAF340C62C8C9B99003FDF6B /* Drinks */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Drinks; sourceTree = "<group>"; };
+		EAF340C82C8C9D3F003FDF6B /* Home */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Home; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +62,7 @@
 		7555FF72242A565900829871 = {
 			isa = PBXGroup;
 			children = (
+				EAF340C82C8C9D3F003FDF6B /* Home */,
 				EAF340C62C8C9B99003FDF6B /* Drinks */,
 				EA8985A02C7A009700186374 /* Core */,
 				7555FF7D242A565900829871 /* iosApp */,
