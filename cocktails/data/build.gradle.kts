@@ -21,7 +21,7 @@ kotlin {
         iosSimulatorArm64(),
     ).forEach {
         it.binaries.framework {
-            baseName = "CoreData"
+            baseName = "CocktailsData"
             isStatic = true
         }
     }
