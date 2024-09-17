@@ -9,56 +9,56 @@ import pl.matiz22.cocktails.domain.model.IngredientsAndMeasures
 import pl.matiz22.cocktails.domain.model.Measure
 import pl.matiz22.cocktails.domain.repository.local.DrinksLocalRepository
 import pl.matiz22.core.domain.model.DataError
-import pl.matiz22.core.domain.model.Result
+import pl.matiz22.core.domain.model.DataOrError
 
 class DrinksLocalRepositoryImpl(
     private val cocktailDao: CocktailDao,
 ) : DrinksLocalRepository {
-    override suspend fun getDrinks(): Result<Drinks, DataError.Local> =
+    override suspend fun getDrinks(): DataOrError<Drinks, DataError.Local> =
         try {
             val drinks = cocktailDao.getDrinks()
-            Result.Success(drinks.toDomain())
+            DataOrError(data = drinks.toDomain())
         } catch (e: Exception) {
-            Result.Error(DataError.Local.DATABASE_ERROR)
+            DataOrError(error = DataError.Local.DATABASE_ERROR)
         }
 
-    override suspend fun getDrink(drinkId: String): Result<Drink, DataError.Local> =
+    override suspend fun getDrink(drinkId: String): DataOrError<Drink, DataError.Local> =
         try {
             when (val drink = cocktailDao.getDrink(drinkId)) {
                 null -> {
-                    Result.Error(DataError.Local.NOT_FOUND)
+                    DataOrError(error = DataError.Local.NOT_FOUND)
                 }
 
                 else -> {
-                    Result.Success(drink.toDomain())
+                    DataOrError(data = drink.toDomain())
                 }
             }
         } catch (e: Exception) {
-            Result.Error(DataError.Local.DATABASE_ERROR)
+            DataOrError(error = DataError.Local.DATABASE_ERROR)
         }
 
-    override suspend fun saveDrink(drink: Drink): Result<Boolean, DataError.Local> =
+    override suspend fun saveDrink(drink: Drink): DataOrError<Boolean, DataError.Local> =
         try {
             cocktailDao.upsertDrinkWithIngredients(drink)
-            Result.Success(true)
+            DataOrError(true)
         } catch (e: Exception) {
-            Result.Error(DataError.Local.DATABASE_ERROR)
+            DataOrError(error = DataError.Local.DATABASE_ERROR)
         }
 
-    override suspend fun getFavDrinks(): Result<Drinks, DataError.Local> =
+    override suspend fun getFavDrinks(): DataOrError<Drinks, DataError.Local> =
         try {
             val favDrinks = cocktailDao.getFavDrinks()
-            Result.Success(favDrinks.toDomain())
+            DataOrError(data = favDrinks.toDomain())
         } catch (e: Exception) {
-            Result.Error(DataError.Local.DATABASE_ERROR)
+            DataOrError(error = DataError.Local.DATABASE_ERROR)
         }
 
-    override suspend fun getRecentDrinks(): Result<Drinks, DataError.Local> =
+    override suspend fun getRecentDrinks(): DataOrError<Drinks, DataError.Local> =
         try {
             val recentDrinks = cocktailDao.getRecentDrinks()
-            Result.Success(recentDrinks.toDomain())
+            DataOrError(data = recentDrinks.toDomain())
         } catch (e: Exception) {
-            Result.Error(DataError.Local.DATABASE_ERROR)
+            DataOrError(error = DataError.Local.DATABASE_ERROR)
         }
 
     private fun List<DrinkWithIngredients>.toDomain(): Drinks =

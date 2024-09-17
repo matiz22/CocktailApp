@@ -12,7 +12,6 @@ import kotlinx.coroutines.flow.stateIn
 import pl.matiz22.cocktailapp.android.search.events.SearchByNameEvents
 import pl.matiz22.cocktails.domain.model.Drinks
 import pl.matiz22.cocktails.domain.repository.remote.DrinksRepository
-import pl.matiz22.core.domain.model.Result
 
 class SearchByNameViewModel(
     private val drinksRepository: DrinksRepository,
@@ -30,15 +29,12 @@ class SearchByNameViewModel(
                 if (text.isEmpty() || text.isBlank()) {
                     return@combine _drinksResult.value
                 }
-                return@combine when (val result = drinksRepository.getDrinksByName(text)) {
-                    is Result.Error -> {
-                        _drinksResult.value
-                    }
-
-                    is Result.Success -> {
-                        _drinksResult.emit(result.data)
-                        result.data
-                    }
+                val result = drinksRepository.getDrinksByName(text)
+                if (result.data != null) {
+                    _drinksResult.emit(result.data!!)
+                    return@combine result.data!!
+                } else {
+                    return@combine _drinksResult.value
                 }
             }.stateIn(
                 scope = viewModelScope,

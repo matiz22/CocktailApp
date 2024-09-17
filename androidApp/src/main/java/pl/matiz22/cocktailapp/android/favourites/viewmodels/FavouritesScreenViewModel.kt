@@ -9,7 +9,6 @@ import pl.matiz22.cocktailapp.android.core.states.DataState
 import pl.matiz22.cocktails.domain.model.Drinks
 import pl.matiz22.cocktails.domain.repository.local.DrinksLocalRepository
 import pl.matiz22.core.data.repository.errorMessage
-import pl.matiz22.core.domain.model.Result
 
 class FavouritesScreenViewModel(
     private val drinksLocalRepository: DrinksLocalRepository,
@@ -23,13 +22,11 @@ class FavouritesScreenViewModel(
 
     fun updateFavouritesDrinks() {
         viewModelScope.launch {
-            when (val databaseResult = drinksLocalRepository.getFavDrinks()) {
-                is Result.Error -> {
-                    _favDrinks.emit(DataState.Error(databaseResult.error.errorMessage))
-                }
-                is Result.Success -> {
-                    _favDrinks.emit(DataState.Success(databaseResult.data))
-                }
+            val databaseResult = drinksLocalRepository.getFavDrinks()
+            if (databaseResult.error != null) {
+                _favDrinks.emit(DataState.Error(databaseResult.error!!.errorMessage))
+            } else if (databaseResult.data != null) {
+                _favDrinks.emit(DataState.Success(databaseResult.data!!))
             }
         }
     }
