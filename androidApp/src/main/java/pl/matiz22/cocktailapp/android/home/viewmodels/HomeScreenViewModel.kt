@@ -9,7 +9,6 @@ import pl.matiz22.cocktailapp.android.core.states.DataState
 import pl.matiz22.cocktails.domain.model.Drinks
 import pl.matiz22.cocktails.domain.repository.local.DrinksLocalRepository
 import pl.matiz22.core.data.repository.errorMessage
-import pl.matiz22.core.domain.model.Result
 
 class HomeScreenViewModel(
     private val drinksLocalRepository: DrinksLocalRepository,
@@ -23,13 +22,12 @@ class HomeScreenViewModel(
 
     fun updateRecentDrinks() {
         viewModelScope.launch {
-            when (val databaseResult = drinksLocalRepository.getRecentDrinks()) {
-                is Result.Error -> {
-                    _recentDrinks.emit(DataState.Error(databaseResult.error.errorMessage))
-                }
-                is Result.Success -> {
-                    _recentDrinks.emit(DataState.Success(databaseResult.data))
-                }
+            val databaseResult = drinksLocalRepository.getRecentDrinks()
+
+            if (databaseResult.error != null) {
+                _recentDrinks.emit(DataState.Error(databaseResult.error!!.errorMessage))
+            } else if (databaseResult.data != null) {
+                _recentDrinks.emit(DataState.Success(databaseResult.data!!))
             }
         }
     }
