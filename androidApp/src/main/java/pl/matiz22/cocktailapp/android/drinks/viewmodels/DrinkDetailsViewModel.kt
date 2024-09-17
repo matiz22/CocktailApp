@@ -11,8 +11,6 @@ import pl.matiz22.cocktails.domain.model.Drink
 import pl.matiz22.cocktails.domain.repository.local.DrinksLocalRepository
 import pl.matiz22.cocktails.domain.repository.remote.DrinksRepository
 import pl.matiz22.core.data.repository.errorMessage
-import pl.matiz22.core.domain.model.DataError
-import pl.matiz22.core.domain.model.Result
 
 class DrinkDetailsViewModel(
     private val drinkId: String,
@@ -48,32 +46,19 @@ class DrinkDetailsViewModel(
         viewModelScope.launch {
             _drink.emit(DataState.Loading)
             val localResult = drinksLocalRepository.getDrink(drinkId)
-            when (val networkResult = drinksRepository.getDrinkById(drinkId)) {
-                is Result.Error -> {
-                    when (localResult) {
-                        is Result.Error -> {
-                            _drink.emit(DataState.Error(networkResult.error.errorMessage))
-                        }
-
-                        is Result.Success -> {
-                            _drink.emit(DataState.Success(localResult.data))
-                        }
-                    }
+            val networkResult = drinksRepository.getDrinkById(drinkId)
+            if (networkResult.error != null) {
+                if (localResult.error != null) {
+                    _drink.emit(DataState.Error(networkResult.error!!.errorMessage))
+                } else if (localResult.data != null) {
+                    _drink.emit(DataState.Success(localResult.data!!))
                 }
-
-                is Result.Success -> {
-                    val currentDrink =
-                        networkResult.data.copy(
-                            liked =
-                            (localResult as? Result.Success<Drink, DataError.Local>)
-                                ?.data
-                                ?.liked ?: false,
-                        )
-                    _drink.emit(
-                        DataState.Success(currentDrink),
-                    )
-                    drinksLocalRepository.saveDrink(currentDrink)
-                }
+            } else if (networkResult.data != null) {
+                val currentDrink = networkResult.data!!.copy(
+                    liked = localResult.data?.liked ?: false,
+                )
+                _drink.emit(DataState.Success(currentDrink))
+                drinksLocalRepository.saveDrink(currentDrink)
             }
         }
     }
