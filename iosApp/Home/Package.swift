@@ -11,11 +11,11 @@ let package = Package(
 			targets: ["Home"]
 		),
 	],
-	dependencies: [.package(path: "Core")],
+	dependencies: [.package(path: "Core"), .package(path: "Drinks")],
 	targets: [
 		.target(
 			name: "Home",
-			dependencies: ["Core"]
+			dependencies: ["Core", "Drinks"]
 		),
 		.testTarget(
 			name: "HomeTests",
