@@ -5,32 +5,40 @@ import SwiftUI
 
 public struct DrinkVerticalPosition: View {
 	private let drink: Drink
+	private let onClick: (() -> Void)?
 
-	public init(drink: Drink) {
+	public init(drink: Drink, onClick: (() -> Void)? = nil) {
 		self.drink = drink
+		self.onClick = onClick
 	}
 
 	public var body: some View {
-		VStack(spacing: 12) {
-			AsyncImage(url: URL(string: drink.image)) { state in
-				switch state {
-				case let .success(image):
-					image
-						.resizable()
-						.scaledToFit()
-						.frame(width: 100, height: 100)
-						.cornerRadius(8)
-				default:
-					Image("drink_icon", bundle: .module)
-						.resizable()
-						.scaledToFit()
-						.frame(width: 100, height: 100)
-						.cornerRadius(8)
+		Button(action: {
+			onClick?()
+		}) {
+			VStack(spacing: 12) {
+				AsyncImage(url: URL(string: drink.image)) { state in
+					switch state {
+					case let .success(image):
+						image
+							.resizable()
+							.scaledToFit()
+							.frame(width: 100, height: 100)
+							.cornerRadius(8)
+					default:
+						Image("drink_icon", bundle: .module)
+							.resizable()
+							.scaledToFit()
+							.frame(width: 100, height: 100)
+							.cornerRadius(8)
+					}
 				}
+				Text(drink.name).font(.heading1).padding(-6).fixedSize(horizontal: false, vertical: true)
+				Text(drink.category).font(.paragraphLarge).foregroundStyle(Color("FontLight", bundle: .CoreBundle)).padding(-6)
+			}.padding(14).background(Color("Container", bundle: .CoreBundle)).cornerRadius(8).onTapGesture {
+				onClick?()
 			}
-			Text(drink.name).font(.heading1).padding(-6).fixedSize(horizontal: false, vertical: true)
-			Text(drink.category).font(.paragraphLarge).foregroundStyle(Color("FontLight", bundle: .CoreBundle)).padding(-6)
-		}.padding(14).background(Color("Container", bundle: .CoreBundle)).cornerRadius(8)
+		}.buttonStyle(.plain)
 	}
 }
 
