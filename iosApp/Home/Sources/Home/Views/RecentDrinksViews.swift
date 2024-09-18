@@ -1,5 +1,5 @@
-import CocktailsDomain
 import Drinks
+import Shared
 import SwiftUI
 
 public struct RecentDrinksViews: View {

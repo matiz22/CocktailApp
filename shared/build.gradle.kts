@@ -22,18 +22,22 @@ kotlin {
         it.binaries.framework {
             baseName = "Shared"
             isStatic = true
+            export(projects.cocktails.domain)
+            export(projects.cocktails.data)
+            export(projects.core.domain)
+            export(projects.core.data)
         }
     }
 
     sourceSets {
         commonMain.dependencies {
-            implementation(projects.cocktails.domain)
-            implementation(projects.cocktails.data)
-            implementation(projects.core.domain)
-            implementation(projects.core.data)
+            api(projects.cocktails.domain)
+            api(projects.cocktails.data)
+            api(projects.core.domain)
+            api(projects.core.data)
             api(libs.koin.core)
-            implementation(libs.room.runtime)
-            implementation(libs.ktor.client.core)
+            api(libs.room.runtime)
+            api(libs.ktor.client.core)
         }
         iosMain.dependencies {
             implementation(libs.ktor.client.darwin)

@@ -1,6 +1,6 @@
-import CocktailsDomain
 import Core
 import Foundation
+import Shared
 import SwiftUI
 
 public struct DrinkVerticalPosition: View {
