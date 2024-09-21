@@ -34,6 +34,15 @@
         }
       }
     },
+    "Hello" : {
+
+    },
+    "navHome" : {
+
+    },
+    "navHomeDescription" : {
+
+    },
     "NO_INTERNET" : {
       "extractionState" : "manual",
       "localizations" : {
