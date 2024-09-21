@@ -19,7 +19,7 @@ kotlin {
     ).forEach {
         it.binaries.framework {
             baseName = "CoreDomain"
-            isStatic = true
+            isStatic = false
         }
     }
 

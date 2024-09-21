@@ -21,7 +21,7 @@ kotlin {
     ).forEach {
         it.binaries.framework {
             baseName = "Shared"
-            isStatic = true
+            isStatic = false
             export(projects.cocktails.domain)
             export(projects.cocktails.data)
             export(projects.core.domain)
