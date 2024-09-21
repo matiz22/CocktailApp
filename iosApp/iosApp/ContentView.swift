@@ -1,9 +1,15 @@
+import Core
+import Home
 import Shared
 import SwiftUI
 
 struct ContentView: View {
 	var body: some View {
-		Text("greet")
+		TabView {
+			HomeGraph().tabItem {
+				Image("home", bundle: .HomeBundle)
+			}
+		}.tabViewThemeColors()
 	}
 }
 

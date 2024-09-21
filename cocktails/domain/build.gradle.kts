@@ -19,7 +19,7 @@ kotlin {
     ).forEach {
         it.binaries.framework {
             baseName = "CocktailsDomain"
-            isStatic = true
+            isStatic = false
         }
     }
 

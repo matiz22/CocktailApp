@@ -22,7 +22,7 @@ kotlin {
     ).forEach {
         it.binaries.framework {
             baseName = "CocktailsData"
-            isStatic = true
+            isStatic = false
         }
     }
 

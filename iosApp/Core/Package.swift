@@ -4,6 +4,7 @@ import PackageDescription
 
 let package = Package(
 	name: "Core",
+	defaultLocalization: "en",
 	platforms: [.iOS(.v16)],
 	products: [
 		.library(
