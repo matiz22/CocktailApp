@@ -14,6 +14,7 @@
 		EA8FFEEF2C7A081F00414D63 /* Core in Frameworks */ = {isa = PBXBuildFile; productRef = EA8FFEEE2C7A081F00414D63 /* Core */; };
 		EA9113082C8C9EFA006BAC1D /* Drinks in Frameworks */ = {isa = PBXBuildFile; productRef = EA9113072C8C9EFA006BAC1D /* Drinks */; };
 		EA91130A2C8C9EFD006BAC1D /* Home in Frameworks */ = {isa = PBXBuildFile; productRef = EA9113092C8C9EFD006BAC1D /* Home */; };
+		EAC420A02CA0394D00C38A94 /* Search in Frameworks */ = {isa = PBXBuildFile; productRef = EAC4209F2CA0394D00C38A94 /* Search */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -37,6 +38,7 @@
 		7555FF82242A565900829871 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		7555FF8C242A565B00829871 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EA8985A02C7A009700186374 /* Core */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Core; sourceTree = "<group>"; };
+		EAC4209E2CA038F800C38A94 /* Search */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Search; sourceTree = "<group>"; };
 		EAF340C62C8C9B99003FDF6B /* Drinks */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Drinks; sourceTree = "<group>"; };
 		EAF340C82C8C9D3F003FDF6B /* Home */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Home; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -46,6 +48,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EAC420A02CA0394D00C38A94 /* Search in Frameworks */,
 				EA8FFEEF2C7A081F00414D63 /* Core in Frameworks */,
 				EA9113082C8C9EFA006BAC1D /* Drinks in Frameworks */,
 				EA91130A2C8C9EFD006BAC1D /* Home in Frameworks */,
@@ -66,6 +69,7 @@
 		7555FF72242A565900829871 = {
 			isa = PBXGroup;
 			children = (
+				EAC4209E2CA038F800C38A94 /* Search */,
 				EAF340C82C8C9D3F003FDF6B /* Home */,
 				EAF340C62C8C9B99003FDF6B /* Drinks */,
 				EA8985A02C7A009700186374 /* Core */,
@@ -124,6 +128,7 @@
 				EA8FFEEE2C7A081F00414D63 /* Core */,
 				EA9113072C8C9EFA006BAC1D /* Drinks */,
 				EA9113092C8C9EFD006BAC1D /* Home */,
+				EAC4209F2CA0394D00C38A94 /* Search */,
 			);
 			productName = iosApp;
 			productReference = 7555FF7B242A565900829871 /* iosApp.app */;
@@ -410,6 +415,10 @@
 		EA9113092C8C9EFD006BAC1D /* Home */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = Home;
+		};
+		EAC4209F2CA0394D00C38A94 /* Search */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Search;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
