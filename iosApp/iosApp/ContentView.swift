@@ -1,5 +1,6 @@
 import Core
 import Home
+import Search
 import Shared
 import SwiftUI
 
@@ -8,6 +9,9 @@ struct ContentView: View {
 		TabView {
 			HomeGraph().tabItem {
 				Image("home", bundle: .HomeBundle)
+			}
+			SearchGraph().tabItem {
+				Image("search", bundle: .SearchBundle)
 			}
 		}.tabViewThemeColors()
 	}
