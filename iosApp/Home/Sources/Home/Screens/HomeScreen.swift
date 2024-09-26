@@ -20,24 +20,6 @@ public struct HomeScreen: View {
 					Text("Error: \(error)")
 				}
 				Spacer()
-
-			}.toolbar {
-				ToolbarItem(placement: .principal) {
-					TopAppBar(
-						leftSideContent: {
-							TopAppBarTexts(
-								header: String(localized: "navHome", bundle: .HomeBundle),
-								paragraph: String(localized: "navHomeDescription", bundle: .HomeBundle)
-							)
-						}
-					)
-				}
-			}
-			.navigationBarTitleDisplayMode(.inline)
-			.toolbarBackground(Color("Container", bundle: .CoreBundle), for: .navigationBar)
-			.toolbarBackground(.visible, for: .navigationBar)
-			.task {
-				await self.homeViewModel.fetchDrinks()
 			}
 		}
 	}
