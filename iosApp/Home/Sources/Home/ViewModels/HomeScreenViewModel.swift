@@ -5,7 +5,11 @@ public class HomeScreenViewModel: ObservableObject {
 	private let drinksLocalRepository: DrinksLocalRepository = DrinksLocalRepositoryProvider().drinksLocalRepository
 	@Published private(set) var recentDrinks: DataState<Drinks> = .loading
 
-	public init() {}
+	public init() {
+		Task {
+			await fetchDrinks()
+		}
+	}
 
 	func fetchDrinks() async {
 		await MainActor.run {
