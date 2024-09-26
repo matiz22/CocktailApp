@@ -5,17 +5,13 @@ import SwiftUI
 
 public struct DrinkHorizontalPosition: View {
 	private let drink: Drink
-	private let onClick: (() -> Void)?
 
-	public init(drink: Drink, onClick: (() -> Void)? = nil) {
+	public init(drink: Drink) {
 		self.drink = drink
-		self.onClick = onClick
 	}
 
 	public var body: some View {
-		Button(action: {
-			onClick?()
-		}) {
+		NavigationLink(value: CoreRoutes.drinkDetails(drinkId: drink.id)) {
 			HStack(spacing: 12) {
 				AsyncImage(url: URL(string: drink.image)) { state in
 					switch state {
@@ -41,9 +37,7 @@ public struct DrinkHorizontalPosition: View {
 			}.frame(
 				maxWidth: .infinity,
 				maxHeight: .infinity
-			).padding(14).background(Color("Container", bundle: .CoreBundle)).cornerRadius(8).onTapGesture {
-				onClick?()
-			}
+			).padding(14).background(Color("Container", bundle: .CoreBundle)).cornerRadius(8)
 		}.buttonStyle(.plain)
 	}
 }
