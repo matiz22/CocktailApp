@@ -15,6 +15,7 @@
 		EA9113082C8C9EFA006BAC1D /* Drinks in Frameworks */ = {isa = PBXBuildFile; productRef = EA9113072C8C9EFA006BAC1D /* Drinks */; };
 		EA91130A2C8C9EFD006BAC1D /* Home in Frameworks */ = {isa = PBXBuildFile; productRef = EA9113092C8C9EFD006BAC1D /* Home */; };
 		EAC420A02CA0394D00C38A94 /* Search in Frameworks */ = {isa = PBXBuildFile; productRef = EAC4209F2CA0394D00C38A94 /* Search */; };
+		EAD587F82CAB4CB500FFFC20 /* Favourites in Frameworks */ = {isa = PBXBuildFile; productRef = EAD587F72CAB4CB500FFFC20 /* Favourites */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -54,6 +55,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EAC420A02CA0394D00C38A94 /* Search in Frameworks */,
+				EAD587F82CAB4CB500FFFC20 /* Favourites in Frameworks */,
 				EA8FFEEF2C7A081F00414D63 /* Core in Frameworks */,
 				EA9113082C8C9EFA006BAC1D /* Drinks in Frameworks */,
 				EA91130A2C8C9EFD006BAC1D /* Home in Frameworks */,
@@ -139,6 +141,7 @@
 				EA9113072C8C9EFA006BAC1D /* Drinks */,
 				EA9113092C8C9EFD006BAC1D /* Home */,
 				EAC4209F2CA0394D00C38A94 /* Search */,
+				EAD587F72CAB4CB500FFFC20 /* Favourites */,
 			);
 			productName = iosApp;
 			productReference = 7555FF7B242A565900829871 /* iosApp.app */;
@@ -429,6 +432,10 @@
 		EAC4209F2CA0394D00C38A94 /* Search */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = Search;
+		};
+		EAD587F72CAB4CB500FFFC20 /* Favourites */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Favourites;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
