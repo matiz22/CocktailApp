@@ -1,6 +1,6 @@
 import SwiftUI
 
-public extension TabView {
+public extension View {
 	func tabViewThemeColors() -> some View {
 		tint(
 			Color("OnContainer", bundle: .CoreBundle)

@@ -5,17 +5,13 @@ import SwiftUI
 
 public struct DrinkVerticalPosition: View {
 	private let drink: Drink
-	private let onClick: (() -> Void)?
 
-	public init(drink: Drink, onClick: (() -> Void)? = nil) {
+	public init(drink: Drink) {
 		self.drink = drink
-		self.onClick = onClick
 	}
 
 	public var body: some View {
-		Button(action: {
-			onClick?()
-		}) {
+		NavigationLink(value: CoreRoutes.drinkDetails(drinkId: drink.id)) {
 			VStack(spacing: 12) {
 				AsyncImage(url: URL(string: drink.image)) { state in
 					switch state {
@@ -35,9 +31,7 @@ public struct DrinkVerticalPosition: View {
 				}
 				Text(drink.name).font(.heading1).padding(-6).fixedSize(horizontal: false, vertical: true)
 				Text(drink.category).font(.paragraphLarge).foregroundStyle(Color("FontLight", bundle: .CoreBundle)).padding(-6)
-			}.padding(14).background(Color("Container", bundle: .CoreBundle)).cornerRadius(8).onTapGesture {
-				onClick?()
-			}
+			}.padding(14).background(Color("Container", bundle: .CoreBundle)).cornerRadius(8)
 		}.buttonStyle(.plain)
 	}
 }

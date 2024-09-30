@@ -12,10 +12,10 @@ public struct RecentDrinksViews: View {
 	public var body: some View {
 		VStack(alignment: .leading, spacing: 0) {
 			Text(String(localized: "recentDrinks", bundle: .HomeBundle)).font(.heading3).padding(EdgeInsets(top: 12, leading: 16, bottom: 2, trailing: 0))
-			ScrollView(.horizontal) {
+			ScrollView(.horizontal, showsIndicators: false) {
 				HStack {
 					ForEach(recentDrinks.drinks, id: \.id) { drink in
-						DrinkVerticalPosition(drink: drink, onClick: {})
+						DrinkVerticalPosition(drink: drink)
 					}
 				}
 			}.padding(EdgeInsets(top: 2, leading: 0, bottom: 8, trailing: 0))

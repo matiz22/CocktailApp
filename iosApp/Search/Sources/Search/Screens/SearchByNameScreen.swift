@@ -18,21 +18,7 @@ public struct SearchByNameScreen: View {
 						}
 					}
 				}
-			}.toolbar {
-				ToolbarItem(placement: .principal) {
-					TopAppBar(
-						leftSideContent: {
-							TopAppBarTexts(
-								header: String(localized: "navSearch", bundle: .SearchBundle),
-								paragraph: String(localized: "navSearchByNameDescription", bundle: .SearchBundle)
-							)
-						}
-					)
-				}
 			}
-			.navigationBarTitleDisplayMode(.inline)
-			.toolbarBackground(Color("Container", bundle: .CoreBundle), for: .navigationBar)
-			.toolbarBackground(.visible, for: .navigationBar)
 		}
 	}
 }
