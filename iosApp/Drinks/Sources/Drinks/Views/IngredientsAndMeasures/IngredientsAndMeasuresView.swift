@@ -10,7 +10,7 @@ public struct IngredientsAndMeasuresView: View {
 
 	public var body: some View {
 		VStack(alignment: .leading, spacing: 6) {
-			Text(String(localized: "ingredientsAndMeasureHeader")).font(.headline)
+			Text(String(localized: "ingredientsAndMeasureHeader", bundle: .DrinksBundle)).font(.headline)
 			Grid(verticalSpacing: 0) {
 				ForEach(ingredientsAndMeasures) { ingredientAndMeasure in
 					GridRow {
