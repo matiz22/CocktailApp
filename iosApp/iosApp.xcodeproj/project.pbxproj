@@ -39,6 +39,7 @@
 		7555FF8C242A565B00829871 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EA8985A02C7A009700186374 /* Core */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Core; sourceTree = "<group>"; };
 		EAC4209E2CA038F800C38A94 /* Search */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Search; sourceTree = "<group>"; };
+		EAD587F62CAB3EC300FFFC20 /* Favourites */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Favourites; sourceTree = "<group>"; };
 		EAF340C62C8C9B99003FDF6B /* Drinks */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Drinks; sourceTree = "<group>"; };
 		EAF340C82C8C9D3F003FDF6B /* Home */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Home; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -73,6 +74,7 @@
 		7555FF72242A565900829871 = {
 			isa = PBXGroup;
 			children = (
+				EAD587F62CAB3EC300FFFC20 /* Favourites */,
 				EAC4209E2CA038F800C38A94 /* Search */,
 				EAF340C82C8C9D3F003FDF6B /* Home */,
 				EAF340C62C8C9B99003FDF6B /* Drinks */,
