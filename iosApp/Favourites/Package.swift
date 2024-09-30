@@ -4,6 +4,7 @@ import PackageDescription
 
 let package = Package(
 	name: "Favourites",
+	platforms: [.iOS(.v16)],
 	products: [
 		.library(
 			name: "Favourites",
