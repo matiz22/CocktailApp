@@ -1,5 +1,6 @@
 import Core
 import Drinks
+import Favourites
 import Home
 import Search
 import Shared
@@ -17,6 +18,10 @@ struct ContentView: View {
 				SearchByNameScreen().tabItem {
 					Image("search", bundle: .SearchBundle)
 				}.tag(TabViewOptions.search)
+
+				FavouritesScreen().tabItem {
+					Image("heartOutline", bundle: .CoreBundle)
+				}.tag(TabViewOptions.favourites)
 			}
 			.tabViewToolbarHandler(tabViewOption: selectedTab)
 			.tabViewThemeColors()
