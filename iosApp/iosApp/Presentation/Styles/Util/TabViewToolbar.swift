@@ -1,4 +1,5 @@
 import Core
+import Favourites
 import Home
 import Search
 import SwiftUI
@@ -21,7 +22,10 @@ public extension TabView {
 								paragraph: String(localized: "navSearchByNameDescription", bundle: .SearchBundle)
 							)
 						case .favourites:
-							EmptyView()
+							TopAppBarTexts(
+								header: String(localized: "navFavourites", bundle: .FavouritesBundle),
+								paragraph: String(localized: "navFavouritesDescription", bundle: .FavouritesBundle)
+							)
 						}
 					}
 				)
