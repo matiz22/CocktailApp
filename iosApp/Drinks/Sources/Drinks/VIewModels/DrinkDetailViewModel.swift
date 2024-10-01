@@ -36,4 +36,16 @@ public class DrinkDetailViewModel: ObservableObject {
 			}
 		}
 	}
+
+	func changeFavouriteField() {
+		guard case let .success(currentDrink) = drink else { return }
+		let newFavouriteField = !currentDrink.liked
+		let updatedDrink = currentDrink.makeCopy(liked: newFavouriteField)
+
+		Task {
+			try await drinksLocalRepository.saveDrink(drink: updatedDrink)
+		}
+
+		drink = .success(data: updatedDrink)
+	}
 }

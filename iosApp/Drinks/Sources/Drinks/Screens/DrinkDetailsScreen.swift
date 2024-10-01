@@ -33,7 +33,17 @@ public struct DrinkDetailsScreen: View {
 						}
 						.frame(minWidth: 0, maxWidth: .infinity)
 						.scaledToFit()
-						DrinkInfoView(drink: drink).padding(EdgeInsets(top: 0, leading: 6, bottom: 0, trailing: 0))
+						HStack {
+							DrinkInfoView(drink: drink)
+							Spacer()
+							Button(
+								action: { drinkDetailViewModel.changeFavouriteField() },
+								label: {
+									Image(drink.liked ? "heartFill" : "heartOutline", bundle: .CoreBundle)
+										.tint(Color(drink.liked ? "BrandAccent" : "OnContainer", bundle: .CoreBundle))
+								}
+							).padding(8)
+						}.padding(6)
 						IngredientsAndMeasuresView(ingredientsAndMeasures: drink.ingredientsAndMeasures).padding(6)
 						DrinkInstructionView(instructions: drink.instructions).padding(6)
 					}
