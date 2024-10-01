@@ -5,9 +5,11 @@ import SwiftUI
 
 public struct DrinkHorizontalPosition: View {
 	private let drink: Drink
+	private let withLike: Bool
 
-	public init(drink: Drink) {
+	public init(drink: Drink, withLike: Bool = false) {
 		self.drink = drink
+		self.withLike = withLike
 	}
 
 	public var body: some View {
@@ -34,6 +36,11 @@ public struct DrinkHorizontalPosition: View {
 					Text(drink.category).font(.paragraphLarge).foregroundStyle(Color("FontLight", bundle: .CoreBundle)).padding(-6)
 				}
 				Spacer()
+				if withLike {
+					Image(drink.liked ? "heartFill" : "heartOutline", bundle: .CoreBundle)
+						.tint(Color(drink.liked ? "BrandAccent" : "OnContainer", bundle: .CoreBundle))
+				}
+
 			}.frame(
 				maxWidth: .infinity,
 				maxHeight: .infinity
