@@ -8,11 +8,9 @@ public class FavouritesViewModel: ObservableObject {
 
 	@Published private(set) var favourites: Drinks = .init(drinks: [])
 
-	public init() {
-		fetchFavourites()
-	}
+	public init() {}
 
-	private func fetchFavourites() {
+	func fetchFavourites() {
 		drinksLocalrepository.getFavDrinks { result, _ in
 			if let data = result?.data {
 				Just(data).receive(on: DispatchQueue.main).assign(to: &self.$favourites)

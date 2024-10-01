@@ -20,6 +20,6 @@ public struct FavouritesScreen: View {
 					}
 				}
 			}
-		}
+		}.onAppear { self.favouritesViewModel.fetchFavourites() }
 	}
 }

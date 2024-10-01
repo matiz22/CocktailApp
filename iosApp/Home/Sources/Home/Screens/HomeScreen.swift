@@ -21,6 +21,10 @@ public struct HomeScreen: View {
 				}
 				Spacer()
 			}
+		}.onAppear {
+			Task {
+				await homeViewModel.fetchDrinks()
+			}
 		}
 	}
 }
