@@ -4,6 +4,7 @@
     <application
         android:name=".CocktailApplication"
         android:icon="@mipmap/app_icon"
+        android:label="CocktailApp"
         android:roundIcon="@mipmap/app_icon_round"
         android:allowBackup="false"
         android:supportsRtl="true"
