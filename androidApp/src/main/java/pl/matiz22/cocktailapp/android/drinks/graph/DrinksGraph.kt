@@ -12,6 +12,7 @@ import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.navigation.NavController
 import androidx.navigation.NavGraphBuilder
 import androidx.navigation.compose.composable
+import androidx.navigation.navDeepLink
 import androidx.navigation.navigation
 import androidx.navigation.toRoute
 import io.github.skeptick.libres.compose.painterResource
@@ -32,7 +33,11 @@ import pl.matiz22.cocktailapp.android.theme.CocktailsAppTheme
 fun NavGraphBuilder.drinksGraph(navController: NavController) {
     navigation<AppRoutes.Drinks>(startDestination = AppRoutes.Drinks.DrinkHome) {
         composable<AppRoutes.Drinks.DrinkHome> { /* Drink Home to stop Companion serializer error */ }
-        composable<AppRoutes.Drinks.DrinkDetails> { navBackStackEntry ->
+        composable<AppRoutes.Drinks.DrinkDetails>(
+            deepLinks = listOf(
+                navDeepLink<AppRoutes.Drinks.DrinkDetails>(basePath = "cocktail_app://cocktails/drink"),
+            ),
+        ) { navBackStackEntry ->
             val args = navBackStackEntry.toRoute<AppRoutes.Drinks.DrinkDetails>()
             val lazyListState = rememberLazyListState()
             val scrollOffset by remember { derivedStateOf { lazyListState.firstVisibleItemScrollOffset } }
@@ -66,7 +71,14 @@ fun NavGraphBuilder.drinksGraph(navController: NavController) {
                                     CocktailsAppTheme.colors.monochromatic10
                                 },
                                 onClick = {
-                                    navController.navigateUp()
+                                    val previousBackStack =
+                                        navController.previousBackStackEntry?.toRoute<AppRoutes.Drinks.DrinkHome>()
+                                    if (previousBackStack != null) {
+                                        navController.navigate(route = AppRoutes.Home.HomeScreen) {
+                                            popUpTo(0) { inclusive = true }
+                                            launchSingleTop = true
+                                        }
+                                    }
                                 },
                             )
                         },
