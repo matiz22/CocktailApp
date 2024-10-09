@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="settings_daily_drink_title">Daily drink</string>
+    <string name="settings_daily_drink_description">Time of alert</string>
+    <string name="settings_daily_drink_confirm">Confirm</string>
+    <string name="settings_screen_title">Settings</string>
+</resources>
