@@ -1,13 +1,17 @@
 package pl.matiz22.cocktailapp.android.home.presentation.graph
 
+import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
 import androidx.compose.runtime.getValue
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.navigation.NavController
 import androidx.navigation.NavGraphBuilder
 import androidx.navigation.compose.composable
 import androidx.navigation.navigation
+import io.github.skeptick.libres.compose.painterResource
 import org.koin.androidx.compose.koinViewModel
 import pl.matiz22.cocktailapp.SharedRes
+import pl.matiz22.cocktailapp.android.R
 import pl.matiz22.cocktailapp.android.core.composables.appbar.AppBar
 import pl.matiz22.cocktailapp.android.core.composables.appscaffold.AppScaffold
 import pl.matiz22.cocktailapp.android.core.composables.bottombar.BottomBar
@@ -32,6 +36,16 @@ fun NavGraphBuilder.homeGraph(navController: NavController) {
                                 title = SharedRes.string.nav_home,
                                 description = SharedRes.string.nav_home_home_screen_description,
                             )
+                        },
+                        rightSideContent = {
+                            IconButton(onClick = {
+                                navController.navigate(route = AppRoutes.Settings)
+                            }) {
+                                Icon(
+                                    painter = painterResource(R.drawable.settings),
+                                    contentDescription = null,
+                                )
+                            }
                         },
                     )
                 },
