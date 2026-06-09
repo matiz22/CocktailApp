@@ -76,3 +76,7 @@ public struct DrinkDetailsScreen: View {
 		}
 	}
 }
+
+#Preview {
+	DrinkDetailsScreen(drinkId: "700")
+}
