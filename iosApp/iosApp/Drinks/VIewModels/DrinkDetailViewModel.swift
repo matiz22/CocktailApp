@@ -1,4 +1,3 @@
-import Combine
 import Foundation
 import Shared
 import SwiftUI
@@ -17,34 +16,41 @@ public class DrinkDetailViewModel: ObservableObject {
 
 	private func fetchDrink() {
 		drink = .loading
-		Task {
-			let localResult = try await drinksLocalRepository.getDrink(drinkId: drinkId)
-			let networkResult = try await drinksRepository.getDrinkById(id: drinkId)
-			if let networkError = networkResult.error {
-				if let localError = localResult.error {
-					Just(.error(error: networkError.name)).receive(on: DispatchQueue.main).assign(to: &self.$drink)
-				} else if let localData = localResult.data {
-					Just(.success(data: localData)).receive(on: DispatchQueue.main).assign(to: &self.$drink)
+		Task { @MainActor in
+			do {
+				let localResult = try await drinksLocalRepository.getDrink(drinkId: drinkId)
+				let networkResult = try await drinksRepository.getDrinkById(id: drinkId)
+				if let networkError = networkResult.error {
+					if localResult.error != nil {
+						self.drink = .error(error: networkError.name)
+					} else if let localData = localResult.data {
+						self.drink = .success(data: localData)
+					}
+				} else if let networkData = networkResult.data {
+					let currentDrink = networkData.makeCopy(
+						liked: localResult.data?.liked ?? false
+					)
+					self.drink = .success(data: currentDrink)
+					try await drinksLocalRepository.saveDrink(drink: currentDrink)
 				}
-			} else if let networkData = networkResult.data {
-				let currentDrink = networkData.makeCopy(
-					liked: localResult.data?.liked ?? false
-				)
-				Just(.success(data: currentDrink)).receive(on: DispatchQueue.main).assign(to: &self.$drink)
-				try await drinksLocalRepository.saveDrink(drink: currentDrink)
+			} catch {
+				self.drink = .error(error: String(localized: "UNKNOWN", bundle: .CoreBundle))
 			}
 		}
 	}
 
 	func changeFavouriteField() {
 		guard case let .success(currentDrink) = drink else { return }
-		let newFavouriteField = !currentDrink.liked
-		let updatedDrink = currentDrink.makeCopy(liked: newFavouriteField)
-
-		Task {
-			try await drinksLocalRepository.saveDrink(drink: updatedDrink)
-		}
+		let updatedDrink = currentDrink.makeCopy(liked: !currentDrink.liked)
 
 		drink = .success(data: updatedDrink)
+
+		Task { @MainActor in
+			do {
+				try await drinksLocalRepository.saveDrink(drink: updatedDrink)
+			} catch {
+				self.drink = .success(data: currentDrink)
+			}
+		}
 	}
 }
