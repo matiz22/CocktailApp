@@ -1,6 +1,7 @@
 import SwiftUI
 
 public extension TabView {
+	@MainActor
 	func tabViewToolbarHandler(tabViewOption: TabViewOptions) -> some View {
 		toolbar {
 			ToolbarItem(placement: .principal) {

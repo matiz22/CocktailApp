@@ -56,19 +56,11 @@ public struct InputTextFieldStyle: TextFieldStyle {
 }
 
 #Preview {
-	InputTextFieldPreview()
-}
-
-private struct InputTextFieldPreview: View {
-	@State private var inputText = ""
-
-	var body: some View {
-		VStack {
-			TextField("Hello", text: $inputText).textFieldStyle(InputTextFieldStyle())
-			TextField("Hello", text: $inputText).textFieldStyle(InputTextFieldStyle(leftView: Image("arrow_left", bundle: .CoreBundle)))
-			TextField("Hello", text: $inputText).textFieldStyle(InputTextFieldStyle(leftView: Image("arrow_left", bundle: .CoreBundle), rightView: Image("arrow_left", bundle: .CoreBundle)))
-			TextField("Hello", text: $inputText).textFieldStyle(InputTextFieldStyle(rightView: Image("arrow_left", bundle: .CoreBundle)))
-			TextField("Hello", text: $inputText).textFieldStyle(InputTextFieldStyle(rightView: Image("arrow_left", bundle: .CoreBundle), error: "Error"))
-		}
+	VStack {
+		TextField("Hello", text: .constant("")).textFieldStyle(InputTextFieldStyle())
+		TextField("Hello", text: .constant("")).textFieldStyle(InputTextFieldStyle(leftView: Image("arrow_left", bundle: .CoreBundle)))
+		TextField("Hello", text: .constant("")).textFieldStyle(InputTextFieldStyle(leftView: Image("arrow_left", bundle: .CoreBundle), rightView: Image("arrow_left", bundle: .CoreBundle)))
+		TextField("Hello", text: .constant("")).textFieldStyle(InputTextFieldStyle(rightView: Image("arrow_left", bundle: .CoreBundle)))
+		TextField("Hello", text: .constant("")).textFieldStyle(InputTextFieldStyle(rightView: Image("arrow_left", bundle: .CoreBundle), error: "Error"))
 	}
 }
