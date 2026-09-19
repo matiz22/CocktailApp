@@ -1,10 +1,7 @@
-import Core
-import Favourites
-import Home
-import Search
 import SwiftUI
 
 public extension TabView {
+	@MainActor
 	func tabViewToolbarHandler(tabViewOption: TabViewOptions) -> some View {
 		toolbar {
 			ToolbarItem(placement: .principal) {

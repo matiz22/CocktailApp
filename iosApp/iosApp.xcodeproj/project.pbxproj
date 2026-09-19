@@ -11,11 +11,6 @@
 		058557D9273AAEEB004C7B11 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 058557D8273AAEEB004C7B11 /* Preview Assets.xcassets */; };
 		2152FB042600AC8F00CF470E /* iOSApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2152FB032600AC8F00CF470E /* iOSApp.swift */; };
 		7555FF83242A565900829871 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7555FF82242A565900829871 /* ContentView.swift */; };
-		EA8FFEEF2C7A081F00414D63 /* Core in Frameworks */ = {isa = PBXBuildFile; productRef = EA8FFEEE2C7A081F00414D63 /* Core */; };
-		EA9113082C8C9EFA006BAC1D /* Drinks in Frameworks */ = {isa = PBXBuildFile; productRef = EA9113072C8C9EFA006BAC1D /* Drinks */; };
-		EA91130A2C8C9EFD006BAC1D /* Home in Frameworks */ = {isa = PBXBuildFile; productRef = EA9113092C8C9EFD006BAC1D /* Home */; };
-		EAC420A02CA0394D00C38A94 /* Search in Frameworks */ = {isa = PBXBuildFile; productRef = EAC4209F2CA0394D00C38A94 /* Search */; };
-		EAD587F82CAB4CB500FFFC20 /* Favourites in Frameworks */ = {isa = PBXBuildFile; productRef = EAD587F72CAB4CB500FFFC20 /* Favourites */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -38,14 +33,14 @@
 		7555FF7B242A565900829871 /* CocktailApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CocktailApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7555FF82242A565900829871 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		7555FF8C242A565B00829871 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		EA8985A02C7A009700186374 /* Core */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Core; sourceTree = "<group>"; };
-		EAC4209E2CA038F800C38A94 /* Search */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Search; sourceTree = "<group>"; };
-		EAD587F62CAB3EC300FFFC20 /* Favourites */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Favourites; sourceTree = "<group>"; };
-		EAF340C62C8C9B99003FDF6B /* Drinks */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Drinks; sourceTree = "<group>"; };
-		EAF340C82C8C9D3F003FDF6B /* Home */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Home; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
+		EA50000A0000000000000001 /* Core */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Core; sourceTree = "<group>"; };
+		EA50000A0000000000000002 /* Drinks */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Drinks; sourceTree = "<group>"; };
+		EA50000A0000000000000003 /* Home */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Home; sourceTree = "<group>"; };
+		EA50000A0000000000000004 /* Search */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Search; sourceTree = "<group>"; };
+		EA50000A0000000000000005 /* Favourites */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Favourites; sourceTree = "<group>"; };
 		EA50500D2CA5998200CB3560 /* Presentation */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Presentation; sourceTree = "<group>"; };
 /* End PBXFileSystemSynchronizedRootGroup section */
 
@@ -54,11 +49,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EAC420A02CA0394D00C38A94 /* Search in Frameworks */,
-				EAD587F82CAB4CB500FFFC20 /* Favourites in Frameworks */,
-				EA8FFEEF2C7A081F00414D63 /* Core in Frameworks */,
-				EA9113082C8C9EFA006BAC1D /* Drinks in Frameworks */,
-				EA91130A2C8C9EFD006BAC1D /* Home in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -76,11 +66,6 @@
 		7555FF72242A565900829871 = {
 			isa = PBXGroup;
 			children = (
-				EAD587F62CAB3EC300FFFC20 /* Favourites */,
-				EAC4209E2CA038F800C38A94 /* Search */,
-				EAF340C82C8C9D3F003FDF6B /* Home */,
-				EAF340C62C8C9B99003FDF6B /* Drinks */,
-				EA8985A02C7A009700186374 /* Core */,
 				7555FF7D242A565900829871 /* iosApp */,
 				7555FF7C242A565900829871 /* Products */,
 				7555FFB0242A642200829871 /* Frameworks */,
@@ -99,6 +84,11 @@
 			isa = PBXGroup;
 			children = (
 				EA50500D2CA5998200CB3560 /* Presentation */,
+				EA50000A0000000000000001 /* Core */,
+				EA50000A0000000000000002 /* Drinks */,
+				EA50000A0000000000000003 /* Home */,
+				EA50000A0000000000000004 /* Search */,
+				EA50000A0000000000000005 /* Favourites */,
 				058557BA273AAA24004C7B11 /* Assets.xcassets */,
 				7555FF82242A565900829871 /* ContentView.swift */,
 				7555FF8C242A565B00829871 /* Info.plist */,
@@ -122,7 +112,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 7555FFA5242A565B00829871 /* Build configuration list for PBXNativeTarget "iosApp" */;
 			buildPhases = (
-				7555FFB5242A651A00829871 /* ShellScript */,
+				7555FFB5242A651A00829871 /* Run Script */,
 				7555FF77242A565900829871 /* Sources */,
 				7555FF78242A565900829871 /* Frameworks */,
 				7555FF79242A565900829871 /* Resources */,
@@ -133,16 +123,14 @@
 			dependencies = (
 			);
 			fileSystemSynchronizedGroups = (
+				EA50000A0000000000000001 /* Core */,
+				EA50000A0000000000000002 /* Drinks */,
+				EA50000A0000000000000003 /* Home */,
+				EA50000A0000000000000004 /* Search */,
+				EA50000A0000000000000005 /* Favourites */,
 				EA50500D2CA5998200CB3560 /* Presentation */,
 			);
 			name = iosApp;
-			packageProductDependencies = (
-				EA8FFEEE2C7A081F00414D63 /* Core */,
-				EA9113072C8C9EFA006BAC1D /* Drinks */,
-				EA9113092C8C9EFD006BAC1D /* Home */,
-				EAC4209F2CA0394D00C38A94 /* Search */,
-				EAD587F72CAB4CB500FFFC20 /* Favourites */,
-			);
 			productName = iosApp;
 			productReference = 7555FF7B242A565900829871 /* CocktailApp.app */;
 			productType = "com.apple.product-type.application";
@@ -193,7 +181,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		7555FFB5242A651A00829871 /* ShellScript */ = {
+		7555FFB5242A651A00829871 /* Run Script */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -202,13 +190,14 @@
 			);
 			inputPaths = (
 			);
+			name = "Run Script";
 			outputFileListPaths = (
 			);
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "cd \"$SRCROOT/..\"\n./gradlew :shared:embedAndSignAppleFrameworkForXcode\n";
+			shellScript = "cd \"$SRCROOT/..\"\nif [ \"$PLATFORM_NAME\" = \"iphonesimulator\" ]; then unset EXPANDED_CODE_SIGN_IDENTITY; fi\n./gradlew :shared:embedAndSignAppleFrameworkForXcode\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -417,29 +406,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		EA8FFEEE2C7A081F00414D63 /* Core */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = Core;
-		};
-		EA9113072C8C9EFA006BAC1D /* Drinks */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = Drinks;
-		};
-		EA9113092C8C9EFD006BAC1D /* Home */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = Home;
-		};
-		EAC4209F2CA0394D00C38A94 /* Search */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = Search;
-		};
-		EAD587F72CAB4CB500FFFC20 /* Favourites */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = Favourites;
-		};
-/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 7555FF73242A565900829871 /* Project object */;
 }

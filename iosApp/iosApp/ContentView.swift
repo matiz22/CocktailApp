@@ -1,8 +1,3 @@
-import Core
-import Drinks
-import Favourites
-import Home
-import Search
 import Shared
 import SwiftUI
 
