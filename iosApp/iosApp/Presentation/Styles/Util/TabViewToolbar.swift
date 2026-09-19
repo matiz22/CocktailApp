@@ -1,7 +1,3 @@
-import Core
-import Favourites
-import Home
-import Search
 import SwiftUI
 
 public extension TabView {

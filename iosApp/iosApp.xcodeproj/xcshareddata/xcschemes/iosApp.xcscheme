@@ -17,7 +17,8 @@
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "7555FF7A242A565900829871"
                BuildableName = "CocktailApp.app"
-               ReferencedContainer = "container:iosApp.xcodeproj">
+               ReferencedContainer = "container:iosApp.xcodeproj"
+               BlueprintName = "iosApp">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -46,9 +47,14 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "7555FF7A242A565900829871"
             BuildableName = "CocktailApp.app"
-            ReferencedContainer = "container:iosApp.xcodeproj">
+            ReferencedContainer = "container:iosApp.xcodeproj"
+            BlueprintName = "iosApp">
          </BuildableReference>
       </BuildableProductRunnable>
+      <LocationScenarioReference
+         identifier = "com.apple.dt.IDEFoundation.CurrentLocationScenarioIdentifier"
+         referenceType = "1">
+      </LocationScenarioReference>
    </LaunchAction>
    <ProfileAction
       buildConfiguration = "Release"
